@@ -452,6 +452,10 @@ let g:ctrlp_working_path_mode = ''
 " vim-fugitive
 Bundle 'tpope/vim-fugitive'
 
+" vim-surround
+Bundle 'tpope/vim-surround'
+xmap s   <Plug>VSurround
+
 " undotree
 Bundle 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>
