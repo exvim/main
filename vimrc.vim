@@ -423,6 +423,10 @@ Bundle 'gmarik/vundle'
 " vim-airline
 Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ctrlp
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = ''
