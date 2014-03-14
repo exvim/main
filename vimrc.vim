@@ -15,32 +15,15 @@ filetype off " required
 " set the runtime path to include Vundle and initialize
 if exists('g:exvim_dev')
     set rtp+=./vimfiles/bundle/vundle/
-    let path='./vimfiles/bundle/vundle/'
+    let path='./vimfiles/bundle/'
     call vundle#rc(path)
 else
     set rtp+=~/.vim/bundle/vundle/
-    let path='~/.vim/bundle/vundle/'
+    let path='~/.vim/bundle/'
     call vundle#rc(path)
 endif
 
-" let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-
-" plugins
-Bundle 'bling/vim-airline'
-
 filetype plugin indent on " required
-
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-" Put your stuff after this line
 
 "/////////////////////////////////////////////////////////////////////////////
 " General
@@ -429,3 +412,17 @@ noremap <unique> <Down> gj
 " the word will be swapped with the next word.  The words may
 " even be separated by punctuation (such as "abc = def").
 nnoremap <unique> <silent><leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
+
+"/////////////////////////////////////////////////////////////////////////////
+" plugins
+"/////////////////////////////////////////////////////////////////////////////
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" vim-airline
+Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
+" ctrlp
+Bundle 'kien/ctrlp.vim'

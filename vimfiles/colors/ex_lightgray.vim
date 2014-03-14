@@ -75,9 +75,9 @@ hi Comment      term=bold ctermfg=2 guifg=DarkGreen
 hi Constant     term=underline ctermfg=4 guifg=Brown
 hi Special      term=bold ctermfg=11 guifg=SlateBlue
 hi Identifier   term=underline ctermfg=3 guifg=DarkCyan
-hi Statement    term=bold ctermfg=1 guifg=Blue
+hi Statement    term=bold ctermfg=1 gui=none guifg=Blue 
 hi PreProc      term=underline ctermfg=5 guifg=Purple
-hi Type         term=underline ctermfg=1 guifg=Blue
+hi Type         term=underline ctermfg=1 gui=none guifg=Blue
 hi Underlined   term=underline cterm=underline ctermfg=11 gui=underline guifg=SlateBlue
 hi Ignore       ctermfg=15 guifg=bg
 hi Error        term=reverse ctermfg=15 ctermbg=12 guifg=White guibg=Red
