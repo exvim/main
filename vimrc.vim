@@ -5,6 +5,24 @@
 " Description  : 
 " ======================================================================================
 
+function! OSX()
+    return has('macunix')
+endfunction
+function! LINUX()
+    return has('unix') && !has('macunix') && !has('win32unix')
+endfunction
+function! WINDOWS()
+    return  (has('win16') || has('win32') || has('win64'))
+endfunction
+
+" On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
+" across (heterogeneous) systems easier.
+if !exists('g:exvim_dev')
+    if WINDOWS()
+        set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+    endif
+endif
+
 "/////////////////////////////////////////////////////////////////////////////
 " Vundle setup
 "/////////////////////////////////////////////////////////////////////////////
@@ -32,9 +50,9 @@ filetype plugin indent on " required
 set langmenu=none " always use English menu
 
 " always use english for anaything in vim-editor. 
-if has ("win32")
+if WINDOWS()
     silent exec "language english" 
-elseif has ("mac")
+elseif OSX()
     silent exec "language en_US" 
 else
     " in mac-terminal
@@ -104,7 +122,7 @@ endif
 
 " set vim window open size
 if has("gui_running")
-    if has("win32")
+    if WINDOWS()
         " au GUIEnter * simalt ~x " Maximize window when enter vim
         " set a fixed size of vim
         if exists("+lines")
@@ -113,7 +131,7 @@ if has("gui_running")
         if exists("+columns")
             set columns=125
         endif
-    elseif has("unix")
+    else
         " TODO: no way right now
     endif
 endif
@@ -125,19 +143,19 @@ if has("gui_running")
     au GUIEnter * call s:set_gui_font()
 
     " set guifont
-    function s:set_gui_font()
+    function! s:set_gui_font()
         if has("gui_gtk2")
             set guifont=Luxi\ Mono\ 13
         elseif has("x11")
             " Also for GTK 1
             set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
-        elseif has("mac")
+        elseif OSX()
             if getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
                 set guifont=Bitstream\ Vera\ Sans\ Mono:h13
             elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
                 set guifont=DejaVu\ Sans\ Mono:h13
             endif
-        elseif has("gui_win32")
+        elseif WINDOWS()
             let font_name = ""
             if getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
                 set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
@@ -218,8 +236,8 @@ set	cinoptions=>s,e0,n0,f0,{0,}0,^0,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,0,(0,us,
 " set cinkeys=0{,0},0),:,!^F,o,O,e
 
 " Official diff settings
-set diffexpr=s:my_diff()
-function s:my_diff()
+set diffexpr=g:my_diff()
+function! g:my_diff()
     let opt = '-a --binary -w '
     if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
     if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
@@ -321,7 +339,7 @@ if has("autocmd")
 
     " if edit python scripts, check if have \t. ( python said: the programme can only use \t or not, but can't use them together )
     au FileType python call s:check_if_expand_tab()
-    function s:check_if_expand_tab()
+    function! s:check_if_expand_tab()
         let has_noexpandtab = search('^\t','wn')
         let has_expandtab = search('^    ','wn')
 
@@ -430,3 +448,18 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " ctrlp
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = ''
+
+" vim-fugitive
+Bundle 'tpope/vim-fugitive'
+
+" undotree
+Bundle 'mbbill/undotree'
+nnoremap <Leader>u :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle=1
+
+" nerdtree
+Bundle 'scrooloose/nerdtree'
+
+" tagbar
+Bundle 'majutsushi/tagbar'
+
