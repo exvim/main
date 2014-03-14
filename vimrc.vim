@@ -15,35 +15,19 @@ filetype off " required
 " set the runtime path to include Vundle and initialize
 if exists('g:exvim_dev')
     set rtp+=./vimfiles/bundle/vundle/
+    let path='./vimfiles/bundle/vundle/'
+    call vundle#rc(path)
 else
     set rtp+=~/.vim/bundle/vundle/
+    let path='~/.vim/bundle/vundle/'
+    call vundle#rc(path)
 endif
-call vundle#rc()
-
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
-" " The following are examples of different formats supported.
-" " Keep bundle commands between here and filetype plugin indent on.
-" " scripts on GitHub repos
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'tpope/vim-rails.git'
-" " The sparkup vim script is in a subdirectory of this repo called vim.
-" " Pass the path to set the runtimepath properly.
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" " scripts from http://vim-scripts.org/vim/scripts.html
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" " scripts not on GitHub
-" Bundle 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Bundle 'file:///home/gmarik/path/to/plugin'
-" ...
+" plugins
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on " required
 
