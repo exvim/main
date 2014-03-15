@@ -173,16 +173,6 @@ if has("gui_running")
     endfunction
 endif
 
-" " color scheme define
-" if has("gui_running")
-"     " silent exec "colorscheme ex"
-"     silent exec "colorscheme ex_lightgray"
-" else " if we are in terminal mode
-"     " NOTE: you cannot use if has('mac') to detect platform in terminal mode.
-"     silent exec "colorscheme default"
-"     " silent exec "colorscheme darkblue"
-" endif
-
 " ------------------------------------------------------------------ 
 " Desc: Vim UI
 " ------------------------------------------------------------------ 
@@ -444,9 +434,12 @@ Bundle 'gmarik/vundle'
 
 " color-schemes
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'flazz/vim-colorschemes'
 syntax enable
 set background=dark
 silent exec "colorscheme solarized"
+" NOTE: keep visual mode words still using its own syntax color  
+hi Visual gui=NONE guifg=NONE guibg=#004b56
 
 " vim-airline
 Bundle 'bling/vim-airline'
@@ -475,6 +468,9 @@ Bundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1
 let NERDRemoveExtraSpaces = 1
 
+" syntastic
+Bundle 'scrooloose/syntastic'
+
 " neocomplcache
 Bundle 'Shougo/neocomplcache.vim'
 let g:neocomplcache_enable_at_startup = 1
@@ -485,9 +481,6 @@ let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion beha
 inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
 
-" syntastic
-Bundle 'scrooloose/syntastic'
-
 " undotree
 Bundle 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -495,6 +488,15 @@ let g:undotree_SetFocusWhenToggle=1
 
 " tagbar
 Bundle 'majutsushi/tagbar'
+
+" tabular
+Bundle 'godlygeek/tabular'
+" TODO: nnoremap <silent> <Leader>a :call g:tabular()<CR>
+xnoremap <silent> <Leader>a :<C-U>call g:tabular()<CR>
+function! g:tabular()
+    let c = getchar()
+    exec "'<,'>Tabularize /".nr2char(c)
+endfunction
 
 " --------------- c-lang ---------------
 
