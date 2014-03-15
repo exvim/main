@@ -150,37 +150,38 @@ if has("gui_running")
             " Also for GTK 1
             set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
         elseif OSX()
-            if getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
-                set guifont=Bitstream\ Vera\ Sans\ Mono:h13
+            if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
             elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
                 set guifont=DejaVu\ Sans\ Mono:h13
+            elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
+                set guifont=Bitstream\ Vera\ Sans\ Mono:h13
             endif
         elseif WINDOWS()
-            let font_name = ""
-            if getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
+            if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
+            elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
+                set guifont=DejaVu\ Sans\ Mono:h13
+            elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
                 set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
-                let font_name = "Bitstream_Vera_Sans_Mono" 
             elseif getfontname( "Consolas" ) != ""
                 set guifont=Consolas:h12:cANSI " this is the default visual studio font
-                let font_name = "Consolas" 
             else
                 set guifont=Lucida_Console:h12:cANSI
-                let font_name = "Lucida_Console" 
             endif
-            silent exec "nnoremap <unique> <M-F1> :set guifont=".font_name.":h11:cANSI<CR>"
         endif
     endfunction
 endif
 
-" color scheme define
-if has("gui_running")
-    " silent exec "colorscheme ex"
-    silent exec "colorscheme ex_lightgray"
-else " if we are in terminal mode
-    " NOTE: you cannot use if has('mac') to detect platform in terminal mode.
-    silent exec "colorscheme default"
-    " silent exec "colorscheme darkblue"
-endif
+" " color scheme define
+" if has("gui_running")
+"     " silent exec "colorscheme ex"
+"     silent exec "colorscheme ex_lightgray"
+" else " if we are in terminal mode
+"     " NOTE: you cannot use if has('mac') to detect platform in terminal mode.
+"     silent exec "colorscheme default"
+"     " silent exec "colorscheme darkblue"
+" endif
 
 " ------------------------------------------------------------------ 
 " Desc: Vim UI
@@ -210,13 +211,13 @@ set guioptions+=b " Present the bottom scrollbar when the longest visible line e
 set guioptions-=m
 set guioptions-=T
 
-"set encoding=japan
-"set termencoding=cp932
+" set encoding=japan
+" set termencoding=cp932
 
-"set encoding=cp932
-"set termencoding=cp932
+" set encoding=cp932
+" set termencoding=cp932
 
-"set grepprg=grep\ -n
+" set grepprg=grep\ -n
 
 " set default encoding to utf-8
 set encoding=utf-8
@@ -410,10 +411,12 @@ nnoremap <unique> <S-Down> <C-W><Down>
 nnoremap <unique> <S-Left> <C-W><Left>
 nnoremap <unique> <S-Right> <C-W><Right>
 
-" Easy Diff goto
-noremap <unique> <C-Up> [c
+" Easy buffer navigation
+noremap <unique> <C-l> :bn<CR>
+noremap <unique> <C-h> :bp<CR>
+
+" Easy diff goto
 noremap <unique> <C-k> [c
-noremap <unique> <C-Down> ]c
 noremap <unique> <C-j> ]c
 
 " Enhance '<' '>' , do not need to reselect the block after shift it.
@@ -424,6 +427,7 @@ vnoremap <unique> > >gv
 noremap <unique> <Up> gk
 noremap <unique> <Down> gj
 
+" TODO: Can write a good function handle this.
 " VimTip 329: A map for swapping words
 " http://vim.sourceforge.net/tip_view.php?tip_id=
 " Then when you put the cursor on or in a word, press "\sw", and
@@ -438,8 +442,15 @@ nnoremap <unique> <silent><leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
+" color-schemes
+Bundle 'altercation/vim-colors-solarized'
+syntax enable
+set background=dark
+silent exec "colorscheme solarized"
+
 " vim-airline
 Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -454,16 +465,40 @@ Bundle 'tpope/vim-fugitive'
 
 " vim-surround
 Bundle 'tpope/vim-surround'
-xmap s   <Plug>VSurround
+xmap s <Plug>VSurround
+
+" nerdtree
+Bundle 'scrooloose/nerdtree'
+
+" nerdcommenter
+Bundle 'scrooloose/nerdcommenter'
+let NERDSpaceDelims = 1
+let NERDRemoveExtraSpaces = 1
+
+" neocomplcache
+Bundle 'Shougo/neocomplcache.vim'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_auto_completion_start_length = 2
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
+" let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
+inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
+
+" syntastic
+Bundle 'scrooloose/syntastic'
 
 " undotree
 Bundle 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 
-" nerdtree
-Bundle 'scrooloose/nerdtree'
-
 " tagbar
 Bundle 'majutsushi/tagbar'
+
+" --------------- c-lang ---------------
+
+" CRef
+Bundle 'exvim/CRefVim'
+
 
