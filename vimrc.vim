@@ -444,29 +444,29 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" ctrlp
+" ctrlp: invoke by <ctrl-p>
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = ''
 
-" vim-fugitive
+" vim-fugitive: invoke most by :Gdiff
 Bundle 'tpope/vim-fugitive'
 
-" vim-surround
+" vim-surround: invoke when you select words and press 's'
 Bundle 'tpope/vim-surround'
 xmap s <Plug>VSurround
 
-" nerdtree
+" nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
 
-" nerdcommenter
+" nerdcommenter: invoke by <leader>c<space>
 Bundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1
 let NERDRemoveExtraSpaces = 1
 
-" syntastic
+" syntastic: invoke when you save file and have syntac-checker
 Bundle 'scrooloose/syntastic'
 
-" neocomplcache
+" neocomplcache: invoke when you insert words
 Bundle 'Shougo/neocomplcache.vim'
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_auto_completion_start_length = 2
@@ -476,18 +476,18 @@ let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion beha
 inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
 
-" undotree
+" undotree: invoke by <Leader>u
 Bundle 'mbbill/undotree'
-nnoremap <Leader>u :UndotreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 
-" tagbar
+" tagbar: invoke by :Tagbar
 Bundle 'majutsushi/tagbar'
 
-" tabular
+" tabular: invoke by <leader>= alignment-character
 Bundle 'godlygeek/tabular'
-nnoremap <silent> <Leader>= :call g:tabular(1)<CR>
-xnoremap <silent> <Leader>= :call g:tabular(0)<CR>
+nnoremap <silent> <leader>= :call g:tabular(1)<CR>
+xnoremap <silent> <leader>= :call g:tabular(0)<CR>
 function! g:tabular(ignore_range) range
     let c = getchar()
     let c = nr2char(c)
@@ -498,9 +498,12 @@ function! g:tabular(ignore_range) range
     endif
 endfunction
 
+" vim-easymotion: invoke by <leader><leader> w/b/e/f/...
+Bundle 'Lokaltog/vim-easymotion'
+
 " --------------- c-lang ---------------
 
-" CRef
+" crefvim: invoke by <leader>cr
 Bundle 'exvim/CRefVim'
 
 " this is modified for default c syntax highlight settings 
