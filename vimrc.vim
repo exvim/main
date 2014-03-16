@@ -447,6 +447,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " ctrlp: invoke by <ctrl-p>
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 " vim-fugitive: invoke most by :Gdiff
 Bundle 'tpope/vim-fugitive'
@@ -476,6 +477,11 @@ let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion beha
 inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
 
+" TODO: choose a snippet plugin
+" Bundle 'Shougo/neosnippet.vim'
+" Bundle 'msanders/snipmate.vim'
+" Bundle 'spf13/snipmate-snippets'
+
 " undotree: invoke by <Leader>u
 Bundle 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -498,13 +504,37 @@ function! g:tabular(ignore_range) range
     endif
 endfunction
 
-" vim-easymotion: invoke by <leader><leader> w/b/e/f/...
+" vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/ 
 Bundle 'Lokaltog/vim-easymotion'
+map <leader><leader>/ <Plug>(easymotion-sn)
+omap <leader><leader>/ <Plug>(easymotion-tn)
+map <leader><leader>j <Plug>(easymotion-j)
+map <leader><leader>k <Plug>(easymotion-k)
+map <leader><leader>l <Plug>(easymotion-lineforward)
+map <leader><leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" showmarks: invoke by m... or <leader>mm, <leader>ma
+Bundle 'exvim/showmarks'
+" TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
+" bugs, consider merge his code and fixes the bugs 
+let g:showmarks_enable = 1
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let showmarks_ignore_type = "hqm" " Ignore help, quickfix, non-modifiable buffers
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 1
+let showmarks_hlline_upper = 0 
+
+" visincr: invoke when select text and type ':II'
+Bundle 'exvim/visincr'
+
+" matchit: invoke by %
+Bundle 'exvim/matchit'
 
 " --------------- c-lang ---------------
 
-" crefvim: invoke by <leader>cr
-Bundle 'exvim/CRefVim'
+" cref: invoke by <leader>cr
+Bundle 'exvim/cref'
 
 " this is modified for default c syntax highlight settings 
 " make it don't highlight error pattern
@@ -512,3 +542,8 @@ let c_gnu = 1
 let c_no_curly_error = 1
 let c_no_bracket_error = 1
 
+" --------------- web ---------------
+
+" TODO: Bundle 'skammer/vim-css-color'
+" TODO: Bundle 'sindresorhus/focus'
+" TODO: Bundle 'mattn/emmet-vim'
