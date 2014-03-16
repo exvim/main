@@ -531,6 +531,9 @@ Bundle 'exvim/visincr'
 " matchit: invoke by %
 Bundle 'exvim/matchit'
 
+" searchcompl: invoke by /
+Bundle 'exvim/searchcompl'
+
 " --------------- c-lang ---------------
 
 " cref: invoke by <leader>cr
@@ -547,3 +550,10 @@ let c_no_bracket_error = 1
 " TODO: Bundle 'skammer/vim-css-color'
 " TODO: Bundle 'sindresorhus/focus'
 " TODO: Bundle 'mattn/emmet-vim'
+
+" vim-indent-guides: invoke by <leader>ig
+Bundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_guide_size = 1
+
+" vim-markdown
+Bundle 'plasticboy/vim-markdown'
