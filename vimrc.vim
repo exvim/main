@@ -411,13 +411,13 @@ vnoremap <unique> > >gv
 noremap <unique> <Up> gk
 noremap <unique> <Down> gj
 
-" TODO: Can write a good function handle this.
+" TODO: I should write a better one, make it as plugin exvim/swapword
 " VimTip 329: A map for swapping words
 " http://vim.sourceforge.net/tip_view.php?tip_id=
 " Then when you put the cursor on or in a word, press "\sw", and
 " the word will be swapped with the next word.  The words may
 " even be separated by punctuation (such as "abc = def").
-nnoremap <unique> <silent><leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
+nnoremap <unique> <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
 
 "/////////////////////////////////////////////////////////////////////////////
 " plugins
