@@ -5,6 +5,10 @@
 " Description  : 
 " ======================================================================================
 
+"/////////////////////////////////////////////////////////////////////////////
+" Runtime setup
+"/////////////////////////////////////////////////////////////////////////////
+
 function! OSX()
     return has('macunix')
 endfunction
@@ -24,30 +28,12 @@ if !exists('g:exvim_dev')
 endif
 
 "/////////////////////////////////////////////////////////////////////////////
-" Vundle setup
+" Language setup
 "/////////////////////////////////////////////////////////////////////////////
 
-set nocompatible " be iMproved, required
-filetype off " required
-
-" set the runtime path to include Vundle and initialize
-if exists('g:exvim_dev')
-    set rtp+=./vimfiles/bundle/vundle/
-    let path='./vimfiles/bundle/'
-    call vundle#rc(path)
-else
-    set rtp+=~/.vim/bundle/vundle/
-    let path='~/.vim/bundle/'
-    call vundle#rc(path)
-endif
-
-filetype plugin indent on " required
-
-"/////////////////////////////////////////////////////////////////////////////
-" General
-"/////////////////////////////////////////////////////////////////////////////
-
-set langmenu=none " always use English menu
+" always use English menu
+" NOTE: this must before filetype off, otherwise it won't work
+set langmenu=none
 
 " always use english for anaything in vim-editor. 
 if WINDOWS()
@@ -61,6 +47,30 @@ else
     " in linux-terminal
     " silent exec "language en_US.utf8" 
 endif
+
+"/////////////////////////////////////////////////////////////////////////////
+" Vundle setup
+"/////////////////////////////////////////////////////////////////////////////
+
+set nocompatible " be iMproved, required
+filetype off " required
+
+" set the runtime path to include Vundle and initialize
+if exists('g:exvim_dev')
+    set runtimepath+=./vimfiles/bundle/vundle/
+    let path='./vimfiles/bundle/'
+    call vundle#rc(path)
+else
+    set runtimepath+=~/.vim/bundle/vundle/
+    let path='~/.vim/bundle/'
+    call vundle#rc(path)
+endif
+
+filetype plugin indent on " required
+
+"/////////////////////////////////////////////////////////////////////////////
+" General
+"/////////////////////////////////////////////////////////////////////////////
 
 "set path=.,/usr/include/*,, " where gf, ^Wf, :find will search 
 set backup " make backup file and leave it around 
@@ -120,22 +130,6 @@ if v:version >= 703
     set noacd " no autochchdir
 endif
 
-" set vim window open size
-if has("gui_running")
-    if WINDOWS()
-        " au GUIEnter * simalt ~x " Maximize window when enter vim
-        " set a fixed size of vim
-        if exists("+lines")
-            set lines=55
-        endif
-        if exists("+columns")
-            set columns=125
-        endif
-    else
-        " TODO: no way right now
-    endif
-endif
-
 " set default guifont
 if has("gui_running")
     " check and determine the gui font after GUIEnter. 
@@ -177,21 +171,32 @@ endif
 " Desc: Vim UI
 " ------------------------------------------------------------------ 
 
-set wildmenu " turn on wild menu, try typing :h and press <Tab> 
-set showcmd	" display incomplete commands
-set cmdheight=1 " 1 screen lines to use for the command-line 
+set wildmenu " turn on wild menu, try typing :h and press <Tab>
+set showcmd " display incomplete commands
+set cmdheight=1 " 1 screen lines to use for the command-line
 set ruler " show the cursor position all the time
-set hid " allow to change buffer without saving 
-set shortmess=atI " shortens messages to avoid 'press a key' prompt 
-set lazyredraw " do not redraw while executing macros (much faster) 
+set hid " allow to change buffer without saving
+set shortmess=atI " shortens messages to avoid 'press a key' prompt
+set lazyredraw " do not redraw while executing macros (much faster)
 set display+=lastline " for easy browse last line with wrap text
 set laststatus=2 " always have status-line
-" TODO: set statusline=    " statusline with different color 'User1-9'
 
-" Set window's width to 130 columns and height to 40 rows
-" (if it's GUI)
+" Set window size (if it's GUI)
 if has("gui_running")
-    set lines=40 columns=130
+    " Set window's width to 130 columns and height to 40 rows
+    if exists("+lines")
+        set lines=40
+    endif
+    if exists("+columns")
+        set columns=130
+    endif
+
+    " DISABLE
+    " if WINDOWS()
+    "     au GUIEnter * simalt ~x " Maximize window when enter vim
+    " else
+    "     " TODO: no way right now
+    " endif
 endif
 
 set showfulltag " show tag with function protype.
@@ -201,17 +206,14 @@ set guioptions+=b " Present the bottom scrollbar when the longest visible line e
 set guioptions-=m
 set guioptions-=T
 
-" set encoding=japan
-" set termencoding=cp932
-
-" set encoding=cp932
-" set termencoding=cp932
-
-" set grepprg=grep\ -n
-
 " set default encoding to utf-8
 set encoding=utf-8
 set termencoding=utf-8
+" OPTIONS:
+" set encoding=japan
+" set termencoding=cp932
+" set encoding=cp932
+" set termencoding=cp932
 
 " ------------------------------------------------------------------ 
 " Desc: Text edit
@@ -275,14 +277,6 @@ set smartcase " Set smartcase mode on, If there is upper case character in the s
 " set this to use id-utils for global search
 set grepprg=lid\ -Rgrep\ -s
 set grepformat=%f:%l:%m
-
-" ------------------------------------------------------------------ 
-" Desc: Syntax
-" ------------------------------------------------------------------ 
-
-let c_gnu = 1
-let c_no_curly_error = 1
-"let c_no_bracket_error = 1
 
 "/////////////////////////////////////////////////////////////////////////////
 " Auto Command
@@ -429,17 +423,18 @@ nnoremap <unique> <silent><leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/
 " plugins
 "/////////////////////////////////////////////////////////////////////////////
 
+" --------------- all ---------------
+
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
 " color-schemes
+Bundle 'exvim/aftercolors'
+Bundle 'exvim/colorschemes'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'flazz/vim-colorschemes'
 syntax enable
 set background=dark
 silent exec "colorscheme solarized"
-" NOTE: keep visual mode words still using its own syntax color  
-hi Visual gui=NONE guifg=NONE guibg=#004b56
 
 " vim-airline
 Bundle 'bling/vim-airline'
@@ -491,11 +486,16 @@ Bundle 'majutsushi/tagbar'
 
 " tabular
 Bundle 'godlygeek/tabular'
-" TODO: nnoremap <silent> <Leader>a :call g:tabular()<CR>
-xnoremap <silent> <Leader>a :<C-U>call g:tabular()<CR>
-function! g:tabular()
+nnoremap <silent> <Leader>= :call g:tabular(1)<CR>
+xnoremap <silent> <Leader>= :call g:tabular(0)<CR>
+function! g:tabular(ignore_range) range
     let c = getchar()
-    exec "'<,'>Tabularize /".nr2char(c)
+    let c = nr2char(c)
+    if a:ignore_range == 0
+        exec printf("%d,%dTabularize /%s", a:firstline, a:lastline, c)
+    else
+        exec printf("Tabularize /%s", c)
+    endif
 endfunction
 
 " --------------- c-lang ---------------
@@ -503,4 +503,9 @@ endfunction
 " CRef
 Bundle 'exvim/CRefVim'
 
+" this is modified for default c syntax highlight settings 
+" make it don't highlight error pattern
+let c_gnu = 1
+let c_no_curly_error = 1
+let c_no_bracket_error = 1
 
