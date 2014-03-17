@@ -1,0 +1,152 @@
+" set the runtime path to include Vundle and initialize
+if exists('g:exvim_dev')
+  set rtp+=./vimfiles/bundle/vundle/
+  let path='./vimfiles/bundle/'
+  call vundle#rc(path)
+else
+  set rtp+=~/.vim/bundle/vundle/
+  let path='~/.vim/bundle/'
+  call vundle#rc(path)
+endif
+
+"/////////////////////////////////////////////////////////////////////////////
+" plugins
+"/////////////////////////////////////////////////////////////////////////////
+
+" --------------- all ---------------
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" color-schemes
+Bundle 'exvim/aftercolors'
+Bundle 'exvim/colorschemes'
+Bundle 'altercation/vim-colors-solarized'
+syntax enable
+set background=dark
+silent exec "colorscheme solarized"
+
+" vim-airline
+Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" ctrlp: invoke by <ctrl-p>
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = ''
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
+
+" vim-fugitive: invoke most by :Gdiff
+Bundle 'tpope/vim-fugitive'
+
+" vim-surround: invoke when you select words and press 's'
+Bundle 'tpope/vim-surround'
+xmap s <Plug>VSurround
+
+" nerdtree: invoke by :NERDTreeToggle
+Bundle 'scrooloose/nerdtree'
+
+" nerdcommenter: invoke by <leader>c<space>
+Bundle 'scrooloose/nerdcommenter'
+let NERDSpaceDelims = 1
+let NERDRemoveExtraSpaces = 1
+
+" syntastic: invoke when you save file and have syntac-checker
+Bundle 'scrooloose/syntastic'
+
+" neocomplcache: invoke when you insert words
+Bundle 'Shougo/neocomplcache.vim'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_auto_completion_start_length = 2
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
+" let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
+" inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
+
+" TODO: choose a snippet plugin
+" Bundle 'Shougo/neosnippet.vim'
+" Bundle 'msanders/snipmate.vim'
+" Bundle 'spf13/snipmate-snippets'
+
+" undotree: invoke by <Leader>u
+Bundle 'mbbill/undotree'
+nnoremap <leader>u :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle=1
+
+" tagbar: invoke by :Tagbar
+Bundle 'majutsushi/tagbar'
+
+" tabular: invoke by <leader>= alignment-character
+Bundle 'godlygeek/tabular'
+nnoremap <silent> <leader>= :call g:tabular(1)<CR>
+xnoremap <silent> <leader>= :call g:tabular(0)<CR>
+function! g:tabular(ignore_range) range
+  let c = getchar()
+  let c = nr2char(c)
+  if a:ignore_range == 0
+    exec printf("%d,%dTabularize /%s", a:firstline, a:lastline, c)
+  else
+    exec printf("Tabularize /%s", c)
+  endif
+endfunction
+
+" vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/ 
+Bundle 'Lokaltog/vim-easymotion'
+map <leader><leader>/ <Plug>(easymotion-sn)
+omap <leader><leader>/ <Plug>(easymotion-tn)
+map <leader><leader>j <Plug>(easymotion-j)
+map <leader><leader>k <Plug>(easymotion-k)
+map <leader><leader>l <Plug>(easymotion-lineforward)
+map <leader><leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" showmarks: invoke by m... or <leader>mm, <leader>ma
+Bundle 'exvim/showmarks'
+" TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
+" bugs, consider merge his code and fixes the bugs 
+let g:showmarks_enable = 1
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let showmarks_ignore_type = "hqm" " Ignore help, quickfix, non-modifiable buffers
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 1
+let showmarks_hlline_upper = 0 
+
+" visincr: invoke when select text and type ':II'
+Bundle 'exvim/visincr'
+
+" matchit: invoke by %
+Bundle 'exvim/matchit'
+
+" searchcompl: invoke by /
+Bundle 'exvim/searchcompl'
+
+" --------------- c-lang ---------------
+
+" cref: invoke by <leader>cr
+Bundle 'exvim/cref'
+
+" this is modified for default c syntax highlight settings 
+" make it don't highlight error pattern
+let c_gnu = 1
+let c_no_curly_error = 1
+let c_no_bracket_error = 1
+
+" --------------- web ---------------
+
+" TODO: Bundle 'skammer/vim-css-color'
+" TODO: Bundle 'sindresorhus/focus'
+" TODO: Bundle 'mattn/emmet-vim'
+
+" vim-indent-guides: invoke by <leader>ig
+Bundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_guide_size = 1
+
+" vim-markdown
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_initial_foldlevel=9999
+
+" vim:ts=2:sw=2:sts=2
