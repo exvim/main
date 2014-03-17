@@ -121,9 +121,9 @@ endif
 
 set showmatch " show matching paren 
 set matchtime=0 " 0 second to show the matching paren ( much faster )
-set nu " Show LineNumber
+set nu " show line number
 set scrolloff=0 " minimal number of screen lines to keep above and below the cursor 
-set nowrap " I don't like wrap, cause in split window mode, it feel strange
+set nowrap " do not wrap text
 
 " only supoort in 7.3 or higher
 if v:version >= 703
@@ -181,9 +181,9 @@ set lazyredraw " do not redraw while executing macros (much faster)
 set display+=lastline " for easy browse last line with wrap text
 set laststatus=2 " always have status-line
 
-" Set window size (if it's GUI)
+" set window size (if it's GUI)
 if has("gui_running")
-    " Set window's width to 130 columns and height to 40 rows
+    " set window's width to 130 columns and height to 40 rows
     if exists("+lines")
         set lines=40
     endif
@@ -200,7 +200,7 @@ if has("gui_running")
 endif
 
 set showfulltag " show tag with function protype.
-set guioptions+=b " Present the bottom scrollbar when the longest visible line exceen the window
+set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
 
 " disable menu & toolbar
 set guioptions-=m
@@ -223,12 +223,12 @@ set ai " autoindent
 set si " smartindent 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 " indent options
-"  see help cinoptions-values for more details
+" see help cinoptions-values for more details
 set	cinoptions=>s,e0,n0,f0,{0,}0,^0,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,0,(0,us,U0,w0,W0,m0,j0,)20,*30
 " default '0{,0},0),:,0#,!^F,o,O,e' disable 0# for not ident preprocess
 " set cinkeys=0{,0},0),:,!^F,o,O,e
 
-" Official diff settings
+" official diff settings
 set diffexpr=g:my_diff()
 function! g:my_diff()
     let opt = '-a --binary -w '
@@ -243,15 +243,14 @@ function! g:my_diff()
     silent execute '!' .  'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
 endfunction
 
-set cindent shiftwidth=4 " Set cindent on to autoinent when editing C/C++ file, with 4 shift width
-set tabstop=4 " Set tabstop to 4 characters
-set expandtab " Set expandtab on, the tab will be change to space automaticaly
+set cindent shiftwidth=4 " set cindent on to autoinent when editing C/C++ file, with 4 shift width
+set tabstop=4 " set tabstop to 4 characters
+set expandtab " set expandtab on, the tab will be change to space automaticaly
+set ve=block " in visual block mode, cursor can be positioned where there is no actual character
 
-" Set Number format to null(default is octal) , when press CTRL-A on number
+" set Number format to null(default is octal) , when press CTRL-A on number
 " like 007, it would not become 010
 set nf=
-" In Visual Block Mode, cursor can be positioned where there is no actual character
-set ve=block
 
 " ------------------------------------------------------------------ 
 " Desc: Fold text
@@ -264,15 +263,15 @@ set diffopt=filler,context:9999
 " Desc: Search
 " ------------------------------------------------------------------ 
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
+" switch syntax highlighting on, when the terminal has colors
+" also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
     syntax on
     set hlsearch
 endif
 set incsearch " do incremental searching
-set ignorecase " Set search/replace pattern to ignore case 
-set smartcase " Set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
+set ignorecase " set search/replace pattern to ignore case 
+set smartcase " set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
 
 " set this to use id-utils for global search
 set grepprg=lid\ -Rgrep\ -s
@@ -292,8 +291,8 @@ if has("autocmd")
     " Desc: Buffer
     " ------------------------------------------------------------------ 
 
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
+    " when editing a file, always jump to the last known cursor position.
+    " don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
     au BufReadPost *
                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -313,10 +312,10 @@ if has("autocmd")
     " Desc: file types 
     " ------------------------------------------------------------------ 
 
-    au FileType text setlocal textwidth=78 " For all text files set 'textwidth' to 78 characters.
+    au FileType text setlocal textwidth=78 " for all text files set 'textwidth' to 78 characters.
     au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
-    " Disable auto-comment for c/cpp, lua, javascript, c# and vim-script
+    " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
     au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:// 
     au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f:// 
     au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
@@ -362,8 +361,7 @@ if has("autocmd")
             " we use original vim setting
         endif
     endfunction
-
-endif " has("autocmd")
+endif
 
 "/////////////////////////////////////////////////////////////////////////////
 " Key Mappings
@@ -395,15 +393,15 @@ nnoremap <unique> <S-Down> <C-W><Down>
 nnoremap <unique> <S-Left> <C-W><Left>
 nnoremap <unique> <S-Right> <C-W><Right>
 
-" Easy buffer navigation
+" easy buffer navigation
 noremap <unique> <C-l> :bn<CR>
 noremap <unique> <C-h> :bp<CR>
 
-" Easy diff goto
+" easy diff goto
 noremap <unique> <C-k> [c
 noremap <unique> <C-j> ]c
 
-" Enhance '<' '>' , do not need to reselect the block after shift it.
+" enhance '<' '>' , do not need to reselect the block after shift it.
 vnoremap <unique> < <gv
 vnoremap <unique> > >gv
 
@@ -474,8 +472,8 @@ let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
 " let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
-inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
+" inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
 
 " TODO: choose a snippet plugin
 " Bundle 'Shougo/neosnippet.vim'
