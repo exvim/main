@@ -1,3 +1,11 @@
+"/////////////////////////////////////////////////////////////////////////////
+" choose pathogen or Vundle as plugin manager (deafult is pathogen)
+"/////////////////////////////////////////////////////////////////////////////
+
+" Comment-out if you want to use pahogen
+" execute pathogen#infect()
+" com! -nargs=+ Bundle
+
 " set the runtime path to include Vundle and initialize
 if exists('g:exvim_dev')
   set rtp+=./vimfiles/bundle/vundle/
@@ -9,22 +17,19 @@ else
   call vundle#rc(path)
 endif
 
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
 "/////////////////////////////////////////////////////////////////////////////
 " plugins
 "/////////////////////////////////////////////////////////////////////////////
 
 " --------------- all ---------------
 
-" let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-
 " color-schemes
 Bundle 'exvim/aftercolors'
 Bundle 'exvim/colorschemes'
 Bundle 'altercation/vim-colors-solarized'
-syntax enable
-set background=dark
-silent exec "colorscheme solarized"
 
 " vim-airline
 Bundle 'bling/vim-airline'
@@ -49,10 +54,12 @@ xmap s <Plug>VSurround
 " nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
 
-" nerdcommenter: invoke by <leader>c<space>
+" nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 Bundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1
 let NERDRemoveExtraSpaces = 1
+map <unique> <F11> <Plug>NERDCommenterAlignBoth
+map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
 " syntastic: invoke when you save file and have syntac-checker
 Bundle 'scrooloose/syntastic'

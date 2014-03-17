@@ -68,6 +68,7 @@ else
   set encoding=utf-8
   set termencoding=utf-8
 endif
+scriptencoding utf-8
 
 "/////////////////////////////////////////////////////////////////////////////
 " Bundle steup
@@ -85,8 +86,10 @@ if filereadable(expand(vimrc_bundle_path))
 endif
 
 filetype plugin indent on " required
-syntax on
-scriptencoding utf-8
+syntax on " required
+
+set background=dark
+silent exec "colorscheme solarized"
 
 "/////////////////////////////////////////////////////////////////////////////
 " General
