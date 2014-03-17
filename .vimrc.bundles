@@ -111,6 +111,15 @@ map <leader><leader>l <Plug>(easymotion-lineforward)
 map <leader><leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
+" ex-utility:
+Bundle 'exvim/exutility'
+
+" ex-vimentry
+Bundle 'exvim/vimentry'
+
+" ex-project
+Bundle 'exvim/project'
+
 " showmarks: invoke by m... or <leader>mm, <leader>ma
 Bundle 'exvim/showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
