@@ -75,6 +75,7 @@ scriptencoding utf-8
 "/////////////////////////////////////////////////////////////////////////////
 
 filetype off " required
+set background=dark
 
 " load .vimrc.bundles
 let vimrc_bundle_path = '~/.vimrc.bundles'
@@ -87,8 +88,6 @@ endif
 
 filetype plugin indent on " required
 syntax on " required
-
-set background=dark
 silent exec "colorscheme solarized"
 
 "/////////////////////////////////////////////////////////////////////////////
