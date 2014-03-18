@@ -46,11 +46,11 @@ Bundle 'exvim/ex_showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
 " bugs, consider merge his code and fixes the bugs 
 let g:showmarks_enable = 1
-let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-let showmarks_ignore_type = "hqm" " Ignore help, quickfix, non-modifiable buffers
+let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let g:showmarks_ignore_type = "hqm" " Ignore help, quickfix, non-modifiable buffers
 " Hilight lower & upper marks
-let showmarks_hlline_lower = 1
-let showmarks_hlline_upper = 0 
+let g:showmarks_hlline_lower = 1
+let g:showmarks_hlline_upper = 0 
 
 " visincr: invoke when select text and type ':II'
 Bundle 'exvim/ex_visincr'
@@ -86,11 +86,17 @@ xmap s <Plug>VSurround
 
 " nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
+nnoremap <unique> <leader>fc :NERDTreeFind<CR>
+let g:NERDTreeWinSize=30
+let g:NERDTreeMouseMode=1
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 Bundle 'scrooloose/nerdcommenter'
-let NERDSpaceDelims = 1
-let NERDRemoveExtraSpaces = 1
+let g:NERDSpaceDelims = 1
+let g:NERDRemoveExtraSpaces = 1
+let g:NERDCustomDelimiters = {
+      \ 'vimentry': { 'left': '--' },
+      \ }
 map <unique> <F11> <Plug>NERDCommenterAlignBoth
 map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
