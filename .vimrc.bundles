@@ -24,12 +24,10 @@ Bundle 'gmarik/vundle'
 
 " ex-utility:
 Bundle 'exvim/ex_utility'
+nnoremap <unique> <Leader>bd :call ex#keep_window_bd(1)<CR>
 
 " ex-aftercolor
 Bundle 'exvim/ex_aftercolors'
-
-" ex-colorschemes
-Bundle 'exvim/ex_colorschemes'
 
 " ex-vimentry
 Bundle 'exvim/ex_vimentry'
@@ -54,8 +52,14 @@ Bundle 'exvim/ex_visincr'
 " matchit: invoke by %
 Bundle 'exvim/ex_matchit'
 
+" ex-easyhl:
+Bundle 'exvim/ex_easyhl'
+
 " searchcompl: invoke by /
 Bundle 'exvim/ex_searchcompl'
+
+" ex-colorschemes
+Bundle 'exvim/ex_colorschemes'
 
 " vim-color-solarized
 Bundle 'altercation/vim-colors-solarized'
