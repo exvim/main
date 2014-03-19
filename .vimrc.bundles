@@ -1,6 +1,4 @@
-"/////////////////////////////////////////////////////////////////////////////
-" choose pathogen or Vundle as plugin manager (deafult is pathogen)
-"/////////////////////////////////////////////////////////////////////////////
+" Pathogen or Vundle (deafult is Vundle) {{{
 
 " Comment-out if you want to use pahogen
 " execute pathogen#infect()
@@ -8,23 +6,21 @@
 
 " set the runtime path to include Vundle and initialize
 if exists('g:exvim_dev')
-  set rtp+=./vimfiles/bundle/vundle/
-  let path='./vimfiles/bundle/'
-  call vundle#rc(path)
+    set rtp+=./vimfiles/bundle/vundle/
+    let path='./vimfiles/bundle/'
+    call vundle#rc(path)
 else
-  set rtp+=~/.vim/bundle/vundle/
-  let path='~/.vim/bundle/'
-  call vundle#rc(path)
+    set rtp+=~/.vim/bundle/vundle/
+    let path='~/.vim/bundle/'
+    call vundle#rc(path)
 endif
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
-"/////////////////////////////////////////////////////////////////////////////
-" plugins
-"/////////////////////////////////////////////////////////////////////////////
+"}}}
 
-" --------------- all ---------------
+" general plugins {{{
 
 " ex-utility:
 Bundle 'exvim/ex_utility'
@@ -95,8 +91,8 @@ Bundle 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDCustomDelimiters = {
-      \ 'vimentry': { 'left': '--' },
-      \ }
+            \ 'vimentry': { 'left': '--' },
+            \ }
 map <unique> <F11> <Plug>NERDCommenterAlignBoth
 map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
@@ -132,13 +128,13 @@ Bundle 'godlygeek/tabular'
 nnoremap <silent> <leader>= :call g:tabular(1)<CR>
 xnoremap <silent> <leader>= :call g:tabular(0)<CR>
 function! g:tabular(ignore_range) range
-  let c = getchar()
-  let c = nr2char(c)
-  if a:ignore_range == 0
-    exec printf("%d,%dTabularize /%s", a:firstline, a:lastline, c)
-  else
-    exec printf("Tabularize /%s", c)
-  endif
+    let c = getchar()
+    let c = nr2char(c)
+    if a:ignore_range == 0
+        exec printf("%d,%dTabularize /%s", a:firstline, a:lastline, c)
+    else
+        exec printf("Tabularize /%s", c)
+    endif
 endfunction
 
 " vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/ 
@@ -150,8 +146,9 @@ map <leader><leader>k <Plug>(easymotion-k)
 map <leader><leader>l <Plug>(easymotion-lineforward)
 map <leader><leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+"}}}
 
-" --------------- c-lang ---------------
+" c-lang {{{
 
 " cref: invoke by <leader>cr
 Bundle 'exvim/ex_cref'
@@ -162,7 +159,9 @@ let c_gnu = 1
 let c_no_curly_error = 1
 let c_no_bracket_error = 1
 
-" --------------- web ---------------
+"}}}
+
+" web {{{
 
 " TODO: Bundle 'skammer/vim-css-color'
 " TODO: Bundle 'sindresorhus/focus'
@@ -176,4 +175,6 @@ let g:indent_guides_guide_size = 1
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_initial_foldlevel=9999
 
-" vim:ts=2:sw=2:sts=2
+"}}}
+
+" vim:ts=4:sw=4:sts=4 et fdm=marker:

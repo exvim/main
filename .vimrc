@@ -5,21 +5,21 @@
 set nocompatible " be iMproved, required
 
 function! OSX()
-  return has('macunix')
+    return has('macunix')
 endfunction
 function! LINUX()
-  return has('unix') && !has('macunix') && !has('win32unix')
+    return has('unix') && !has('macunix') && !has('win32unix')
 endfunction
 function! WINDOWS()
-  return  (has('win16') || has('win32') || has('win64'))
+    return  (has('win16') || has('win32') || has('win64'))
 endfunction
 
 " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
 " across (heterogeneous) systems easier.
 if !exists('g:exvim_dev')
-  if WINDOWS()
-    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-  endif
+    if WINDOWS()
+        set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+    endif
 endif
 
 "/////////////////////////////////////////////////////////////////////////////
@@ -32,41 +32,41 @@ set langmenu=none
 
 " always use english for anaything in vim-editor. 
 if WINDOWS()
-  silent exec "language english" 
+    silent exec "language english" 
 
-  " Be nice and check for multi_byte even if the config requires
-  " multi_byte support most of the time
-  if has("multi_byte")
-    " Windows cmd.exe still uses cp850. If Windows ever moved to
-    " Powershell as the primary terminal, this would be utf-8
-    set termencoding=cp850
-    " Let Vim use utf-8 internally, because many scripts require this
-    set encoding=utf-8
-    setglobal fileencoding=utf-8
-    " Windows has traditionally used cp1252, so it's probably wise to
-    " fallback into cp1252 instead of eg. iso-8859-15.
-    " Newer Windows files might contain utf-8 or utf-16 LE so we might
-    " want to try them first.
-    set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
-  endif
+    " Be nice and check for multi_byte even if the config requires
+    " multi_byte support most of the time
+    if has("multi_byte")
+        " Windows cmd.exe still uses cp850. If Windows ever moved to
+        " Powershell as the primary terminal, this would be utf-8
+        set termencoding=cp850
+        " Let Vim use utf-8 internally, because many scripts require this
+        set encoding=utf-8
+        setglobal fileencoding=utf-8
+        " Windows has traditionally used cp1252, so it's probably wise to
+        " fallback into cp1252 instead of eg. iso-8859-15.
+        " Newer Windows files might contain utf-8 or utf-16 LE so we might
+        " want to try them first.
+        set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+    endif
 
 elseif OSX()
-  silent exec "language en_US" 
+    silent exec "language en_US" 
 
-  " set default encoding to utf-8
-  set encoding=utf-8
-  set termencoding=utf-8
+    " set default encoding to utf-8
+    set encoding=utf-8
+    set termencoding=utf-8
 
 else
-  " in mac-terminal
-  silent exec "language en_US"
+    " in mac-terminal
+    silent exec "language en_US"
 
-  " in linux-terminal
-  " silent exec "language en_US.utf8" 
+    " in linux-terminal
+    " silent exec "language en_US.utf8" 
 
-  " set default encoding to utf-8
-  set encoding=utf-8
-  set termencoding=utf-8
+    " set default encoding to utf-8
+    set encoding=utf-8
+    set termencoding=utf-8
 endif
 scriptencoding utf-8
 
@@ -80,10 +80,10 @@ set background=dark
 " load .vimrc.bundles
 let vimrc_bundle_path = '~/.vimrc.bundles'
 if exists('g:exvim_dev')
-  let vimrc_bundle_path = './.vimrc.bundles'
+    let vimrc_bundle_path = './.vimrc.bundles'
 endif
 if filereadable(expand(vimrc_bundle_path))
-  exec 'source ' . vimrc_bundle_path
+    exec 'source ' . vimrc_bundle_path
 endif
 
 filetype plugin indent on " required
@@ -102,13 +102,13 @@ let data_dir = $HOME.'/.data/'
 let backup_dir = data_dir . 'backup' 
 let swap_dir = data_dir . 'swap' 
 if finddir(data_dir) == ''
-  silent call mkdir(data_dir)
+    silent call mkdir(data_dir)
 endif
 if finddir(backup_dir) == ''
-  silent call mkdir(backup_dir)
+    silent call mkdir(backup_dir)
 endif
 if finddir(swap_dir) == ''
-  silent call mkdir(swap_dir)
+    silent call mkdir(swap_dir)
 endif
 unlet backup_dir
 unlet swap_dir
@@ -130,7 +130,7 @@ set maxmempattern=1000 " enlarge maxmempattern from 1000 to ... (2000000 will gi
 
 behave xterm  " set mouse behavior as xterm
 if &term =~ "xterm"
-  set mouse=a
+    set mouse=a
 endif
 
 "/////////////////////////////////////////////////////////////////////////////
@@ -148,44 +148,44 @@ set nowrap " do not wrap text
 
 " only supoort in 7.3 or higher
 if v:version >= 703
-  set noacd " no autochchdir
+    set noacd " no autochchdir
 endif
 
 " set default guifont
 if has("gui_running")
-  " check and determine the gui font after GUIEnter. 
-  " NOTE: getfontname function only works after GUIEnter.  
-  au GUIEnter * call s:set_gui_font()
+    " check and determine the gui font after GUIEnter. 
+    " NOTE: getfontname function only works after GUIEnter.  
+    au GUIEnter * call s:set_gui_font()
 
-  " set guifont
-  function! s:set_gui_font()
-    if has("gui_gtk2")
-      set guifont=Luxi\ Mono\ 13
-    elseif has("x11")
-      " Also for GTK 1
-      set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
-    elseif OSX()
-      if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
-      elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
-        set guifont=DejaVu\ Sans\ Mono:h13
-      elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
-        set guifont=Bitstream\ Vera\ Sans\ Mono:h13
-      endif
-    elseif WINDOWS()
-      if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
-      elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
-        set guifont=DejaVu\ Sans\ Mono:h13
-      elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
-        set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
-      elseif getfontname( "Consolas" ) != ""
-        set guifont=Consolas:h12:cANSI " this is the default visual studio font
-      else
-        set guifont=Lucida_Console:h12:cANSI
-      endif
-    endif
-  endfunction
+    " set guifont
+    function! s:set_gui_font()
+        if has("gui_gtk2")
+            set guifont=Luxi\ Mono\ 13
+        elseif has("x11")
+            " Also for GTK 1
+            set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
+        elseif OSX()
+            if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
+            elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
+                set guifont=DejaVu\ Sans\ Mono:h13
+            elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
+                set guifont=Bitstream\ Vera\ Sans\ Mono:h13
+            endif
+        elseif WINDOWS()
+            if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
+            elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
+                set guifont=DejaVu\ Sans\ Mono:h13
+            elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
+                set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
+            elseif getfontname( "Consolas" ) != ""
+                set guifont=Consolas:h12:cANSI " this is the default visual studio font
+            else
+                set guifont=Lucida_Console:h12:cANSI
+            endif
+        endif
+    endfunction
 endif
 
 " ------------------------------------------------------------------ 
@@ -204,20 +204,20 @@ set laststatus=2 " always have status-line
 
 " set window size (if it's GUI)
 if has("gui_running")
-  " set window's width to 130 columns and height to 40 rows
-  if exists("+lines")
-    set lines=40
-  endif
-  if exists("+columns")
-    set columns=130
-  endif
+    " set window's width to 130 columns and height to 40 rows
+    if exists("+lines")
+        set lines=40
+    endif
+    if exists("+columns")
+        set columns=130
+    endif
 
-  " DISABLE
-  " if WINDOWS()
-  "     au GUIEnter * simalt ~x " Maximize window when enter vim
-  " else
-  "     " TODO: no way right now
-  " endif
+    " DISABLE
+    " if WINDOWS()
+    "     au GUIEnter * simalt ~x " Maximize window when enter vim
+    " else
+    "     " TODO: no way right now
+    " endif
 endif
 
 set showfulltag " show tag with function protype.
@@ -243,16 +243,16 @@ set	cinoptions=>s,e0,n0,f0,{0,}0,^0,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,0,(0,us,
 " official diff settings
 set diffexpr=g:my_diff()
 function! g:my_diff()
-  let opt = '-a --binary -w '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  silent execute '!' .  'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+    let opt = '-a --binary -w '
+    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    let arg1 = v:fname_in
+    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+    let arg2 = v:fname_new
+    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+    let arg3 = v:fname_out
+    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+    silent execute '!' .  'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
 endfunction
 
 set cindent shiftwidth=4 " set cindent on to autoinent when editing c/c++ file, with 4 shift width
@@ -295,80 +295,80 @@ set grepformat=%f:%l:%m
 
 if has("autocmd")
 
-  " ------------------------------------------------------------------ 
-  " Desc: Buffer
-  " ------------------------------------------------------------------ 
+    " ------------------------------------------------------------------ 
+    " Desc: Buffer
+    " ------------------------------------------------------------------ 
 
-  " when editing a file, always jump to the last known cursor position.
-  " don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-  au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
-  au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
-  au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
+    " when editing a file, always jump to the last known cursor position.
+    " don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   exe "normal g`\"" |
+                \ endif
+    au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
+    au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
+    au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
 
-  " DISABLE { 
-  " NOTE: will have problem with exvim, because exvim use exES_CWD as working directory for tag and other thing
-  " Change current directory to the file of the buffer ( from Script#65"CD.vim"
-  " au   BufEnter *   execute ":lcd " . expand("%:p:h") 
-  " } DISABLE end 
+    " DISABLE { 
+    " NOTE: will have problem with exvim, because exvim use exES_CWD as working directory for tag and other thing
+    " Change current directory to the file of the buffer ( from Script#65"CD.vim"
+    " au   BufEnter *   execute ":lcd " . expand("%:p:h") 
+    " } DISABLE end 
 
-  " ------------------------------------------------------------------ 
-  " Desc: file types 
-  " ------------------------------------------------------------------ 
+    " ------------------------------------------------------------------ 
+    " Desc: file types 
+    " ------------------------------------------------------------------ 
 
-  au FileType text setlocal textwidth=78 " for all text files set 'textwidth' to 78 characters.
-  au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
+    au FileType text setlocal textwidth=78 " for all text files set 'textwidth' to 78 characters.
+    au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
-  " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
-  au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:// 
-  au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f:// 
-  au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
-  au FileType lua set comments=f:--
+    " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
+    au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:// 
+    au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f:// 
+    au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
+    au FileType lua set comments=f:--
 
-  " if edit python scripts, check if have \t. ( python said: the programme can only use \t or not, but can't use them together )
-  au FileType python call s:check_if_expand_tab()
-  function! s:check_if_expand_tab()
-    let has_noexpandtab = search('^\t','wn')
-    let has_expandtab = search('^    ','wn')
+    " if edit python scripts, check if have \t. ( python said: the programme can only use \t or not, but can't use them together )
+    au FileType python call s:check_if_expand_tab()
+    function! s:check_if_expand_tab()
+        let has_noexpandtab = search('^\t','wn')
+        let has_expandtab = search('^    ','wn')
 
-    "
-    if has_noexpandtab && has_expandtab
-      let idx = inputlist ( ["ERROR: current file exists both expand and noexpand TAB, python can only use one of these two mode in one file.\nSelect Tab Expand Type:",
-            \ '1. expand (tab=space, recommended)', 
-            \ '2. noexpand (tab=\t, currently have risk)',
-            \ '3. do nothing (I will handle it by myself)'])
-      let tab_space = printf('%*s',&tabstop,'')
-      if idx == 1
-        let has_noexpandtab = 0
-        let has_expandtab = 1
-        silent exec '%s/\t/' . tab_space . '/g'
-      elseif idx == 2
-        let has_noexpandtab = 1
-        let has_expandtab = 0
-        silent exec '%s/' . tab_space . '/\t/g'
-      else
-        return
-      endif
-    endif
+        "
+        if has_noexpandtab && has_expandtab
+            let idx = inputlist ( ["ERROR: current file exists both expand and noexpand TAB, python can only use one of these two mode in one file.\nSelect Tab Expand Type:",
+                        \ '1. expand (tab=space, recommended)', 
+                        \ '2. noexpand (tab=\t, currently have risk)',
+                        \ '3. do nothing (I will handle it by myself)'])
+            let tab_space = printf('%*s',&tabstop,'')
+            if idx == 1
+                let has_noexpandtab = 0
+                let has_expandtab = 1
+                silent exec '%s/\t/' . tab_space . '/g'
+            elseif idx == 2
+                let has_noexpandtab = 1
+                let has_expandtab = 0
+                silent exec '%s/' . tab_space . '/\t/g'
+            else
+                return
+            endif
+        endif
 
-    " 
-    if has_noexpandtab == 1 && has_expandtab == 0  
-      echomsg 'substitute space to TAB...'
-      set noexpandtab
-      echomsg 'done!'
-    elseif has_noexpandtab == 0 && has_expandtab == 1
-      echomsg 'substitute TAB to space...'
-      set expandtab
-      echomsg 'done!'
-    else
-      " it may be a new file
-      " we use original vim setting
-    endif
-  endfunction
+        " 
+        if has_noexpandtab == 1 && has_expandtab == 0  
+            echomsg 'substitute space to TAB...'
+            set noexpandtab
+            echomsg 'done!'
+        elseif has_noexpandtab == 0 && has_expandtab == 1
+            echomsg 'substitute TAB to space...'
+            set expandtab
+            echomsg 'done!'
+        else
+            " it may be a new file
+            " we use original vim setting
+        endif
+    endfunction
 endif
 
 "/////////////////////////////////////////////////////////////////////////////
@@ -382,14 +382,14 @@ map Q gq
 
 " define the copy/paste judged by clipboard
 if &clipboard ==# "unnamed"
-  " fix the visual paste bug in vim
-  " vnoremap <silent>p :call g:()<CR>
+    " fix the visual paste bug in vim
+    " vnoremap <silent>p :call g:()<CR>
 else
-  " general copy/paste.
-  " NOTE: y,p,P could be mapped by other key-mapping
-  map <unique> <leader>y "*y
-  map <unique> <leader>p "*p
-  map <unique> <leader>P "*P
+    " general copy/paste.
+    " NOTE: y,p,P could be mapped by other key-mapping
+    map <unique> <leader>y "*y
+    map <unique> <leader>p "*p
+    map <unique> <leader>P "*P
 endif
 
 " F8:  Set Search pattern highlight on/off
@@ -425,4 +425,4 @@ noremap <unique> <Down> gj
 " even be separated by punctuation (such as "abc = def").
 nnoremap <unique> <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
 
-" vim:ts=2:sw=2:sts=2
+" vim:ts=4:sw=4:sts=4 et fdm=marker:
