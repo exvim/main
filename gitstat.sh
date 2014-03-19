@@ -1,13 +1,14 @@
 export ORIGINAL_PATH=`pwd`
 
 # for repo in "./vimfiles/bundle/"ex_*
-for repo in "./vimfiles/bundle/"*
+for repo in "./vimfiles/bundle/"$1*
 do
     echo ------------------------------------------
     echo ${repo}
     echo ------------------------------------------
     cd ${repo}
-    git status
+    # git status -s -b
+    git status -s
     cd ${ORIGINAL_PATH}
     echo 
 done
