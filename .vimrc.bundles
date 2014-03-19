@@ -122,6 +122,7 @@ let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion beha
 Bundle 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
+let g:undotree_WindowLayout = 4
 
 " tagbar: invoke by :Tagbar
 Bundle 'majutsushi/tagbar'
