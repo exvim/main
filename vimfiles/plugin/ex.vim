@@ -28,4 +28,9 @@ if !exists('g:ex_comment_lable_keyword')
 endif
 " }}}
 
+" highlight group {{{
+hi default exTransparent gui=none guifg=background term=none cterm=none ctermfg=darkgray
+hi default exCommentLable term=standout ctermfg=darkyellow ctermbg=Red gui=none guifg=lightgray guibg=red
+" }}}
+
 " vim:ts=4:sw=4:sts=4 et fdm=marker:

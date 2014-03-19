@@ -1,6 +1,8 @@
 if &background == "dark"
     " NOTE: keep visual mode words still using its own syntax color  
     hi Visual gui=NONE guifg=NONE guibg=#004b56
+    hi clear exCommentLable
+    hi link exCommentLable ErrorMsg
 
     " showmarks highlight
     " =============================
@@ -13,26 +15,28 @@ if &background == "dark"
     hi clear ShowMarksHLu
     hi default ShowMarksHLu term=bold cterm=bold ctermbg=lightred ctermfg=darkred gui=bold guibg=lightred guifg=darkred
 
-    " ex_easyhl
+    " EX_HL_label
     " =============================
 
-    hi clear ex_easyhl_cursorhl
-    hi default ex_easyhl_cursorhl gui=none guibg=darkgray term=none cterm=none ctermbg=darkgray
+    hi clear EX_HL_cursorhl
+    hi default EX_HL_cursorhl gui=none guibg=darkgray term=none cterm=none ctermbg=darkgray
 
-    hi clear ex_easyhl1
-    hi default ex_easyhl1 gui=none guibg=lightcyan term=none cterm=none ctermbg=darkcyan
+    hi clear EX_HL_label1
+    hi default EX_HL_label1 gui=none guibg=lightcyan term=none cterm=none ctermbg=darkcyan
     
-    hi clear ex_easyhl2
-    hi default ex_easyhl2 gui=none guibg=lightmagenta term=none cterm=none ctermbg=darkmagenta
+    hi clear EX_HL_label2
+    hi default EX_HL_label2 gui=none guibg=lightmagenta term=none cterm=none ctermbg=darkmagenta
 
-    hi clear ex_easyhl3
-    hi default ex_easyhl3 gui=none guibg=lightred term=none cterm=none ctermbg=darkred
+    hi clear EX_HL_label3
+    hi default EX_HL_label3 gui=none guibg=lightred term=none cterm=none ctermbg=darkred
 
-    hi clear ex_easyhl4
-    hi default ex_easyhl4 gui=none guibg=lightgreen term=none cterm=none ctermbg=darkgreen
+    hi clear EX_HL_label4
+    hi default EX_HL_label4 gui=none guibg=lightgreen term=none cterm=none ctermbg=darkgreen
 else
     " NOTE: keep visual mode words still using its own syntax color  
     " hi Visual gui=NONE guifg=NONE guibg=#93a1a1
+    hi clear exCommentLable
+    hi link exCommentLable ErrorMsg
 
     " showmarks highlight
     " =============================
@@ -45,23 +49,23 @@ else
     hi clear ShowMarksHLu
     hi default ShowMarksHLu term=bold cterm=bold ctermbg=lightred ctermfg=darkred gui=bold guibg=lightred guifg=darkred
 
-    " ex_easyhl
+    " EX_HL_label
     " =============================
 
-    hi clear ex_easyhl_cursorhl
-    hi default ex_easyhl_cursorhl gui=none guibg=White term=none cterm=none ctermbg=white 
+    hi clear EX_HL_cursorhl
+    hi default EX_HL_cursorhl gui=none guibg=White term=none cterm=none ctermbg=white 
 
-    hi clear ex_easyhl1
-    hi default ex_easyhl1 gui=none guibg=lightcyan term=none cterm=none ctermbg=lightcyan
+    hi clear EX_HL_label1
+    hi default EX_HL_label1 gui=none guibg=lightcyan term=none cterm=none ctermbg=lightcyan
 
-    hi clear ex_easyhl2
-    hi default ex_easyhl2 gui=none guibg=lightmagenta term=none cterm=none ctermbg=lightmagenta
+    hi clear EX_HL_label2
+    hi default EX_HL_label2 gui=none guibg=lightmagenta term=none cterm=none ctermbg=lightmagenta
 
-    hi clear ex_easyhl3
-    hi default ex_easyhl3 gui=none guibg=lightred term=none cterm=none ctermbg=lightred
+    hi clear EX_HL_label3
+    hi default EX_HL_label3 gui=none guibg=lightred term=none cterm=none ctermbg=lightred
 
-    hi clear ex_easyhl4
-    hi default ex_easyhl4 gui=none guibg=lightgreen term=none cterm=none ctermbg=lightgreen
+    hi clear EX_HL_label4
+    hi default EX_HL_label4 gui=none guibg=lightgreen term=none cterm=none ctermbg=lightgreen
 endif
 
 " vim:ts=4:sw=4:sts=4 et fdm=marker:
