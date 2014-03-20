@@ -25,6 +25,8 @@ Bundle 'gmarik/vundle'
 " ex-utility:
 Bundle 'exvim/ex_utility'
 nnoremap <unique> <Leader>bd :call ex#keep_window_bd(1)<CR>
+nnoremap <unique> <C-l> :EXbn<CR>
+nnoremap <unique> <C-h> :EXbp<CR>
 
 " ex-aftercolor
 Bundle 'exvim/ex_aftercolors'

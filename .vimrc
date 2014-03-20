@@ -401,9 +401,10 @@ nnoremap <unique> <S-Down> <C-W><Down>
 nnoremap <unique> <S-Left> <C-W><Left>
 nnoremap <unique> <S-Right> <C-W><Right>
 
+" TODO: hasmapto check it
 " easy buffer navigation
-noremap <unique> <C-l> :bn<CR>
-noremap <unique> <C-h> :bp<CR>
+" nnoremap <C-l> :bn<CR>
+" noremap <C-h> :bp<CR>
 
 " easy diff goto
 noremap <unique> <C-k> [c
