@@ -24,10 +24,10 @@ Bundle 'gmarik/vundle'
 
 " ex-utility:
 Bundle 'exvim/ex_utility'
-nnoremap <unique> <Leader>bd :call ex#keep_window_bd(1)<CR>
-nnoremap <unique> <C-l> :EXbn<CR>
-nnoremap <unique> <C-h> :EXbp<CR>
-nnoremap <unique> <C-Tab> :call ex#buffer#swap_to_last_edit_buffer()<CR>
+nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
+nnoremap <unique> <silent> <C-l> :EXbn<CR>
+nnoremap <unique> <silent> <C-h> :EXbp<CR>
+nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 
 " ex-aftercolor
 Bundle 'exvim/ex_aftercolors'
