@@ -295,42 +295,47 @@ set grepformat=%f:%l:%m
 
 if has("autocmd")
 
-    " ------------------------------------------------------------------ 
-    " Desc: Buffer
-    " ------------------------------------------------------------------ 
+    augroup ex
+        au!
 
-    " when editing a file, always jump to the last known cursor position.
-    " don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    au BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe "normal g`\"" |
-                \ endif
-    au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
-    au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
-    au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
+        " ------------------------------------------------------------------ 
+        " Desc: Buffer
+        " ------------------------------------------------------------------ 
 
-    " DISABLE { 
-    " NOTE: will have problem with exvim, because exvim use exES_CWD as working directory for tag and other thing
-    " Change current directory to the file of the buffer ( from Script#65"CD.vim"
-    " au   BufEnter *   execute ":lcd " . expand("%:p:h") 
-    " } DISABLE end 
+        " when editing a file, always jump to the last known cursor position.
+        " don't do it when the position is invalid or when inside an event handler
+        " (happens when dropping a file on gvim).
+        au BufReadPost *
+                    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                    \   exe "normal g`\"" |
+                    \ endif
+        au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
+        au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
+        au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
 
-    " ------------------------------------------------------------------ 
-    " Desc: file types 
-    " ------------------------------------------------------------------ 
+        " DISABLE { 
+        " NOTE: will have problem with exvim, because exvim use exES_CWD as working directory for tag and other thing
+        " Change current directory to the file of the buffer ( from Script#65"CD.vim"
+        " au   BufEnter *   execute ":lcd " . expand("%:p:h") 
+        " } DISABLE end 
 
-    au FileType text setlocal textwidth=78 " for all text files set 'textwidth' to 78 characters.
-    au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
+        " ------------------------------------------------------------------ 
+        " Desc: file types 
+        " ------------------------------------------------------------------ 
 
-    " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
-    au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:// 
-    au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f:// 
-    au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
-    au FileType lua set comments=f:--
+        au FileType text setlocal textwidth=78 " for all text files set 'textwidth' to 78 characters.
+        au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
-    " if edit python scripts, check if have \t. ( python said: the programme can only use \t or not, but can't use them together )
-    au FileType python call s:check_if_expand_tab()
+        " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
+        au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:// 
+        au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f:// 
+        au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
+        au FileType lua set comments=f:--
+
+        " if edit python scripts, check if have \t. ( python said: the programme can only use \t or not, but can't use them together )
+        au FileType python call s:check_if_expand_tab()
+    augroup END
+
     function! s:check_if_expand_tab()
         let has_noexpandtab = search('^\t','wn')
         let has_expandtab = search('^    ','wn')

@@ -28,6 +28,7 @@ nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
 nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
 nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
+nnoremap <unique> <silent> <Leader><Tab> :EXwp<CR>
 
 " ex-aftercolor
 Bundle 'exvim/ex_aftercolors'
@@ -90,8 +91,17 @@ xmap s <Plug>VSurround
 " nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
 nnoremap <unique> <leader>fc :NERDTreeFind<CR>
-let g:NERDTreeWinSize=30
-let g:NERDTreeMouseMode=1
+let g:NERDTreeWinSize = 30
+let g:NERDTreeMouseMode = 1
+let g:NERDTreeMapToggleZoom = '<Space>' 
+" let g:NERDTreeIgnore=['.git$[[dir]]', '.o$[[file]]']
+if has("gui_running") "  the <alt> key is only available in gui mode.
+    if has ("mac")
+        nmap <unique> Ø :NERDTreeFind<CR>:redraw<CR>/
+    else
+        nmap <unique> <M-O> :NERDTreeFind<CR>:redraw<CR>/
+    endif
+endif
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 Bundle 'scrooloose/nerdcommenter'
