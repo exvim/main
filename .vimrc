@@ -401,10 +401,14 @@ nnoremap <unique> <S-Down> <C-W><Down>
 nnoremap <unique> <S-Left> <C-W><Left>
 nnoremap <unique> <S-Right> <C-W><Right>
 
-" TODO: hasmapto check it
 " easy buffer navigation
-" nnoremap <C-l> :bn<CR>
-" noremap <C-h> :bp<CR>
+" NOTE: if we already map to EXbn,EXbp. skip setting this
+if !hasmapto(':EXbn<CR>')
+    nnoremap <C-l> :bn<CR>
+endif
+if !hasmapto(':EXbp<CR>')
+    noremap <C-h> :bp<CR>
+endif
 
 " easy diff goto
 noremap <unique> <C-k> [c
