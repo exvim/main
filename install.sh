@@ -1,15 +1,15 @@
 export ORIGINAL_PATH=`pwd`
 
-# install vundle
+# download and install vundle in this repository
 mkdir ./vimfiles/
 cd ./vimfiles/
 git clone https://github.com/gmarik/vundle.git vundle
 cd ${ORIGINAL_PATH}
 
-# install powerline-fonts
+# install powerline-fonts in your system
 cd ./external/powerline-fonts/DejaVuSansMono/
 cp DejaVuSansMono/DejaVu* ~/Library/Fonts/
 cd ${ORIGINAL_PATH}
 
-# applly vundle installs
-mvim +BundleInstall +qall
+# download and install bundles through Vundle in this repository
+sh mvim_dev.sh +BundleInstall +qall
