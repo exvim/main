@@ -22,6 +22,9 @@ Bundle 'gmarik/vundle'
 
 " general plugins {{{
 
+" ex-config:
+Bundle 'exvim/ex_config'
+
 " ex-utility:
 Bundle 'exvim/ex_utility'
 nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
