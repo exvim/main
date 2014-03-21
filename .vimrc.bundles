@@ -47,8 +47,8 @@ Bundle 'exvim/ex_showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
 " bugs, consider merge his code and fixes the bugs 
 let g:showmarks_enable = 1
-let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-let g:showmarks_ignore_type = "hqm" " Ignore help, quickfix, non-modifiable buffers
+let g:showmarks_include = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let g:showmarks_ignore_type = 'hqm' " Ignore help, quickfix, non-modifiable buffers
 " Hilight lower & upper marks
 let g:showmarks_hlline_lower = 1
 let g:showmarks_hlline_upper = 0 
@@ -70,6 +70,9 @@ Bundle 'exvim/ex_colorschemes'
 
 " vim-color-solarized
 Bundle 'altercation/vim-colors-solarized'
+if !has('gui_running')
+    let g:solarized_termcolors = 256
+endif
 
 " vim-airline
 Bundle 'bling/vim-airline'
@@ -98,8 +101,8 @@ let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>' 
 " let g:NERDTreeIgnore=['.git$[[dir]]', '.o$[[file]]']
-if has("gui_running") "  the <alt> key is only available in gui mode.
-    if has ("mac")
+if has('gui_running') "  the <alt> key is only available in gui mode.
+    if has ('mac')
         nmap <unique> Ø :NERDTreeFind<CR>:redraw<CR>/
     else
         nmap <unique> <M-O> :NERDTreeFind<CR>:redraw<CR>/
@@ -126,8 +129,8 @@ let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
 " let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
-" inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-" inoremap <expr><S-TAB>  pumvisible() ? "\<Up>" : ""
+" inoremap <expr><TAB>  pumvisible() ? '\<Down>' : '\<C-x>\<C-u>'
+" inoremap <expr><S-TAB>  pumvisible() ? '\<Up>' : ''
 
 " TODO: choose a snippet plugin
 " Bundle 'Shougo/neosnippet.vim'
@@ -151,9 +154,9 @@ function! g:tabular(ignore_range) range
     let c = getchar()
     let c = nr2char(c)
     if a:ignore_range == 0
-        exec printf("%d,%dTabularize /%s", a:firstline, a:lastline, c)
+        exec printf('%d,%dTabularize /%s', a:firstline, a:lastline, c)
     else
-        exec printf("Tabularize /%s", c)
+        exec printf('Tabularize /%s', c)
     endif
 endfunction
 

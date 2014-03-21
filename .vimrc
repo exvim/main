@@ -32,11 +32,11 @@ set langmenu=none
 
 " always use english for anaything in vim-editor. 
 if WINDOWS()
-    silent exec "language english" 
+    silent exec 'language english'
 
     " Be nice and check for multi_byte even if the config requires
     " multi_byte support most of the time
-    if has("multi_byte")
+    if has('multi_byte')
         " Windows cmd.exe still uses cp850. If Windows ever moved to
         " Powershell as the primary terminal, this would be utf-8
         set termencoding=cp850
@@ -51,7 +51,7 @@ if WINDOWS()
     endif
 
 elseif OSX()
-    silent exec "language en_US" 
+    silent exec 'language en_US' 
 
     " set default encoding to utf-8
     set encoding=utf-8
@@ -59,10 +59,10 @@ elseif OSX()
 
 else
     " in mac-terminal
-    silent exec "language en_US"
+    silent exec 'language en_US'
 
     " in linux-terminal
-    " silent exec "language en_US.utf8" 
+    " silent exec 'language en_US.utf8' 
 
     " set default encoding to utf-8
     set encoding=utf-8
@@ -129,7 +129,7 @@ set maxmempattern=1000 " enlarge maxmempattern from 1000 to ... (2000000 will gi
 "/////////////////////////////////////////////////////////////////////////////
 
 behave xterm  " set mouse behavior as xterm
-if &term =~ "xterm"
+if &term =~ 'xterm'
     set mouse=a
 endif
 
@@ -152,34 +152,34 @@ if v:version >= 703
 endif
 
 " set default guifont
-if has("gui_running")
+if has('gui_running')
     " check and determine the gui font after GUIEnter. 
     " NOTE: getfontname function only works after GUIEnter.  
     au GUIEnter * call s:set_gui_font()
 
     " set guifont
     function! s:set_gui_font()
-        if has("gui_gtk2")
+        if has('gui_gtk2')
             set guifont=Luxi\ Mono\ 13
-        elseif has("x11")
+        elseif has('x11')
             " Also for GTK 1
             set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
         elseif OSX()
-            if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
+            if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
-            elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
+            elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono:h13
-            elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
+            elseif getfontname( 'Bitstream_Vera_Sans_Mono' ) != ''
                 set guifont=Bitstream\ Vera\ Sans\ Mono:h13
             endif
         elseif WINDOWS()
-            if getfontname( "DejaVu\ Sans\ Mono\ for\ Powerline" ) != ""
+            if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
-            elseif getfontname( "DejaVu\ Sans\ Mono" ) != ""
+            elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono:h13
-            elseif getfontname( "Bitstream_Vera_Sans_Mono" ) != ""
+            elseif getfontname( 'Bitstream_Vera_Sans_Mono' ) != ''
                 set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
-            elseif getfontname( "Consolas" ) != ""
+            elseif getfontname( 'Consolas' ) != ''
                 set guifont=Consolas:h12:cANSI " this is the default visual studio font
             else
                 set guifont=Lucida_Console:h12:cANSI
@@ -203,12 +203,12 @@ set display+=lastline " for easy browse last line with wrap text
 set laststatus=2 " always have status-line
 
 " set window size (if it's GUI)
-if has("gui_running")
+if has('gui_running')
     " set window's width to 130 columns and height to 40 rows
-    if exists("+lines")
+    if exists('+lines')
         set lines=40
     endif
-    if exists("+columns")
+    if exists('+columns')
         set columns=130
     endif
 
@@ -293,7 +293,7 @@ set grepformat=%f:%l:%m
 " Desc: Only do this part when compiled with support for autocommands.
 " ------------------------------------------------------------------ 
 
-if has("autocmd")
+if has('autocmd')
 
     augroup ex
         au!
@@ -342,7 +342,7 @@ if has("autocmd")
 
         "
         if has_noexpandtab && has_expandtab
-            let idx = inputlist ( ["ERROR: current file exists both expand and noexpand TAB, python can only use one of these two mode in one file.\nSelect Tab Expand Type:",
+            let idx = inputlist ( ['ERROR: current file exists both expand and noexpand TAB, python can only use one of these two mode in one file.\nSelect Tab Expand Type:',
                         \ '1. expand (tab=space, recommended)', 
                         \ '2. noexpand (tab=\t, currently have risk)',
                         \ '3. do nothing (I will handle it by myself)'])
@@ -386,7 +386,7 @@ endif
 map Q gq  
 
 " define the copy/paste judged by clipboard
-if &clipboard ==# "unnamed"
+if &clipboard ==# 'unnamed'
     " fix the visual paste bug in vim
     " vnoremap <silent>p :call g:()<CR>
 else
