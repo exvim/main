@@ -69,7 +69,7 @@ Here is the standards we pick, patches and develop for a vim-plugin:
 - Highly active community
 - Can be installed with a variety of plugin managers, Vundle or pathogen. (Repo in GitHub, standard runtime path structure)
 
-## Repositories in exVim organization 
+## Repositories in exVim Organization 
 
 This is the main entry point for exVim project. This repo contains the essential `.vimrc` configuration
 for running exVim.  Other ex-vim-plugins can be found in exVim organization. They are installed by 
@@ -79,6 +79,7 @@ some useful shell scripts for developing exVim.
 ## Requirements
 
 - Vim 7.3 or higher.
+- [Vundle](https://github.com/gmarik/vundle) or [Pathogen](https://github.com/tpope/vim-pathogen)
 
 ## Installation
 
