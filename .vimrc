@@ -75,7 +75,11 @@ scriptencoding utf-8
 "/////////////////////////////////////////////////////////////////////////////
 
 filetype off " required
-set background=dark
+if has('gui_running')
+    set background=dark
+else
+    set background=light
+endif
 
 " load .vimrc.bundles
 let vimrc_bundle_path = '~/.vimrc.bundles'
