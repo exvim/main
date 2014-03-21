@@ -2,10 +2,9 @@
 
 The main entry point for exVim project.
 
-The repository contains the .vimrc file which will config your Vim to exVim by the 
-help of Vundle. 
-
-It also contains the external files that used in exVim project.
+exVim is a project to make Vim working like a IDE environment in pure Vim scripts.
+The project aims to use as less as possible of external tools to make Vim a great 
+programming environment. 
 
 ## Requirements
 
@@ -13,9 +12,14 @@ It also contains the external files that used in exVim project.
 
 ## Installation
 
-**NOTE:** Don't worry about exVim will overwrite your current Vim environment, this
-repository can running in its own environment which means you can preview, try and 
-test exVim without break your current Vim settings.
+**NOTE:** 
+
+exVim install **WILL NOT** overwrite your current Vim environment, this repository 
+extract files, changes and running only in its repository directory. 
+
+By the shell script `mvim_dev.sh` it provides, it will run Vim in its own environment 
+without break your current Vim settings. This means you can preview, try and test exVim 
+and decide later for replace or integrate with your current Vim. 
 
 ### Install in Mac OSX
 
@@ -46,12 +50,13 @@ Vim environment, just do:
     cp .vimrc.bundles ~/.vimrc.bundles # the bundle settings for exVim, change it if you need
     cp -r vimfiles/ ~/.vim/            # replace your old bundles
 
-### Install in other platform 
+### Install in Linux
 
 Linux shell script coming soon!
-
 Usually you can follow the install in Mac OSX.
 
-Windows test coming soon!
+### Install in Windows
 
+Windows test coming soon!
 I still not test exVim in Windows yet, will do it later.
+Usually you can follow the install in Mac OSX.
