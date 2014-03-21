@@ -41,6 +41,14 @@ Bundle 'exvim/ex_vimentry'
 
 " ex-project
 Bundle 'exvim/ex_project'
+nnoremap <unique> <leader>fc :EXProjectFind<CR>
+if has('gui_running')
+    if has ('mac')
+        nnoremap <unique> Ø :EXProjectOpen<CR>:redraw<CR>/
+    else
+        nnoremap <unique> <M-O> :EXProjectOpen<CR>:redraw<CR>/
+    endif
+endif
 
 " showmarks: invoke by m... or <leader>mm, <leader>ma
 Bundle 'exvim/ex_showmarks'
@@ -100,18 +108,20 @@ xmap s <Plug>VSurround
 
 " nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
-nnoremap <unique> <leader>fc :NERDTreeFind<CR>
+if !hasmapto(':EXProjectFind<CR>')
+    nnoremap <unique> <leader>fc :NERDTreeFind<CR>
+    if has('gui_running') "  the <alt> key is only available in gui mode.
+        if has ('mac')
+            nnoremap <unique> Ø :NERDTreeFind<CR>:redraw<CR>/
+        else
+            nnoremap <unique> <M-O> :NERDTreeFind<CR>:redraw<CR>/
+        endif
+    endif
+endif
+
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>' 
-" let g:NERDTreeIgnore=['.git$[[dir]]', '.o$[[file]]']
-if has('gui_running') "  the <alt> key is only available in gui mode.
-    if has ('mac')
-        nmap <unique> Ø :NERDTreeFind<CR>:redraw<CR>/
-    else
-        nmap <unique> <M-O> :NERDTreeFind<CR>:redraw<CR>/
-    endif
-endif
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 Bundle 'scrooloose/nerdcommenter'
