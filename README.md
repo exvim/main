@@ -6,6 +6,8 @@ exVim is a project to make Vim working like a IDE environment in pure Vim script
 The project aims to use as less as possible of external tools to make Vim a great 
 programming environment. 
 
+**We use exVim develop exVim! (\(-_-)/)**
+
 ## Requirements
 
 - Vim 7.3 or higher.
