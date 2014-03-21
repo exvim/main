@@ -1,8 +1,8 @@
 # Intro
 
-exVim is a project to turn Vim into a nice programming environment. exVim makes you possible apply 
-different Vim settings, plugins and plugin settings by different projects. In this way, it makes
-Vim become a better IDE!
+exVim is a project to turn Vim into a nice programming environment. This project makes you 
+possible to apply different Vim settings, plugin settings and even plugins by different projects. 
+In this way, it makes Vim become the best IDE in the world!
 
 **WHAT EVEN COOL IS --- WE USE EXVIM DEVELOP EXVIM! (\\(-_-)/)**
 
