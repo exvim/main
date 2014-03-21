@@ -1,8 +1,12 @@
 # Intro
 
-exVim is a project to turn Vim into a nice programming environment. 
+exVim is a project to turn Vim into a nice programming environment. exVim makes you possible apply 
+different Vim settings, plugins and plugin settings by different projects. In this way, it makes
+Vim become a better IDE!
 
-### What can exVim do? ###
+What even cool is: **WE USE exVim DEVELOP exVim! (\\(-_-)/)**
+
+### Features ###
 
 - Manage your project with `.exvim` setting file.
 - Update your project files by single command. (tags, cscope-db, search-index, makefile, ...)
@@ -64,8 +68,6 @@ Here is the standards we pick, patches and develop for a vim-plugin:
 - High quality of the code and good performance
 - Highly active community
 - Can be installed with a variety of plugin managers, Vundle or pathogen. (Repo in GitHub, standard runtime path structure)
-
-`(\(-_-)/)`: **WE USE exVim DEVELOP exVim!**
 
 ## Repositories in exVim organization 
 
