@@ -7,7 +7,7 @@ git clone https://github.com/gmarik/vundle.git vundle
 cd ${ORIGINAL_PATH}
 
 # install powerline-fonts in your system
-cd ./external/powerline-fonts/DejaVuSansMono/
+cd ./ext/powerline-fonts/DejaVuSansMono/
 cp DejaVuSansMono/DejaVu* ~/Library/Fonts/
 cd ${ORIGINAL_PATH}
 
