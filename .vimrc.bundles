@@ -106,6 +106,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 xmap s <Plug>VSurround
 
+Bundle 'tpope/vim-dispatch'
+
 " nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
 if !hasmapto(':EXProjectFind<CR>')
@@ -211,6 +213,14 @@ let g:indent_guides_guide_size = 1
 " vim-markdown
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_initial_foldlevel=9999
+
+"}}}
+
+" TEST {{{
+
+" " test_loading
+" echomsg "test_loading: .vimrc"
+" Bundle 'exvim/test_loading:'
 
 "}}}
 
