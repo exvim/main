@@ -23,10 +23,10 @@ Bundle 'gmarik/vundle'
 " general plugins {{{
 
 " ex-config:
-Bundle 'exvim/ex_config'
+Bundle 'exvim/ex-config'
 
 " ex-utility:
-Bundle 'exvim/ex_utility'
+Bundle 'exvim/ex-utility'
 nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
 nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
@@ -34,13 +34,13 @@ nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 nnoremap <unique> <silent> <Leader><Tab> :EXwp<CR>
 
 " ex-aftercolor
-Bundle 'exvim/ex_aftercolors'
+Bundle 'exvim/ex-aftercolors'
 
 " ex-vimentry
-Bundle 'exvim/ex_vimentry'
+Bundle 'exvim/ex-vimentry'
 
 " ex-project
-Bundle 'exvim/ex_project'
+Bundle 'exvim/ex-project'
 nnoremap <unique> <leader>fc :EXProjectFind<CR>
 if has('gui_running')
     if has ('mac')
@@ -50,8 +50,8 @@ if has('gui_running')
     endif
 endif
 
-" showmarks: invoke by m... or <leader>mm, <leader>ma
-Bundle 'exvim/ex_showmarks'
+" ex-showmarks: invoke by m... or <leader>mm, <leader>ma
+Bundle 'exvim/ex-showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
 " bugs, consider merge his code and fixes the bugs 
 let g:showmarks_enable = 1
@@ -61,20 +61,20 @@ let g:showmarks_ignore_type = 'hqm' " Ignore help, quickfix, non-modifiable buff
 let g:showmarks_hlline_lower = 1
 let g:showmarks_hlline_upper = 0 
 
-" visincr: invoke when select text and type ':II'
-Bundle 'exvim/ex_visincr'
+" ex-visincr: invoke when select text and type ':II'
+Bundle 'exvim/ex-visincr'
 
-" matchit: invoke by %
-Bundle 'exvim/ex_matchit'
+" ex-matchit: invoke by %
+Bundle 'exvim/ex-matchit'
 
 " ex-easyhl:
-Bundle 'exvim/ex_easyhl'
+Bundle 'exvim/ex-easyhl'
 
 " searchcompl: invoke by /
-Bundle 'exvim/ex_searchcompl'
+Bundle 'exvim/ex-searchcompl'
 
 " ex-colorschemes
-Bundle 'exvim/ex_colorschemes'
+Bundle 'exvim/ex-colorschemes'
 
 " vim-color-solarized
 Bundle 'altercation/vim-colors-solarized'
@@ -189,8 +189,8 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 " c-lang {{{
 
-" cref: invoke by <leader>cr
-Bundle 'exvim/ex_cref'
+" ex-cref: invoke by <leader>cr
+Bundle 'exvim/ex-cref'
 
 " this is modified for default c syntax highlight settings 
 " make it don't highlight error pattern
@@ -218,9 +218,9 @@ let g:vim_markdown_initial_foldlevel=9999
 
 " TEST {{{
 
-" " test_loading
-" echomsg "test_loading: .vimrc"
-" Bundle 'exvim/test_loading:'
+" " test-loading
+" echomsg "test-loading: .vimrc"
+" Bundle 'exvim/test-loading'
 
 "}}}
 
