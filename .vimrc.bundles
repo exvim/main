@@ -93,6 +93,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
+" let g:airline_section_c = '%t'
+let g:airline_section_warning = airline#section#create(['syntastic'])
 
 " ctrlp: invoke by <ctrl-p>
 Bundle 'kien/ctrlp.vim'
