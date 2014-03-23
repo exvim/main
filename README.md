@@ -123,11 +123,47 @@ Vim environment, just do:
 
 ### Install in Linux
 
-Linux shell script coming soon!
-Usually you can follow the install in Mac OSX.
+The Linux install is similar to Mac OSX, you can follow the step above to make exVim running on
+Linux/Unix system.
+
+Only one little different is, instead of running the preview environment by `mvim_dev.sh`, use
+`gvim_dev.sh`:
+
+    sh gvim_dev.sh my_project.exvim 
 
 ### Install in Windows
 
-Windows test coming soon!
-I still not test exVim in Windows yet, will do it later.
-Usually you can follow the install in Mac OSX.
+1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
+Extract it on `C:\exVim` for example. 
+
+2. Enter exVim folder and create a directory named `vimfiles`.
+
+3. Follow the Vundle install instruction [Vundle for Windows](https://github.com/gmarik/Vundle.vim/wiki/Vundle-for-Windows)
+to install Vundle on Windows.
+
+4. Open Command Window and run:
+
+```
+C:\exVim>gvim_dev.bat +BundleInstall +qall
+```
+
+5. Wait for finish 
+
+After you running the script, the `C:\exVim` directory becomes a development environment
+for exVim. Preview exVim by:
+
+```
+C:\exVim>gvim_dev.bat my_project.exvim
+```
+
+If you like it and want to replace it with your current Vim environment, copy the files
+below to your 
+
+```
+C:\exVim>cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
+C:\exVim>cp .vimrc.bundles ~/.vimrc.bundles # the bundle settings for exVim, change it if you need
+C:\exVim>cp -r vimfiles/ ~/.vim/            # replace your old bundles
+```
+
+**NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search
+~/.vim folder instead of ~/vimfiles
