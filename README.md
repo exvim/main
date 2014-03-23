@@ -143,27 +143,27 @@ to install Vundle on Windows.
 
 4. Open Command Window and run:
 
-```
-C:\exVim>gvim_dev.bat +BundleInstall +qall
-```
+    ```
+    C:\exVim>gvim_dev.bat +BundleInstall +qall
+    ```
 
 5. Wait for finish 
 
-After you running the script, the `C:\exVim` directory becomes a development environment
-for exVim. Preview exVim by:
+    After you running the script, the `C:\exVim` directory becomes a development environment for exVim. 
+    Preview exVim by:
 
-```
-C:\exVim>gvim_dev.bat my_project.exvim
-```
+    ```
+    C:\exVim>gvim_dev.bat my_project.exvim
+    ```
 
-If you like it and want to replace it with your current Vim environment, copy the files
-below to your 
+    If you like it and want to replace it with your current Vim environment, copy the files
+    below to your 
 
-```
-C:\exVim>cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
-C:\exVim>cp .vimrc.bundles ~/.vimrc.bundles # the bundle settings for exVim, change it if you need
-C:\exVim>cp -r vimfiles/ ~/.vim/            # replace your old bundles
-```
+    ```
+    C:\exVim>cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
+    C:\exVim>cp .vimrc.bundles ~/.vimrc.bundles # the bundle settings for exVim, change it if you need
+    C:\exVim>cp -r vimfiles/ ~/.vim/            # replace your old bundles
+    ```
 
-**NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search
+    **NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search
 ~/.vim folder instead of ~/vimfiles
