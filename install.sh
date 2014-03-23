@@ -12,4 +12,4 @@ cp DejaVuSansMono/DejaVu* ~/Library/Fonts/
 cd ${ORIGINAL_PATH}
 
 # download and install bundles through Vundle in this repository
-sh mvim_dev.sh +BundleInstall +qall
+mvim -u .vimrc --cmd "let g:exvim_dev=1" --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +BundleInstall +qall
