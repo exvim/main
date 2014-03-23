@@ -109,7 +109,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 xmap s <Plug>VSurround
 
-Bundle 'tpope/vim-dispatch'
+" Bundle 'tpope/vim-dispatch'
 
 " nerdtree: invoke by :NERDTreeToggle
 Bundle 'scrooloose/nerdtree'
@@ -148,7 +148,8 @@ let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
 " let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
-" inoremap <expr><TAB>  pumvisible() ? '\<Down>' : '\<C-x>\<C-u>'
+" inoremap <C-p> <C-x><C-u>
+" inoremap <expr><TAB>  pumvisible() ? '\<Down>' : '<TAB>'
 " inoremap <expr><S-TAB>  pumvisible() ? '\<Up>' : ''
 
 " TODO: choose a snippet plugin
