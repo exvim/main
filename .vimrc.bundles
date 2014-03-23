@@ -50,6 +50,10 @@ if has('gui_running')
     endif
 endif
 
+" ex-gsearch
+Bundle 'exvim/ex-gsearch'
+nnoremap <unique> <leader>gs :EXGSearchToggle<CR>
+
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
 Bundle 'exvim/ex-showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
