@@ -221,13 +221,28 @@ let c_no_bracket_error = 1
 
 " web {{{
 
-" TODO: Bundle 'skammer/vim-css-color'
-" TODO: Bundle 'sindresorhus/focus'
-" TODO: Bundle 'mattn/emmet-vim'
+" emmet-vim
+Bundle 'mattn/emmet-vim'
+" make sure emmet only enable in html,css files
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " vim-indent-guides: invoke by <leader>ig
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_guide_size = 1
+
+" vim-javascript
+Bundle 'pangloss/vim-javascript'
+
+" vim-coffee-script
+Bundle 'kchmck/vim-coffee-script'
+
+" NOTE: Slow to open big css file
+" vim-css-color
+" Bundle 'skammer/vim-css-color'
+
+" vim-less
+Bundle 'groenewege/vim-less'
 
 " vim-markdown
 Bundle 'plasticboy/vim-markdown'
