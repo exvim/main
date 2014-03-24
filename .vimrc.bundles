@@ -156,16 +156,37 @@ map <unique> <C-F11> <Plug>NERDCommenterUncomment
 " syntastic: invoke when you save file and have syntac-checker
 Bundle 'scrooloose/syntastic'
 
-" neocomplcache: invoke when you insert words
-Bundle 'Shougo/neocomplcache.vim'
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_auto_completion_start_length = 2
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
-" let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
-" inoremap <C-p> <C-x><C-u>
-" inoremap <expr><TAB>  pumvisible() ? '\<Down>' : '<TAB>'
-" inoremap <expr><S-TAB>  pumvisible() ? '\<Up>' : ''
+" vim-autocomplpop
+Bundle 'vim-autocomplpop'
+
+" DISABLE
+" " neocomplcache: invoke when you insert words
+" Bundle 'Shougo/neocomplcache.vim'
+" let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_auto_completion_start_length = 2
+" let g:neocomplcache_enable_smart_case = 1
+" let g:neocomplcache_enable_auto_select = 1 " let neocomplcache's completion behavior like AutoComplPop
+" " let g:neocomplcache_disable_auto_complete = 1 " Enable this if you like TAB for complete
+" " inoremap <C-p> <C-x><C-u>
+" " inoremap <expr><TAB>  pumvisible() ? '\<Down>' : '<TAB>'
+" " inoremap <expr><S-TAB>  pumvisible() ? '\<Up>' : ''
+
+" DISABLE
+" " neocomplete: invoke when you insert words
+" Bundle 'Shougo/neocomplete.vim'
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#enable_auto_select = 1 " let neocomplete's completion behavior like AutoComplPop
+" " Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" DISABLE
+" " YouCompleteMe
+" Bundle 'Valloric/YouCompleteMe'
 
 " TODO: choose a snippet plugin
 " Bundle 'Shougo/neosnippet.vim'
@@ -237,7 +258,7 @@ Bundle 'pangloss/vim-javascript'
 " vim-coffee-script
 Bundle 'kchmck/vim-coffee-script'
 
-" NOTE: Slow to open big css file
+" DISABLE: Slow to open big css file
 " vim-css-color
 " Bundle 'skammer/vim-css-color'
 

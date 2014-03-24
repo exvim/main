@@ -6,6 +6,9 @@ cd ./vimfiles/
 git clone https://github.com/gmarik/vundle.git vundle
 cd ${ORIGINAL_PATH}
 
+# install vim-autocomplpop (Because this plugin is in bitbucket)
+cp -r ./ext/vim-autocomplpop ./vimfiles/
+
 # install powerline-fonts in your system
 cd ./ext/powerline-fonts/DejaVuSansMono/
 cp DejaVuSansMono/DejaVu* ~/Library/Fonts/
