@@ -54,6 +54,10 @@ endif
 Bundle 'exvim/ex-gsearch'
 nnoremap <unique> <leader>gs :EXGSearchToggle<CR>
 
+" " ex-tagselect
+" TODO: Bundle 'exvim/ex-tagselect'
+nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
+
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
 Bundle 'exvim/ex-showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
