@@ -53,6 +53,8 @@ endif
 " ex-gsearch
 Bundle 'exvim/ex-gsearch'
 nnoremap <unique> <leader>gs :EXGSearchToggle<CR>
+nnoremap <unique> <leader>gg :EXGSearchCWord<CR>
+nnoremap <unique> <Leader><S-f> :GS 
 
 " " ex-tagselect
 " TODO: Bundle 'exvim/ex-tagselect'
