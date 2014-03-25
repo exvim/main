@@ -1,3 +1,4 @@
+@echo off
 REM  set cwd="."
 set cwd=%~pd0
 gvim ^
@@ -5,3 +6,4 @@ gvim ^
     --cmd "let g:exvim_dev=1" ^
     --cmd "set runtimepath=%cwd%/vimfiles,$VIMRUNTIME,%cwd%/vimfiles/after" ^
     %1
+@echo on

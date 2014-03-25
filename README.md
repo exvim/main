@@ -144,7 +144,7 @@ to install Vundle on Windows.
 4. Open Command Window and run:
 
     ```
-    C:\exVim>gvim_dev.bat +BundleInstall +qall
+    C:\exVim>cmd /c gvim_dev.bat +BundleInstall +qall
     ```
 
 5. Wait for finish 
@@ -153,7 +153,7 @@ to install Vundle on Windows.
     Preview exVim by:
 
     ```
-    C:\exVim>gvim_dev.bat my_project.exvim
+    C:\exVim>cmd /c gvim_dev.bat my_project.exvim
     ```
 
     If you like it and want to replace it with your current Vim environment, copy the files
