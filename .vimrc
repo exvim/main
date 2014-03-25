@@ -343,7 +343,7 @@ if has('autocmd')
         au FileType lua set comments=f:--
 
         " if edit python scripts, check if have \t. ( python said: the programme can only use \t or not, but can't use them together )
-        au FileType python call s:check_if_expand_tab()
+        au FileType python,coffee call s:check_if_expand_tab()
     augroup END
 
     function! s:check_if_expand_tab()
