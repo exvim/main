@@ -21,17 +21,17 @@ else
 endif
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "}}}
 
 " general plugins {{{
 
 " ex-config:
-Bundle 'exvim/ex-config'
+Plugin 'exvim/ex-config'
 
 " ex-utility:
-Bundle 'exvim/ex-utility'
+Plugin 'exvim/ex-utility'
 nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
 nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
@@ -39,13 +39,13 @@ nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 nnoremap <unique> <silent> <Leader><Tab> :EXwp<CR>
 
 " ex-aftercolor
-Bundle 'exvim/ex-aftercolors'
+Plugin 'exvim/ex-aftercolors'
 
 " ex-vimentry
-Bundle 'exvim/ex-vimentry'
+Plugin 'exvim/ex-vimentry'
 
 " ex-project
-Bundle 'exvim/ex-project'
+Plugin 'exvim/ex-project'
 nnoremap <unique> <leader>fc :EXProjectFind<CR>
 if has('gui_running')
     if has ('mac')
@@ -56,17 +56,20 @@ if has('gui_running')
 endif
 
 " ex-gsearch
-Bundle 'exvim/ex-gsearch'
+Plugin 'exvim/ex-gsearch'
 nnoremap <unique> <leader>gs :EXGSearchToggle<CR>
 nnoremap <unique> <leader>gg :EXGSearchCWord<CR>
 nnoremap <unique> <Leader><S-f> :GS 
 
 " " ex-tagselect
-" TODO: Bundle 'exvim/ex-tagselect'
+" TODO: Plugin 'exvim/ex-tagselect'
 nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
+" ex-autocomplpop: invoke when you input text
+Plugin 'exvim/ex-autocomplpop'
+
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
-Bundle 'exvim/ex-showmarks'
+Plugin 'exvim/ex-showmarks'
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
 " bugs, consider merge his code and fixes the bugs 
 let g:showmarks_enable = 1
@@ -77,28 +80,28 @@ let g:showmarks_hlline_lower = 1
 let g:showmarks_hlline_upper = 0 
 
 " ex-visincr: invoke when select text and type ':II'
-Bundle 'exvim/ex-visincr'
+Plugin 'exvim/ex-visincr'
 
 " ex-matchit: invoke by %
-Bundle 'exvim/ex-matchit'
+Plugin 'exvim/ex-matchit'
 
 " ex-easyhl:
-Bundle 'exvim/ex-easyhl'
+Plugin 'exvim/ex-easyhl'
 
 " searchcompl: invoke by /
-Bundle 'exvim/ex-searchcompl'
+Plugin 'exvim/ex-searchcompl'
 
 " ex-colorschemes
-Bundle 'exvim/ex-colorschemes'
+Plugin 'exvim/ex-colorschemes'
 
 " vim-color-solarized
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 if !has('gui_running')
     let g:solarized_termcolors = 256
 endif
 
 " vim-airline
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 if has('gui_running')
     let g:airline_powerline_fonts = 1
 else
@@ -113,21 +116,21 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_section_warning = airline#section#create(['syntastic'])
 
 " ctrlp: invoke by <ctrl-p>
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 
 " vim-fugitive: invoke most by :Gdiff
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " vim-surround: invoke when you select words and press 's'
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 xmap s <Plug>VSurround
 
-" Bundle 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-dispatch'
 
 " nerdtree: invoke by :NERDTreeToggle
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 if !hasmapto(':EXProjectFind<CR>')
     nnoremap <unique> <leader>fc :NERDTreeFind<CR>
     if has('gui_running') "  the <alt> key is only available in gui mode.
@@ -144,7 +147,7 @@ let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>' 
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDCustomDelimiters = {
@@ -154,14 +157,11 @@ map <unique> <F11> <Plug>NERDCommenterAlignBoth
 map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
 " syntastic: invoke when you save file and have syntac-checker
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
-" vim-autocomplpop
-Bundle 'vim-autocomplpop'
-
-" DISABLE
+" DISABLE: use ex-autocomplpop instead
 " " neocomplcache: invoke when you insert words
-" Bundle 'Shougo/neocomplcache.vim'
+" Plugin 'Shougo/neocomplcache.vim'
 " let g:neocomplcache_enable_at_startup = 1
 " let g:neocomplcache_auto_completion_start_length = 2
 " let g:neocomplcache_enable_smart_case = 1
@@ -171,9 +171,9 @@ Bundle 'vim-autocomplpop'
 " " inoremap <expr><TAB>  pumvisible() ? '\<Down>' : '<TAB>'
 " " inoremap <expr><S-TAB>  pumvisible() ? '\<Up>' : ''
 
-" DISABLE
+" DISABLE: use ex-autocomplpop instead
 " " neocomplete: invoke when you insert words
-" Bundle 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/neocomplete.vim'
 " let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_smart_case = 1
 " let g:neocomplete#enable_auto_select = 1 " let neocomplete's completion behavior like AutoComplPop
@@ -184,26 +184,26 @@ Bundle 'vim-autocomplpop'
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" DISABLE
+" DISABLE: use ex-autocomplpop instead
 " " YouCompleteMe
-" Bundle 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " TODO: choose a snippet plugin
-" Bundle 'Shougo/neosnippet.vim'
-" Bundle 'msanders/snipmate.vim'
-" Bundle 'spf13/snipmate-snippets'
+" Plugin 'Shougo/neosnippet.vim'
+" Plugin 'msanders/snipmate.vim'
+" Plugin 'spf13/snipmate-snippets'
 
 " undotree: invoke by <Leader>u
-Bundle 'mbbill/undotree'
+Plugin 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout = 4
 
 " tagbar: invoke by :Tagbar
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 
 " tabular: invoke by <leader>= alignment-character
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 nnoremap <silent> <leader>= :call g:tabular(1)<CR>
 xnoremap <silent> <leader>= :call g:tabular(0)<CR>
 function! g:tabular(ignore_range) range
@@ -217,7 +217,7 @@ function! g:tabular(ignore_range) range
 endfunction
 
 " vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/ 
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 map <leader><leader>/ <Plug>(easymotion-sn)
 omap <leader><leader>/ <Plug>(easymotion-tn)
 map <leader><leader>j <Plug>(easymotion-j)
@@ -230,7 +230,7 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " c-lang {{{
 
 " ex-cref: invoke by <leader>cr
-Bundle 'exvim/ex-cref'
+Plugin 'exvim/ex-cref'
 
 " this is modified for default c syntax highlight settings 
 " make it don't highlight error pattern
@@ -243,30 +243,30 @@ let c_no_bracket_error = 1
 " web {{{
 
 " emmet-vim
-Bundle 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 " make sure emmet only enable in html,css files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " vim-indent-guides: invoke by <leader>ig
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_guide_size = 1
 
 " vim-javascript
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
 " vim-coffee-script
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 
 " DISABLE: Slow to open big css file
 " vim-css-color
-" Bundle 'skammer/vim-css-color'
+" Plugin 'skammer/vim-css-color'
 
 " vim-less
-Bundle 'groenewege/vim-less'
+Plugin 'groenewege/vim-less'
 
 " vim-markdown
-Bundle 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_initial_foldlevel=9999
 
 "}}}
@@ -275,7 +275,7 @@ let g:vim_markdown_initial_foldlevel=9999
 
 " " test-loading
 " echomsg "test-loading: .vimrc"
-" Bundle 'exvim/test-loading'
+" Plugin 'exvim/test-loading'
 
 "}}}
 
