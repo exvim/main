@@ -169,7 +169,7 @@ Extract it on `C:\exVim` for example.
 
 ## Known Issues
 
-**1. Loose window when use `:q` close buffer in edit window**
+1. Loose window when use `:q` close buffer in edit window
 
     When you use `:q` close a buffer in edit-window, you probably lose the window. To solve this
     problem, just don't use `:q` in edit window. Instead of that, use `<leader>bd`.
@@ -183,7 +183,7 @@ Extract it on `C:\exVim` for example.
     The solution is come from the VimTip 1119: Use Vim like an IDE. 
     But I changes a lot of to make it faster and stable with exVim's registry plugin system.
 
-**1. mkid: can't read language map**
+1. mkid: can't read language map
 
     If you use mkid and meet the following message on Windows:
 
@@ -200,7 +200,7 @@ Extract it on `C:\exVim` for example.
     ```
     then save it.
 
-**1. mkid: Can’t create ID in C:\ in Windows**
+1. mkid: Can’t create ID in C:\ in Windows
 
     If you use mkid and meet the following message on Windows:
 
