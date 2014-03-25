@@ -140,10 +140,18 @@ Only one little different is, instead of running the preview environment by `mvi
 1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
 Extract it on `C:\exVim` for example. 
 
-2. Enter exVim folder and create a directory named `vimfiles`.
+2. Enter exVim folder, then enter the `vimfiles` directory. Create a directory named 'bundle'.
+
+    ```
+    cd vimfiles
+    mkdir bundle
+    cd bundle
+    ```
 
 3. Follow the Vundle install instruction [Vundle for Windows](https://github.com/gmarik/Vundle.vim/wiki/Vundle-for-Windows)
 to install Vundle on Windows.
+
+**NOTE: You must install vundle in `exVim\vimfiles\bundle\` and named it `vundle`**
 
 4. Open Command Window and run:
 
