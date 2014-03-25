@@ -103,7 +103,7 @@ Execute the `install.sh` shell script:
     cd main/
     sh install.sh
 
-**NOTE:** The `install.sh` only update bundle in `main/` folder. 
+**NOTE:** The `install.sh` only update vim-plugins in `main/` folder. 
 It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
 
 After you running the script, the `main/` directory becomes a development environment
@@ -118,8 +118,12 @@ Vim environment, just do:
 
     cd main/                           # enter the main/ repository
     cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
-    cp .vimrc.bundles ~/.vimrc.bundles # the bundle settings for exVim, change it if you need
-    cp -r vimfiles/ ~/.vim/            # replace your old bundles
+    cp .vimrc.plugins ~/.vimrc.plugins # the plugins settings for exVim, change it if you need
+    cp -r vimfiles/ ~/.vim/            # replace your old plugins
+
+You can also replace it by running the script:
+
+    sh replace.sh
 
 ### Install in Linux
 
@@ -144,7 +148,7 @@ to install Vundle on Windows.
 4. Open Command Window and run:
 
     ```
-    C:\exVim>cmd /c gvim_dev.bat +BundleInstall +qall
+    C:\exVim>cmd /c gvim_dev.bat +PluginInstall +qall
     ```
 
 5. Wait for finish 
@@ -161,8 +165,8 @@ to install Vundle on Windows.
 
     ```
     C:\exVim>cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
-    C:\exVim>cp .vimrc.bundles ~/.vimrc.bundles # the bundle settings for exVim, change it if you need
-    C:\exVim>cp -r vimfiles/ ~/.vim/            # replace your old bundles
+    C:\exVim>cp .vimrc.plugins ~/.vimrc.plugins # the plugins settings for exVim, change it if you need
+    C:\exVim>cp -r vimfiles/ ~/.vim/            # replace your old plugins
     ```
 
     **NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search

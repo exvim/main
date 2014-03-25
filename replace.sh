@@ -1,4 +1,4 @@
 cp .vimrc ~/.vimrc
-cp .vimrc.bundles ~/.vimrc.bundles
+cp .vimrc.plugins ~/.vimrc.plugins
 rm -rf ~/.vim
 cp -r vimfiles ~/.vim

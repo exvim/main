@@ -81,13 +81,18 @@ else
     set background=light
 endif
 
-" load .vimrc.bundles
-let vimrc_bundle_path = '~/.vimrc.bundles'
+" load .vimrc.plugins and .vimrc.plugins.local
+let vimrc_plugins_path = '~/.vimrc.plugins'
+let vimrc_plugins_local_path = '~/.vimrc.plugins.local'
 if exists('g:exvim_dev')
-    let vimrc_bundle_path = './.vimrc.bundles'
+    let vimrc_plugins_path = './.vimrc.plugins'
+    let vimrc_plugins_local_path = './.vimrc.plugins.local'
 endif
-if filereadable(expand(vimrc_bundle_path))
-    exec 'source ' . vimrc_bundle_path
+if filereadable(expand(vimrc_plugins_path))
+    exec 'source ' . vimrc_plugins_path
+endif
+if filereadable(expand(vimrc_plugins_local_path))
+    exec 'source ' . vimrc_plugins_local_path
 endif
 
 filetype plugin indent on " required
