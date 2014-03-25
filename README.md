@@ -88,7 +88,7 @@ some useful shell scripts for developing exVim.
 exVim install **WILL NOT** overwrite your current Vim environment, this repository 
 extract files, changes and running only in its repository directory. 
 
-By the shell script `mvim_dev.sh` it provides, it will run Vim in its own environment 
+By the shell script `osx/mvim.sh` it provides, it will run Vim in its own environment 
 without break your current Vim settings. This means you can preview, try and test exVim 
 and decide later for replace or integrate with your current Vim. 
 
@@ -98,18 +98,18 @@ Clone the repository to where you want:
 
     git clone https://github.com/exvim/main
 
-Execute the `install.sh` shell script:
+Execute the `osx/install.sh` shell script:
 
     cd main/
-    sh install.sh
+    sh osx/install.sh
 
-**NOTE:** The `install.sh` only update vim-plugins in `main/` folder. 
+**NOTE:** The `osx/install.sh` only update vim-plugins in `main/` folder. 
 It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
 
 After you running the script, the `main/` directory becomes a development environment
 for exVim. Preview exVim by:
 
-    sh mvim_dev.sh my_project.exvim 
+    sh osx/mvim.sh my_project.exvim 
 
 #### Like it? Want to replace it with your current Vim? 
     
@@ -123,17 +123,26 @@ Vim environment, just do:
 
 You can also replace it by running the script:
 
-    sh replace.sh
+    sh osx/replace-my-vim.sh
 
 ### Install in Linux
 
-The Linux install is similar to Mac OSX, you can follow the step above to make exVim running on
-Linux/Unix system.
+Clone the repository to where you want: 
 
-Only one little different is, instead of running the preview environment by `mvim_dev.sh`, use
-`gvim_dev.sh`:
+    git clone https://github.com/exvim/main
 
-    sh gvim_dev.sh my_project.exvim 
+Execute the `unix/install.sh` shell script:
+
+    cd main/
+    sh unix/install.sh
+
+**NOTE:** The `unix/install.sh` only update vim-plugins in `main/` folder. 
+It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
+
+After you running the script, the `main/` directory becomes a development environment
+for exVim. Preview exVim by:
+
+    sh unix/gvim.sh my_project.exvim 
 
 ### Install in Windows
 
@@ -144,7 +153,7 @@ Extract it on `C:\exVim` for example.
 
     ```
     C:\>cd exVim
-    C:\exVim>install.bat
+    C:\exVim>windows/install.bat
     ```
 1. Wait for install finish 
 
@@ -152,7 +161,7 @@ Extract it on `C:\exVim` for example.
     Preview exVim by:
 
     ```
-    C:\exVim>cmd /c gvim_dev.bat my_project.exvim
+    C:\exVim>cmd /c windows/gvim.bat my_project.exvim
     ```
 
     If you like it and want to replace it with your current Vim environment, copy the files
