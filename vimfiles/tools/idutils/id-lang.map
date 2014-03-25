@@ -38,9 +38,11 @@
 */.svn/*		        IGNORE
 *.svn-base              IGNORE
 
+# ignore git file
+.git/*		            IGNORE
+
 # ignore vimentry files
-_vimfiles/*             IGNORE
-quick_gen_project.*     IGNORE
+.exvim.*/*              IGNORE
 
 # c/cpp header files
 *.h			    text
@@ -121,4 +123,3 @@ quick_gen_project.*     IGNORE
 *.lex			text
 *.y			    text
 *.yacc			text
-
