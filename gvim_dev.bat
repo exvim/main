@@ -1,4 +1,5 @@
-cwd=%~pd0
+REM  set cwd="."
+set cwd=%~pd0
 gvim ^
     -u %cwd%/.vimrc ^
     --cmd "let g:exvim_dev=1" ^
