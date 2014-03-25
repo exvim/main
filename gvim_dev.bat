@@ -1,5 +1,4 @@
 @echo off
-REM  set cwd="."
 set cwd=%~pd0
 gvim ^
     -u %cwd%/.vimrc ^
