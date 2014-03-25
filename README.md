@@ -148,8 +148,16 @@ to install Vundle on Windows.
 4. Open Command Window and run:
 
     ```
-    C:\exVim>cmd /c gvim_dev.bat +PluginInstall +qall
+    C:\exVim>cmd /c gvim_dev.bat
     ```
+
+    in the vim, type:
+
+    ```
+    :PluginInstall
+    ```
+
+    install all plugins.
 
 5. Wait for finish 
 
