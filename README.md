@@ -140,34 +140,13 @@ Only one little different is, instead of running the preview environment by `mvi
 1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
 Extract it on `C:\exVim` for example. 
 
-2. Enter exVim folder, then enter the `vimfiles` directory. Create a directory named 'bundle'.
+1. Enter exVim folder, run `install.bat` batch file:
 
     ```
-    cd vimfiles
-    mkdir bundle
-    cd bundle
+    C:\>cd exVim
+    C:\exVim>install.bat
     ```
-
-3. Follow the Vundle install instruction [Vundle for Windows](https://github.com/gmarik/Vundle.vim/wiki/Vundle-for-Windows)
-to install Vundle on Windows.
-
-**NOTE: You must install vundle in `exVim\vimfiles\bundle\` and named it `vundle`**
-
-4. Open Command Window and run:
-
-    ```
-    C:\exVim>cmd /c gvim_dev.bat
-    ```
-
-    in the vim, type:
-
-    ```
-    :PluginInstall
-    ```
-
-    install all plugins.
-
-5. Wait for finish 
+1. Wait for install finish 
 
     After you running the script, the `C:\exVim` directory becomes a development environment for exVim. 
     Preview exVim by:
@@ -177,7 +156,7 @@ to install Vundle on Windows.
     ```
 
     If you like it and want to replace it with your current Vim environment, copy the files
-    below to your 
+    below to your: 
 
     ```
     C:\exVim>cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
@@ -190,7 +169,7 @@ to install Vundle on Windows.
 
 ## Known Issues
 
-1. Loose window when use `:q` close buffer in edit window
+**1. Loose window when use `:q` close buffer in edit window**
 
     When you use `:q` close a buffer in edit-window, you probably lose the window. To solve this
     problem, just don't use `:q` in edit window. Instead of that, use `<leader>bd`.
@@ -204,7 +183,7 @@ to install Vundle on Windows.
     The solution is come from the VimTip 1119: Use Vim like an IDE. 
     But I changes a lot of to make it faster and stable with exVim's registry plugin system.
 
-1. mkid: can't read language map
+**1. mkid: can't read language map**
 
     If you use mkid and meet the following message on Windows:
 
@@ -221,7 +200,7 @@ to install Vundle on Windows.
     ```
     then save it.
 
-1. mkid: Can’t create ID in C:\ in Windows
+**1. mkid: Can’t create ID in C:\ in Windows**
 
     If you use mkid and meet the following message on Windows:
 
