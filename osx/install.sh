@@ -22,7 +22,7 @@ fi
 # download and install bundles through Vundle in this repository
 echo "Update vim-plugins."
 cd ${ORIGINAL_PATH}
-vim -u .vimrc --cmd "let g:exvim_dev=1" --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginInstall +qall
+vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginInstall +qall
 
 # install powerline-fonts on MacOSX
 # cd ./ext/powerline-fonts/DejaVuSansMono/

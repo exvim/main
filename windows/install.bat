@@ -17,6 +17,6 @@ if not exist .\vundle\ (git clone https://github.com/gmarik/vundle.git vundle)
 rem download and install bundles through Vundle in this repository
 echo Update vim-plugins.
 cd %ORIGINAL_PATH%
-start /B /WAIT vim -u .vimrc --cmd "let g:exvim_dev=1" --cmd "set rtp=.\vimfiles,$VIMRUNTIME,.\vimfiles\after" +PluginInstall +qall
+start /B /WAIT vim -u .vimrc.mini --cmd "set rtp=.\vimfiles,$VIMRUNTIME,.\vimfiles\after" +PluginInstall +qall
 
 rem NOTE: Windows will stop batch after other process running

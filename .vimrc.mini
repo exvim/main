@@ -1,0 +1,55 @@
+
+set nocompatible " be iMproved, required
+filetype off " required
+
+let cwd = getcwd()
+let path=cwd.'/vimfiles/bundle/'
+
+let g:ex_tools_path = cwd.'/vimfiles/tools/'
+exec 'set rtp+=' . cwd . '/vimfiles/bundle/vundle/'
+call vundle#rc(path)
+
+" =======================================================
+
+Plugin 'gmarik/vundle'
+Plugin 'exvim/ex-config'
+Plugin 'exvim/ex-utility'
+Plugin 'exvim/ex-aftercolors'
+Plugin 'exvim/ex-vimentry'
+Plugin 'exvim/ex-project'
+Plugin 'exvim/ex-gsearch'
+" TODO: Plugin 'exvim/ex-tagselect'
+Plugin 'exvim/ex-autocomplpop'
+" DISABLE: Plugin 'Shougo/neocomplcache.vim'
+" DISABLE: Plugin 'Shougo/neocomplete.vim'
+" DISABLE: Plugin 'Valloric/YouCompleteMe'
+Plugin 'exvim/ex-showmarks'
+Plugin 'exvim/ex-visincr'
+Plugin 'exvim/ex-matchit'
+Plugin 'exvim/ex-easyhl'
+Plugin 'exvim/ex-searchcompl'
+Plugin 'exvim/ex-colorschemes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+" DISABLE: Plugin 'tpope/vim-dispatch'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'mbbill/undotree'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'exvim/ex-cref'
+Plugin 'mattn/emmet-vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'plasticboy/vim-markdown'
+
+" =======================================================
+
+filetype plugin indent on " required
