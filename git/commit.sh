@@ -9,8 +9,8 @@ do
     cd ${repo}
 
     # check if we have unstaged, uncommit changes
+    git add --all .
     if ! git diff-index --quiet HEAD --; then
-        git add --all .
         git commit -m "$1"
     fi
 
