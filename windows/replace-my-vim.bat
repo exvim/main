@@ -1,9 +1,8 @@
 @echo off
-rem TODO: TESTME
 
-cp .vimrc ~/.vimrc
-cp .vimrc.plugins ~/.vimrc.plugins
-rm -rf ~/.vim
-cp -r vimfiles ~/.vim
+xcopy /Y .vimrc %HOMEPATH%\.vimrc
+xcopy /Y .vimrc.plugins %HOMEPATH%\.vimrc.plugins
+rmdir /S /Q %HOMEPATH%\.vim
+xcopy /Y /E vimfiles %HOMEPATH%\.vim\
 
 @echo on

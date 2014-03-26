@@ -1,5 +1,5 @@
 @echo off
-set ORIGINAL_PATH=%~pd0
+set ORIGINAL_PATH=%cd%
 
 echo Check and install Vundle.
 
@@ -20,3 +20,4 @@ cd %ORIGINAL_PATH%
 start /B /WAIT vim -u .vimrc.mini --cmd "set rtp=.\vimfiles,$VIMRUNTIME,.\vimfiles\after" +PluginInstall +qall
 
 rem NOTE: Windows will stop batch after other process running
+@echo on
