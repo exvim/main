@@ -158,6 +158,8 @@ map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
 " syntastic: invoke when you save file and have syntac-checker
 Plugin 'scrooloose/syntastic'
+" this will make html file by Angular.js ignore errors
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " DISABLE: use ex-autocomplpop instead
 " " neocomplcache: invoke when you insert words
