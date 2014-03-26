@@ -1,10 +1,11 @@
 @echo off
 
-set HOME=%HOMEDRIVE%%HOMEPATH%
+REM  Reference: http://www.wilsonmar.com/1envvars.htm
+set home=%USERPROFILE%
 
-xcopy /Y .vimrc %HOME%\.vimrc
-xcopy /Y .vimrc.plugins %HOME%\vimrc.plugins
-rmdir /S /Q %HOME%\.vim
-xcopy /Y /E vimfiles %HOME%\.vim\
+xcopy /Y .vimrc %home%\.vimrc
+xcopy /Y .vimrc.plugins %home%\vimrc.plugins
+rmdir /S /Q %home%\.vim
+xcopy /Y /E vimfiles %home%\.vim\
 
 @echo on
