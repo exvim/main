@@ -153,7 +153,7 @@ Extract it on `C:\exVim` for example.
 
     ```
     C:\>cd exVim
-    C:\exVim>windows/install.bat
+    C:\exVim>call windows\install.bat
     ```
 1. Wait for install finish 
 
@@ -161,16 +161,14 @@ Extract it on `C:\exVim` for example.
     Preview exVim by:
 
     ```
-    C:\exVim>cmd /c windows/gvim.bat my_project.exvim
+    C:\exVim>call windows\gvim.bat my_project.exvim
     ```
 
     If you like it and want to replace it with your current Vim environment, copy the files
     below to your: 
 
     ```
-    C:\exVim>cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
-    C:\exVim>cp .vimrc.plugins ~/.vimrc.plugins # the plugins settings for exVim, change it if you need
-    C:\exVim>cp -r vimfiles/ ~/.vim/            # replace your old plugins
+    C:\exVim>call windows\replace-my-vim.bat
     ```
 
     **NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search
