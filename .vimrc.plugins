@@ -200,6 +200,9 @@ Plugin 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout = 4
+function g:undotree_CustomMap()
+    nnoremap <silent> <script> <buffer> <ESC> :call UndotreeHide()<CR>
+endfunction
 
 " tagbar: invoke by :Tagbar
 Plugin 'majutsushi/tagbar'
