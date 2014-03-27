@@ -94,57 +94,87 @@ and decide later for replace or integrate with your current Vim.
 
 ### Install in Mac OSX
 
-Clone the repository to where you want: 
+1. Clone the repository to where you want: 
 
+    ```
     git clone https://github.com/exvim/main
+    ```
 
-Execute the `osx/install.sh` shell script:
+1. Execute the `osx/install.sh` shell script:
 
+    ```
     cd main/
     sh osx/install.sh
+    ```
 
-**NOTE:** The `osx/install.sh` only update vim-plugins in `main/` folder. 
-It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
+    **NOTE:** The `osx/install.sh` only update vim-plugins in `main/` folder. 
+    It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
 
-After you running the script, the `main/` directory becomes a development environment
-for exVim. Preview exVim by:
-
-    sh osx/mvim.sh my_project.exvim 
-
-#### Like it? Want to replace it with your current Vim? 
+    After you running the script, the `main/` directory becomes a development environment
+    for exVim. 
     
-Now you've fall in love with exVim, and you want to replace it with your current
-Vim environment, just do:
+1. Preview exVim:
 
+    ```
+    sh osx/mvim.sh my_project.exvim 
+    ```
+
+1. Replace your current Vim:
+
+    Like it? Want to replace it with your current Vim?  
+    
+    Now you've fall in love with exVim, and you want to replace it with your current
+    Vim environment, just do:
+
+    ```
     cd main/                           # enter the main/ repository
     cp .vimrc ~/.vimrc                 # you can merge your .vimrc with this
     cp .vimrc.plugins ~/.vimrc.plugins # the plugins settings for exVim, change it if you need
     cp -r vimfiles/ ~/.vim/            # replace your old plugins
+    ```
+    You can also replace it by running the script:
 
-You can also replace it by running the script:
-
+    ```
     sh osx/replace-my-vim.sh
+    ```
 
 ### Install in Linux
 
-Clone the repository to where you want: 
+1. Clone the repository to where you want: 
 
+    ```
     git clone https://github.com/exvim/main
+    ```
 
-Execute the `unix/install.sh` shell script:
+1. Execute the `unix/install.sh` shell script:
 
+    ```
     cd main/
     sh unix/install.sh
+    ```
 
-**NOTE:** The `unix/install.sh` only update vim-plugins in `main/` folder. 
-It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
+    **NOTE:** The `unix/install.sh` only update vim-plugins in `main/` folder. 
+    It **WILL NOT** overwrite your `~/.vimrc`, `~/.vim/` files, Don't worry about it.  
 
-After you running the script, the `main/` directory becomes a development environment
-for exVim. Preview exVim by:
+    After you running the script, the `main/` directory becomes a development environment
+    for exVim. 
+    
+1. Preview exVim:
 
+    ```
     sh unix/gvim.sh my_project.exvim 
+    ```
+
+1. Replace your current Vim:
+
+    ```
+    sh unix/replace-my-vim.sh
+    ```
 
 ### Install in Windows
+
+**NOTE:** If you're using msysgit, you can open the Git Bash shell and follow the Install
+in Linux above.
 
 1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
 Extract it on `C:\exVim` for example. 
