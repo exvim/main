@@ -16,14 +16,16 @@ cd ./bundle/
 
 # download or update vundle in ./vimfiles/bundle/
 if [ ! -d "./vundle/" ]; then
+    # TODO: please check if the vundle is latest version
     git clone https://github.com/gmarik/vundle.git vundle
 fi
 
 # download and install bundles through Vundle in this repository
 echo "Update vim-plugins."
 cd ${ORIGINAL_PATH}
-vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginInstall +qall
+vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginClean +PluginUpdate +qall
 
+# TODO
 # install powerline-fonts on MacOSX
 # cd ./ext/powerline-fonts/DejaVuSansMono/
 # if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Bold\ Oblique\ for\ Powerline.ttf" ]; then 
@@ -47,5 +49,5 @@ cd ${ORIGINAL_PATH}
 echo "|"
 echo "exVim installed successfully!"
 echo "|"
-echo "You can run 'sh mvim_dev.sh' to preview exVim."
-echo "You can also run 'sh replace.sh' to replace exVim with your Vim."
+echo "You can run 'sh osx/mvim.sh' to preview exVim."
+echo "You can also run 'sh osx/replace-my-vim.sh' to replace exVim with your Vim."

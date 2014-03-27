@@ -22,7 +22,7 @@ fi
 # download and install bundles through Vundle in this repository
 echo "Update vim-plugins."
 cd ${ORIGINAL_PATH}
-vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginInstall +qall
+vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginClean +PluginUpdate +qall
 
 # install powerline-fonts on MacOSX
 if [ "$(uname)" == "Darwin" ]; then
@@ -45,5 +45,5 @@ cd ${ORIGINAL_PATH}
 echo "|"
 echo "exVim installed successfully!"
 echo "|"
-echo "You can run 'sh mvim_dev.sh' to preview exVim."
-echo "You can also run 'sh replace.sh' to replace exVim with your Vim."
+echo "You can run 'sh unix/gvim.sh' to preview exVim."
+echo "You can also run 'sh unix/replace-my-vim.sh' to replace exVim with your Vim."
