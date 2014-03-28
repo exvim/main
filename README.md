@@ -1,3 +1,13 @@
+- - -
+1. [Intro](#Intro)  
+1. [Installation](#Installation)  
+  1. [Install in Mac OSX](#Install in Mac OSX)  
+  1. [Install in Linux](#Install in Linux)  
+  1. [Install in Windows](#Install in Windows)  
+1. [Introduce plugins used in exVim](wiki/Plugins)
+1. [Known Issues](wiki/KnownIssues)  
+- - -
+
 # Intro
 
 exVim is a project to turn Vim into a nice programming environment. This project makes you 
@@ -6,7 +16,21 @@ In this way, it makes Vim become the best IDE in the world!
 
 **WHAT EVEN COOL IS --- WE USE EXVIM DEVELOP EXVIM! (\\(-_-)/)**
 
-### Features ###
+## About exVim organization and its repositories
+
+The exVim is an organization in Github. The repositories under exVim are the plugins used in
+exVim project. They follow the standard vim-plugin structures so that people can install on
+demand.
+
+However, exVim still need some scripts to manage the plugins, external tools and custom scripts.
+This is the repository for doing these things. It is the main entry point for exVim project. 
+The repository contains:
+
+- An essential `.vimrc` settings for exVim.
+- Configuration files for external tools.
+- Templates for vim-plugins and external tools.
+
+## Features
 
 - Manage your project with `.exvim` setting file.
 - Update your project files by single command. (tags, cscope-db, search-index, makefile, ...)
@@ -22,7 +46,7 @@ In this way, it makes Vim become the best IDE in the world!
 - Enhanced quick-fix window.
 - Popular Vim-plugin integrated.
 
-### How does it work? ###
+## How does it work?
 
 By edit and save your project settings in `your_project_name.exvim` file and open it with Vim, the exVim plugins 
 will be loaded.  It will parse the `your_project_name..exvim` file and apply settings for your project after Vim 
@@ -53,7 +77,7 @@ This makes your project clean and much better work with external tools. These pr
 After Vim loaded `your_project_name.exvim` and start, exVim helps you update project files and you are now happy
 to use your favor plugins with these files.
 
-### How do you integrate Vim-plugins? ###
+## How do you integrate Vim-plugins?
 
 exVim aims to implement as much as possible of the functions and features in **pure Vim language**. 
 We try to avoid reinvent the wheel. As a result, we carefully select and integrate popular Vim-plugins in the world  
@@ -69,19 +93,7 @@ Here is the standards we pick, patches and develop for a vim-plugin:
 - Highly active community
 - Can be installed with a variety of plugin managers, Vundle or pathogen. (Repo in GitHub, standard runtime path structure)
 
-## Repositories in exVim Organization 
-
-This is the main entry point for exVim project. This repo contains the essential `.vimrc` configuration
-for running exVim.  Other ex-vim-plugins can be found in exVim organization. They are installed by 
-Vundle by `.vimrc` file here. The repository also contains our customized scripts for external tools, and
-some useful shell scripts for developing exVim.
-
-## Requirements
-
-- Vim 7.3 or higher.
-- [Vundle](https://github.com/gmarik/vundle) or [Pathogen](https://github.com/tpope/vim-pathogen)
-
-## Installation
+# Installation
 
 **NOTE:** 
 
@@ -92,7 +104,12 @@ By the shell script `osx/mvim.sh` it provides, it will run Vim in its own enviro
 without break your current Vim settings. This means you can preview, try and test exVim 
 and decide later for replace or integrate with your current Vim. 
 
-### Install in Mac OSX
+## Requirements
+
+- Vim 7.3 or higher.
+- [Vundle](https://github.com/gmarik/vundle) or [Pathogen](https://github.com/tpope/vim-pathogen)
+
+## Install in Mac OSX
 
 1. Clone the repository to where you want: 
 
@@ -138,7 +155,7 @@ and decide later for replace or integrate with your current Vim.
     sh osx/replace-my-vim.sh
     ```
 
-### Install in Linux
+## Install in Linux
 
 1. Clone the repository to where you want: 
 
@@ -171,10 +188,10 @@ and decide later for replace or integrate with your current Vim.
     sh unix/replace-my-vim.sh
     ```
 
-### Install in Windows
+## Install in Windows
 
-**NOTE:** If you're using msysgit, you can open the Git Bash shell and follow the Install
-in Linux above.
+**NOTE:** If you're using msysgit, you can open the git-bash shell and follow the 
+[install instruction for Linux](#Install in Linux) above.
 
 1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
 Extract it on `C:\exVim` for example. 
@@ -204,48 +221,3 @@ Extract it on `C:\exVim` for example.
     **NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search
 ~/.vim folder instead of ~/vimfiles
 
-## Known Issues
-
-1. Loose window when use `:q` close buffer in edit window
-
-    When you use `:q` close a buffer in edit-window, you probably lose the window. To solve this
-    problem, just don't use `:q` in edit window. Instead of that, use `<leader>bd`.
-
-    The `<leader>bd` is defined in .vimrc.plugins in exVim: 
-
-    ```vim
-    nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
-    ```
-
-    The solution is come from the VimTip 1119: Use Vim like an IDE. 
-    But I changes a lot of to make it faster and stable with exVim's registry plugin system.
-
-1. mkid: can't read language map
-
-    If you use mkid and meet the following message on Windows:
-
-    ```
-    mkid: can't read entire the language map file 'your/path/of/the/id-lang.map': No such 
-    file or directory
-    ```
-
-    This is because the `id-lang.map` you specified is not use the `unix` fileformat.
-    You can fix this by open the file in Vim and type:
-
-    ```vim
-    :set fileformat=unix 
-    ```
-    then save it.
-
-1. mkid: Can’t create ID in C:\ in Windows
-
-    If you use mkid and meet the following message on Windows:
-
-    ```
-    mkid: can’t get working directory: Permission denied
-    ```
-    This is probably a bug for GnuWin32 id-utils, it can not create ID in C:\, 
-    I don’t have time to debug the mkid win32 souce code, so currently the solution 
-    is: Put you project in in D:\ or other volumn instead. 
-
-    If some one can fix this problem, please, please send us your patches! 
