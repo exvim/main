@@ -232,6 +232,11 @@ map <leader><leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 "}}}
 
+" DISABLE: I'm using GistBox https://app.gistboxapp.com/ instead
+" " gist-vim: Invoke by :Gist
+" Plugin 'mattn/webapi-vim'
+" Plugin 'mattn/gist-vim'
+
 " c-lang {{{
 
 " ex-cref: invoke by <leader>cr
