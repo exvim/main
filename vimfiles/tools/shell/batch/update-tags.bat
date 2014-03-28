@@ -1,0 +1,21 @@
+@echo off
+rem create tags
+echo Creating Tags...
+
+rem choose ctags path first
+if exist %DEST%\files (
+    set FILES=-L %DEST%\files
+) else (
+    set FILES=-R .
+)
+
+rem process tags by langugage
+echo   ^|- generate %TMP%
+%CTAGS_CMD% -o%TMP% %OPTIONS% %FILES%
+
+rem replace old file
+if exist %TMP% (
+    echo   ^|- move %TMP% to %CTAGS_CMD%
+    move /Y %TMP% %TARGET% > nul
+)
+echo   ^|- done!
