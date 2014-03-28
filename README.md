@@ -1,12 +1,14 @@
-- - -
-1. [Intro](#intro)  
-1. [Installation](#installation)  
-  1. [Install in Mac OSX](#install-in-mac-osx)  
-  1. [Install in Linux](#install-in-linux)  
-  1. [Install in Windows](#install-in-windows)  
-1. [Introduce plugins used in exVim](https://github.com/exvim/main/wiki/Plugins)
-1. [Known Issues](https://github.com/exvim/main/wiki/KnownIssues)  
-- - -
+---
+
+* [Intro](#intro)  
+* [Installation](#installation)  
+  * [Install in Mac OSX](#install-in-mac-osx)  
+  * [Install in Linux](#install-in-linux)  
+  * [Install in Windows](#install-in-windows)  
+* [Introduce plugins used in exVim](https://github.com/exvim/main/wiki/Plugins)
+* [Known Issues](https://github.com/exvim/main/wiki/KnownIssues)  
+
+---
 
 # Intro
 
