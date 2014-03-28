@@ -1,11 +1,11 @@
 - - -
-1. [Intro](#Intro)  
-1. [Installation](#Installation)  
-  1. [Install in Mac OSX](#Install in Mac OSX)  
-  1. [Install in Linux](#Install in Linux)  
-  1. [Install in Windows](#Install in Windows)  
-1. [Introduce plugins used in exVim](wiki/Plugins)
-1. [Known Issues](wiki/KnownIssues)  
+1. [Intro](#intro)  
+1. [Installation](#installation)  
+  1. [Install in Mac OSX](#install-in-mac-osx)  
+  1. [Install in Linux](#install-in-linux)  
+  1. [Install in Windows](#install-in-windows)  
+1. [Introduce plugins used in exVim](https://github.com/exvim/main/wiki/Plugins)
+1. [Known Issues](https://github.com/exvim/main/wiki/KnownIssues)  
 - - -
 
 # Intro
@@ -191,7 +191,7 @@ and decide later for replace or integrate with your current Vim.
 ## Install in Windows
 
 **NOTE:** If you're using msysgit, you can open the git-bash shell and follow the 
-[install instruction for Linux](#Install in Linux) above.
+[install instruction for Linux](#install-in-linux) above.
 
 1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
 Extract it on `C:\exVim` for example. 
