@@ -74,7 +74,7 @@ if has('gui_running')
     if has ('mac')
         nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
     else
-        nnoremap <unique> <M-L> EXSymbolList<CR>:redraw<CR>/
+        nnoremap <unique> <M-L> :EXSymbolList<CR>:redraw<CR>/
     endif
 endif
 
