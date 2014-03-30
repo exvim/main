@@ -224,3 +224,16 @@ Extract it on `C:\exVim` for example.
     **NOTE:** The exVim's .vimrc will rewrite the runtimepath settings for Windows, to make it search
 ~/.vim folder instead of ~/vimfiles
 
+## Install Powerline Font
+
+The exVim turn on the powerline font support by default. To make it work, you need to install 
+powerline font to your system. 
+
+exVim provide DejaVuSansMono for Powerline by default. Just enter the `ext/powerline-fonts/DejaVuSansMono/` 
+directory in your exVim, and install all the `.ttf` file.
+
+You can also select other powerline-font in [here](https://github.com/Lokaltog/powerline-fonts)
+
+If you think non of the fonts satisfy you, you can patch your favorite font by 
+[fontpatching](https://powerline.readthedocs.org/en/latest/fontpatching.html) 
+
