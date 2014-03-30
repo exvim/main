@@ -407,8 +407,18 @@ else
     map <unique> <leader>P "*P
 endif
 
-" F8:  Set Search pattern highlight on/off
+" copy folder path to clipboard, foo/bar/foobar.c => foo/bar/
+nnoremap <unique> <silent> <leader>y1 :let @*=fnamemodify(bufname('%'),":p:h")<CR>
+
+" copy file name to clipboard, foo/bar/foobar.c => foobar.c
+nnoremap <unique> <silent> <leader>y2 :let @*=fnamemodify(bufname('%'),":p:t")<CR>
+
+" copy full path to clipboard, foo/bar/foobar.c => foo/bar/foobar.c 
+nnoremap <unique> <silent> <leader>y3 :let @*=fnamemodify(bufname('%'),":p")<CR>
+
+" F8 or <leader>/:  Set Search pattern highlight on/off
 nnoremap <unique> <F8> :let @/=""<CR>
+nnoremap <unique> <leader>/ :let @/=""<CR>
 
 " map Ctrl-Tab to switch window
 nnoremap <unique> <S-Up> <C-W><Up>
