@@ -65,6 +65,19 @@ nnoremap <unique> <Leader><S-f> :GS
 " TODO: Plugin 'exvim/ex-tagselect'
 nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
+" ex-symbol
+Plugin 'exvim/ex-symbol'
+nnoremap <unique> <leader>ss :EXSymbolOpen<CR>
+nnoremap <unique> <leader>sg :EXSymbolCWord<CR>
+nnoremap <unique> <leader>sl :EXSymbolList<CR>
+if has('gui_running')
+    if has ('mac')
+        nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
+    else
+        nnoremap <unique> <M-L> EXSymbolList<CR>:redraw<CR>/
+    endif
+endif
+
 " ex-autocomplpop: invoke when you input text
 Plugin 'exvim/ex-autocomplpop'
 
