@@ -15,7 +15,7 @@ echo   ^|- generate %TMP%
 
 rem replace old file
 if exist %TMP% (
-    echo   ^|- move %TMP% to %CTAGS_CMD%
+    echo   ^|- move %TMP% to %TARGET%
     move /Y %TMP% %TARGET% > nul
 )
 echo   ^|- done!
