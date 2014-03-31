@@ -84,9 +84,9 @@ endif
 " load .vimrc.plugins and .vimrc.plugins.local
 let vimrc_plugins_path = '~/.vimrc.plugins'
 let vimrc_plugins_local_path = '~/.vimrc.plugins.local'
-if exists('g:exvim_dev')
-    let vimrc_plugins_path = './.vimrc.plugins'
-    let vimrc_plugins_local_path = './.vimrc.plugins.local'
+if exists('g:exvim_dev') && exists('g:exvim_dev_path')
+    let vimrc_plugins_path = g:exvim_dev_path.'/.vimrc.plugins'
+    let vimrc_plugins_local_path = g:exvim_dev_path.'/.vimrc.plugins.local'
 endif
 if filereadable(expand(vimrc_plugins_path))
     exec 'source ' . vimrc_plugins_path

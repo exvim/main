@@ -6,7 +6,11 @@
 
 " set the runtime path to include Vundle and initialize
 if exists('g:exvim_dev')
-    let cwd = getcwd()
+    if exists('g:exvim_dev_path')
+        let cwd = g:exvim_dev_path
+    else
+        let cwd = getcwd()
+    endif
     let path=cwd.'/vimfiles/bundle/'
 
     let g:ex_tools_path = cwd.'/vimfiles/tools/'
