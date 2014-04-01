@@ -71,9 +71,9 @@ nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
 " ex-symbol
 Plugin 'exvim/ex-symbol'
-nnoremap <unique> <leader>ss :EXSymbolOpen<CR>
+nnoremap <unique> <leader>ss :EXSymbolList<CR>
+nnoremap <unique> <leader>sq :EXSymbolOpen<CR>
 nnoremap <unique> <leader>sg :EXSymbolCWord<CR>
-nnoremap <unique> <leader>sl :EXSymbolList<CR>
 if has('gui_running')
     if has ('mac')
         nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
