@@ -222,7 +222,7 @@ function g:undotree_CustomMap()
 endfunction
 
 " tagbar: invoke by :Tagbar
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 
 " tabular: invoke by <leader>= alignment-character
 Plugin 'godlygeek/tabular'
