@@ -455,4 +455,16 @@ noremap <unique> <Down> gj
 " even be separated by punctuation (such as "abc = def").
 nnoremap <unique> <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
 
+"/////////////////////////////////////////////////////////////////////////////
+" local setup
+"/////////////////////////////////////////////////////////////////////////////
+
+let vimrc_local_path = '~/.vimrc.local'
+if exists('g:exvim_dev') && exists('g:exvim_dev_path')
+    let vimrc_local_path = g:exvim_dev_path.'/.vimrc.local'
+endif
+if filereadable(expand(vimrc_local_path))
+    exec 'source ' . vimrc_local_path
+endif
+
 " vim:ts=4:sw=4:sts=4 et fdm=marker:

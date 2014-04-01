@@ -71,9 +71,9 @@ nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
 " ex-symbol
 Plugin 'exvim/ex-symbol'
-nnoremap <unique> <leader>ss :EXSymbolOpen<CR>
+nnoremap <unique> <leader>ss :EXSymbolList<CR>
+nnoremap <unique> <leader>sq :EXSymbolOpen<CR>
 nnoremap <unique> <leader>sg :EXSymbolCWord<CR>
-nnoremap <unique> <leader>sl :EXSymbolList<CR>
 if has('gui_running')
     if has ('mac')
         nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
@@ -136,6 +136,7 @@ let g:airline_section_warning = airline#section#create(['syntastic'])
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
+nnoremap <unique> <leader>bs :CtrlPBuffer<CR>
 
 " vim-fugitive: invoke most by :Gdiff
 Plugin 'tpope/vim-fugitive'
