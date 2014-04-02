@@ -162,9 +162,12 @@ endif
 
 " set default guifont
 if has('gui_running')
-    " check and determine the gui font after GUIEnter. 
-    " NOTE: getfontname function only works after GUIEnter.  
-    au GUIEnter * call s:set_gui_font()
+    augroup ex_gui_font
+        " check and determine the gui font after GUIEnter. 
+        " NOTE: getfontname function only works after GUIEnter.  
+        au!
+        au GUIEnter * call s:set_gui_font()
+    augroup END
 
     " set guifont
     function! s:set_gui_font()
