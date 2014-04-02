@@ -187,15 +187,15 @@ if has('gui_running')
             endif
         elseif WINDOWS()
             if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
-                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h8:cANSI
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11:cANSI
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
-                set guifont=DejaVu\ Sans\ Mono:h8:cANSI
+                set guifont=DejaVu\ Sans\ Mono:h11:cANSI
             elseif getfontname( 'Bitstream_Vera_Sans_Mono' ) != ''
-                set guifont=Bitstream_Vera_Sans_Mono:h8:cANSI
+                set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
             elseif getfontname( 'Consolas' ) != ''
-                set guifont=Consolas:h8:cANSI " this is the default visual studio font
+                set guifont=Consolas:h11:cANSI " this is the default visual studio font
             else
-                set guifont=Lucida_Console:h8:cANSI
+                set guifont=Lucida_Console:h11:cANSI
             endif
         endif
     endfunction
