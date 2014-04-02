@@ -193,9 +193,6 @@ and decide later for replace or integrate with your current Vim.
 
 ## Install in Windows
 
-**NOTE: If you're using msysgit, you can open the git-bash shell and follow the 
-[install instruction for Linux](#install-in-linux) above.**
-
 1. Download the project by git or [zip file](https://github.com/exvim/main/archive/master.zip). 
 Extract it on `C:\exVim` for example. 
 
