@@ -97,7 +97,8 @@ endif
 
 filetype plugin indent on " required
 syntax on " required
-silent exec "colorscheme solarized"
+colorscheme solarized
+" colorscheme exlightgray
 
 "/////////////////////////////////////////////////////////////////////////////
 " General
@@ -172,7 +173,7 @@ if has('gui_running')
     " set guifont
     function! s:set_gui_font()
         if has('gui_gtk2')
-            set guifont=Luxi\ Mono\ 13
+            set guifont=Luxi\ Mono\ 15
         elseif has('x11')
             " Also for GTK 1
             set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
@@ -182,19 +183,19 @@ if has('gui_running')
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono:h15
             elseif getfontname( 'Bitstream_Vera_Sans_Mono' ) != ''
-                set guifont=Bitstream\ Vera\ Sans\ Mono:h13
+                set guifont=Bitstream\ Vera\ Sans\ Mono:h15
             endif
         elseif WINDOWS()
             if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
-                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h8:cANSI
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
-                set guifont=DejaVu\ Sans\ Mono:h15
+                set guifont=DejaVu\ Sans\ Mono:h8:cANSI
             elseif getfontname( 'Bitstream_Vera_Sans_Mono' ) != ''
-                set guifont=Bitstream_Vera_Sans_Mono:h15
+                set guifont=Bitstream_Vera_Sans_Mono:h8:cANSI
             elseif getfontname( 'Consolas' ) != ''
-                set guifont=Consolas:h15 " this is the default visual studio font
+                set guifont=Consolas:h8:cANSI " this is the default visual studio font
             else
-                set guifont=Lucida_Console:h15
+                set guifont=Lucida_Console:h8:cANSI
             endif
         endif
     endfunction
