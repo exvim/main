@@ -24,6 +24,6 @@ fi
 # replace old file
 if [ -f "${TMP}" ]; then
     echo "  |- move ${TMP} to ${TARGET}"
-    mv -f ${TMP} ${TARGET}
+    mv -f "${TMP}" "${TARGET}"
 fi
 echo "  |- done!"

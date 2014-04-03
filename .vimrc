@@ -89,10 +89,10 @@ if exists('g:exvim_dev') && exists('g:exvim_dev_path')
     let vimrc_plugins_local_path = g:exvim_dev_path.'/.vimrc.plugins.local'
 endif
 if filereadable(expand(vimrc_plugins_path))
-    exec 'source ' . vimrc_plugins_path
+    exec 'source ' . fnameescape(vimrc_plugins_path)
 endif
 if filereadable(expand(vimrc_plugins_local_path))
-    exec 'source ' . vimrc_plugins_local_path
+    exec 'source ' . fnameescape(vimrc_plugins_local_path)
 endif
 
 filetype plugin indent on " required
@@ -468,7 +468,7 @@ if exists('g:exvim_dev') && exists('g:exvim_dev_path')
     let vimrc_local_path = g:exvim_dev_path.'/.vimrc.local'
 endif
 if filereadable(expand(vimrc_local_path))
-    exec 'source ' . vimrc_local_path
+    exec 'source ' . fnameescape(vimrc_local_path)
 endif
 
 " vim:ts=4:sw=4:sts=4 et fdm=marker:

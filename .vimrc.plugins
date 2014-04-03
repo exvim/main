@@ -11,17 +11,13 @@ if exists('g:exvim_dev')
     else
         let cwd = getcwd()
     endif
-    let path=cwd.'/vimfiles/bundle/'
-
     let g:ex_tools_path = cwd.'/vimfiles/tools/'
-    exec 'set rtp+=' . cwd . '/vimfiles/bundle/vundle/'
-    call vundle#rc(path)
+    exec 'set rtp+=' . fnameescape ( cwd . '/vimfiles/bundle/vundle/' ) 
+    call vundle#rc(cwd.'/vimfiles/bundle/')
 else
-    let path='~/.vim/bundle/'
-
     let g:ex_tools_path = '~/.vim/tools/'
     set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc(path)
+    call vundle#rc('~/.vim/bundle/')
 endif
 
 " let Vundle manage Vundle, required

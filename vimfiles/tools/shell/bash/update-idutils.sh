@@ -10,11 +10,11 @@ if [ -f "${DEST}/id-lang-autogen.map" ]; then
 else
     LANG_MAP="${TOOLS}/idutils/id-lang.map"
 fi
-mkid --file=${TMP} --include="text" --lang-map=${LANG_MAP} ${FOLDER_FILTER}
+mkid --file="${TMP}" --include="text" --lang-map="${LANG_MAP}" ${FOLDER_FILTER}
 
 # replace old file
 if [ -f "${TMP}" ]; then
     echo "  |- move ${TMP} to ${TARGET}"
-    mv -f ${TMP} ${TARGET}
+    mv -f "${TMP}" "${TARGET}"
 fi
 echo "  |- done!"

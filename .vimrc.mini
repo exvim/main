@@ -3,11 +3,9 @@ set nocompatible " be iMproved, required
 filetype off " required
 
 let cwd = getcwd()
-let path=cwd.'/vimfiles/bundle/'
-
 let g:ex_tools_path = cwd.'/vimfiles/tools/'
-exec 'set rtp+=' . cwd . '/vimfiles/bundle/vundle/'
-call vundle#rc(path)
+exec 'set rtp+=' . fnameescape ( cwd . '/vimfiles/bundle/vundle/' ) 
+call vundle#rc(cwd.'/vimfiles/bundle/')
 
 " =======================================================
 
