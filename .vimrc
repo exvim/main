@@ -30,10 +30,19 @@ endif
 " NOTE: this must before filetype off, otherwise it won't work
 set langmenu=none
 
-" always use english for anaything in vim-editor. 
+" use English for anaything in vim-editor. 
 if WINDOWS()
     silent exec 'language english'
+elseif OSX()
+    " in mac-terminal
+    silent exec 'language en_US' 
+else
+    " in linux-terminal
+    silent exec 'language en_US.utf8' 
+endif
 
+" try to set encoding to utf-8
+if WINDOWS()
     " Be nice and check for multi_byte even if the config requires
     " multi_byte support most of the time
     if has('multi_byte')
@@ -50,20 +59,7 @@ if WINDOWS()
         set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
     endif
 
-elseif OSX()
-    silent exec 'language en_US' 
-
-    " set default encoding to utf-8
-    set encoding=utf-8
-    set termencoding=utf-8
-
 else
-    " in mac-terminal
-    silent exec 'language en_US'
-
-    " in linux-terminal
-    " silent exec 'language en_US.utf8' 
-
     " set default encoding to utf-8
     set encoding=utf-8
     set termencoding=utf-8
