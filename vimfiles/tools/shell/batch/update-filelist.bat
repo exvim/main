@@ -10,12 +10,12 @@ for /f "delims=" %%a in ('echo %cd%^|sed "s,\\,\\\\,g"') do (
 
 rem process
 echo   ^|- generate %TMP%
-if /I "%FOLDERS%" == "" (
+if /I "%USE_FOLDERS%"=="0" (
     dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> "%TMP%"
 ) else (
     dir /b %FILE_SUFFIXS%|sed "s,\(.*\),.\\\1,gI" >> "%TMP%"
-    for %%i in (%FOLDERS%) do (
-        cd %%i
+    for %%G in (%FOLDERS%) do (
+        cd %%G
         dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> "%TMP%"
         cd ..
     )
@@ -25,8 +25,8 @@ echo   ^|- filter out invalid files
 rem NOTE: dir /s /b *.cpp will list xxx.cpp~, too. So use gawk here to filter out thoes things.
 gawk -v filter_pattern=%FILE_FILTER_PATTERN% -f "%TOOLS%\gawk\file-filter.awk" "%TMP%">"%TMP2%"
 del "%TMP%" > nul
-if exist %TMP2% (
+if exist "%TMP2%" (
     echo   ^|- move %TMP2% to %TARGET%
-    move /Y %TMP2% %TARGET% > nul
+    move /Y "%TMP2%" "%TARGET%" > nul
 )
 echo   ^|- done!
