@@ -1,3 +1,5 @@
+![exVim Logo](http://exvim.github.io/images/logo.png)
+
 - - -
 - [Intro](#intro)
 - [Installation](http://exvim.github.io/docs/install/)
