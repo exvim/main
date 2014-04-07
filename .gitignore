@@ -34,3 +34,5 @@ quick_gen_project_*_autogen.sh
 
 # project files
 vimfiles/bundle/*
+.vimrc.plugins.local
+.vimrc.local
