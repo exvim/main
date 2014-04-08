@@ -44,7 +44,7 @@
 # ignore vimentry files
 .exvim.*/*              IGNORE
 
-# c/cpp header files
+# c/cpp header
 *.h			    text
 *.h++           text
 *.h.in			text
@@ -55,7 +55,7 @@
 *.hxx			text
 *.inl           text
 
-# c/cpp srouce files
+# c/cpp srouce
 *.c			    text
 *.C			    text
 *.cc			text
@@ -63,10 +63,13 @@
 *.cpp			text
 *.cxx			text
 
-# c# srouce files
+# csharp
 *.cs			text
 
-# shader files
+# objective-c/matlab/octave
+*.m             text
+
+# shader
 *.hlsl          text
 *.vsh           text
 *.psh           text
@@ -75,48 +78,53 @@
 *.cg            text
 *.shd           text
 
-# python files
-*.py            text
-*.pyx           text
-*.pxd           text
-*.scons         text
-
-# javascript files
-*.js            text
-*.as            text
-
-# asmble files
+# asmble
 *.asm           text
 *.ASM           text
 *.s             text
 *.S             text
 
-# vim files
+# python
+*.py            text
+*.pyx           text
+*.pxd           text
+*.scons         text
+
+# ruby
+*.rb            text
+
+# javascript/typescript/coffee-script
+*.js            text
+*.as            text
+*.ts            text
+*.coffee        text
+
+# lua
+*.lua           text
+
+# max-script
+*.ms            text
+
+# perl
+*.pl            text
+*.pm            text
+
+# vim
 *.vim           text
 
-# html file
+# html
 *.html          text 
 *.htm           text
 *.shtml         text
 *.stm           text
 
-# xml file
+# xml
 *.xml           text
 *.mms           text
 *.glm           text
 
-# lua file
-*.lua           text
-
-# max-script file
-*.ms            text
-
-# matlab/octave file
-*.m             text
-
-# perl file
-*.pl            text
-*.pm            text
+# json
+*.json          text
 
 # misc file
 *.l			    text
