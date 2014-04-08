@@ -14,9 +14,13 @@ fi
 # get filelist
 echo "  |- generate ${TMP}"
 if test "${FOLDERS}" != ""; then
+    IFS=$','
     # NOTE: there still have files under root
     find ${FORCE_POSIX_REGEX_1} . -maxdepth 1 -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" > "${TMP}"
-    find ${FORCE_POSIX_REGEX_1} ${FOLDERS} -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" >> "${TMP}"
+    for d in ${FOLDERS}; do 
+        find ${FORCE_POSIX_REGEX_1} "$d" -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" >> "${TMP}"
+    done
+    unset IFS
 else
     find ${FORCE_POSIX_REGEX_1} . -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" > "${TMP}"
 fi
