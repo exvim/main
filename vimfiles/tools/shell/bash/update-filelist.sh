@@ -3,7 +3,7 @@ echo "Creating Filelist..."
 
 # test posix regex
 find . -maxdepth 1 -regextype posix-extended -regex "test" > /dev/null 2>&1
-if test "$?" == "0"; then
+if test "$?" = "0"; then
     FORCE_POSIX_REGEX_1=""
     FORCE_POSIX_REGEX_2="-regextype posix-extended"
 else
