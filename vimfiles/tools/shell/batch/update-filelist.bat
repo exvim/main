@@ -15,9 +15,7 @@ if /I "%USE_FOLDERS%"=="0" (
 ) else (
     dir /b %FILE_SUFFIXS%|sed "s,\(.*\),.\\\1,gI" >> "%TMP%"
     for %%G in (%FOLDERS%) do (
-        cd %%G
-        dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> "%TMP%"
-        cd ..
+        dir %%G /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> "%TMP%"
     )
 )
 
