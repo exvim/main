@@ -3,7 +3,7 @@ echo "Creating Filelist..."
 
 # test posix regex
 find . -maxdepth 1 -regextype posix-extended -regex "test" > /dev/null 2>&1
-if test "$?" = "0"; then
+if test "$?" == "0"; then
     FORCE_POSIX_REGEX_1=""
     FORCE_POSIX_REGEX_2="-regextype posix-extended"
 else
@@ -17,11 +17,12 @@ if test "${FOLDERS}" != ""; then
     # NOTE: there still have files under root
     find ${FORCE_POSIX_REGEX_1} . -maxdepth 1 -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" > "${TMP}"
     # we use comma for for-loop. Because FOLDERS may include white-space folders
-    IFS=$','
+    # TODO: Issue #35
+    # IFS=$','
     for d in ${FOLDERS}; do 
         find ${FORCE_POSIX_REGEX_1} "$d" -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" >> "${TMP}"
     done
-    unset IFS
+    # unset IFS
 else
     find ${FORCE_POSIX_REGEX_1} . -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" > "${TMP}"
 fi
