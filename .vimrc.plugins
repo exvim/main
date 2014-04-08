@@ -282,6 +282,9 @@ Plugin 'pangloss/vim-javascript'
 " vim-coffee-script
 Plugin 'kchmck/vim-coffee-script'
 
+" typescript-vim
+Plugin 'leafgarland/typescript-vim'
+
 " DISABLE: Slow to open big css file
 " vim-css-color
 " Plugin 'skammer/vim-css-color'
