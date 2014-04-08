@@ -34,11 +34,16 @@ set langmenu=none
 if WINDOWS()
     silent exec 'language english'
 elseif OSX()
-    " in mac-terminal
     silent exec 'language en_US' 
 else
-    " in linux-terminal
-    silent exec 'language en_US.utf8' 
+    let s:uname = system("uname -s")
+    if s:uname == "Darwin\n"
+        " in mac-terminal
+        silent exec 'language en_US' 
+    else
+        " in linux-terminal
+        silent exec 'language en_US.utf8' 
+    endif
 endif
 
 " try to set encoding to utf-8
