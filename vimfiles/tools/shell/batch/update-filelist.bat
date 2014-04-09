@@ -11,11 +11,15 @@ for /f "delims=" %%a in ('echo %cd%^|sed "s,\\,\\\\,g"') do (
 rem process
 echo   ^|- generate %TMP%
 if /I "%USE_FOLDERS%"=="0" (
-    dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> "%TMP%"
+    dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" > "%TMP%"
 ) else (
-    dir /b %FILE_SUFFIXS%|sed "s,\(.*\),.\\\1,gI" >> "%TMP%"
+    dir /b %FILE_SUFFIXS%|sed "s,\(.*\),.\\\1,gI" > "%TMP%"
     for %%G in (%FOLDERS%) do (
-        dir %%G /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> "%TMP%"
+        if exist %%G (
+            cd %%G
+            dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> ..\"%TMP%"
+            cd ..
+        )
     )
 )
 
