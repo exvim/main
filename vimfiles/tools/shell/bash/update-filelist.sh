@@ -21,6 +21,7 @@ if test "${FOLDERS}" != ""; then
     # we use comma for for-loop. Because FOLDERS may include white-space folders
     IFS=$','
     for d in ${FOLDERS}; do 
+        unset IFS
         find ${FORCE_POSIX_REGEX_1} "$d" -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" >> "${TMP}"
     done
     unset IFS
