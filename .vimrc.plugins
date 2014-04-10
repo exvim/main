@@ -46,14 +46,6 @@ Plugin 'exvim/ex-vimentry'
 
 " ex-project
 Plugin 'exvim/ex-project'
-nnoremap <unique> <leader>fc :EXProjectFind<CR>
-if has('gui_running')
-    if has ('mac')
-        nnoremap <unique> Ø :EXProjectOpen<CR>:redraw<CR>/
-    else
-        nnoremap <unique> <M-O> :EXProjectOpen<CR>:redraw<CR>/
-    endif
-endif
 
 " ex-gsearch
 Plugin 'exvim/ex-gsearch'
@@ -145,17 +137,6 @@ xmap s <Plug>VSurround
 
 " nerdtree: invoke by :NERDTreeToggle
 Plugin 'scrooloose/nerdtree'
-if !hasmapto(':EXProjectFind<CR>')
-    nnoremap <unique> <leader>fc :NERDTreeFind<CR>
-    if has('gui_running') "  the <alt> key is only available in gui mode.
-        if has ('mac')
-            nnoremap <unique> Ø :NERDTreeFind<CR>:redraw<CR>/
-        else
-            nnoremap <unique> <M-O> :NERDTreeFind<CR>:redraw<CR>/
-        endif
-    endif
-endif
-
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>' 
