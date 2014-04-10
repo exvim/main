@@ -9,4 +9,5 @@
 - Fixed `:Update` error when file_filter has value
 - Fixed white space path error
 - Fixed switch `.exvim` project will overwrite the old `.exvim`'s auto commands
+- Fixed gsearch jumps will `keepjumps` which will lead to `<ctrl-o>` jump back to wrong position
 
