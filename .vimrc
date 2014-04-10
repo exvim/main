@@ -435,10 +435,10 @@ nnoremap <unique> <S-Right> <C-W><Right>
 
 " easy buffer navigation
 " NOTE: if we already map to EXbn,EXbp. skip setting this
-if !hasmapto(':EXbn<CR>')
+if !hasmapto(':EXbn<CR>') && mapcheck('<C-l>','n') == ''
     nnoremap <C-l> :bn<CR>
 endif
-if !hasmapto(':EXbp<CR>')
+if !hasmapto(':EXbp<CR>') && mapcheck('<C-h>','n') == ''
     noremap <C-h> :bp<CR>
 endif
 
