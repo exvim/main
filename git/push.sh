@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export ORIGINAL_PATH=`pwd`
 
 # for repo in "./vimfiles/bundle/"ex_*

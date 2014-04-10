@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export ORIGINAL_PATH=`pwd`
 
 echo "Check and install Vundle."

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cwd=$(pwd)
 escape_cwd=$(printf "%q" "$(pwd)")
 mvim \

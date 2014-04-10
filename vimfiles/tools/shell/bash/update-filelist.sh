@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # create files
 echo "Creating Filelist..."
 
@@ -17,12 +19,11 @@ if test "${FOLDERS}" != ""; then
     # NOTE: there still have files under root
     find ${FORCE_POSIX_REGEX_1} . -maxdepth 1 -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" > "${TMP}"
     # we use comma for for-loop. Because FOLDERS may include white-space folders
-    # TODO: Issue #35
-    # IFS=$','
+    IFS=$','
     for d in ${FOLDERS}; do 
         find ${FORCE_POSIX_REGEX_1} "$d" -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" >> "${TMP}"
     done
-    # unset IFS
+    unset IFS
 else
     find ${FORCE_POSIX_REGEX_1} . -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")" > "${TMP}"
 fi

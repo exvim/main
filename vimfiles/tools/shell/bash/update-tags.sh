@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # create tags
 echo "Creating Tags..."
 

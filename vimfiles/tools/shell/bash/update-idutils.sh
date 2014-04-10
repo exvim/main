@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # create ID
 echo "Creating ID..."
 

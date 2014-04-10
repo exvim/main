@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # create symbols
 echo "Creating Symbols..."
 
