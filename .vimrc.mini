@@ -41,7 +41,7 @@ Plugin 'scrooloose/syntastic'
 " Plugin 'msanders/snipmate.vim'
 " Plugin 'spf13/snipmate-snippets'
 Plugin 'mbbill/undotree'
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 Plugin 'godlygeek/tabular'
 Plugin 'Lokaltog/vim-easymotion'
 " Plugin 'mattn/webapi-vim'
@@ -51,6 +51,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'leafgarland/typescript-vim'
 " Plugin 'skammer/vim-css-color'
 Plugin 'groenewege/vim-less'
 Plugin 'plasticboy/vim-markdown'
@@ -59,3 +60,4 @@ Plugin 'plasticboy/vim-markdown'
 " =======================================================
 
 filetype plugin indent on " required
+
