@@ -247,6 +247,9 @@ let c_no_bracket_error = 1
 
 " web {{{
 
+" ex-typescript
+Plugin 'exvim/ex-typescript'
+
 " emmet-vim
 Plugin 'mattn/emmet-vim'
 " make sure emmet only enable in html,css files
@@ -262,9 +265,6 @@ Plugin 'pangloss/vim-javascript'
 
 " vim-coffee-script
 Plugin 'kchmck/vim-coffee-script'
-
-" typescript-vim
-Plugin 'leafgarland/typescript-vim'
 
 " DISABLE: Slow to open big css file
 " vim-css-color
