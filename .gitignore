@@ -22,15 +22,20 @@ xcuserdata/
 *.gch
 
 # exvim files 
-_tags
 *.err
+*.err.meta
 *.exvim
+*.exvim.meta
 *.vimentry
+*.vimentry.meta
 *.vimproject
+*.vimproject.meta
 .vimfiles.*/
 .exvim.*/
 quick_gen_project_*_autogen.bat
+quick_gen_project_*_autogen.bat.meta
 quick_gen_project_*_autogen.sh
+quick_gen_project_*_autogen.sh.meta
 
 # project files
 vimfiles/bundle/*
