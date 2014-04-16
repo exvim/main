@@ -66,7 +66,7 @@ This makes your project clean and much better work with external tools. These pr
 After Vim loaded `your_project_name.exvim` and start, exVim helps you update project files and you are now happy
 to use your favor plugins with these files.
 
-## How do you integrate Vim-plugins?
+## How does it integrate Vim-plugins?
 
 exVim aims to implement as much as possible of the functions and features in **pure Vim language**. 
 We try to avoid reinvent the wheel. As a result, we carefully select and integrate popular Vim-plugins in the world  
