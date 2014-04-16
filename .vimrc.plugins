@@ -20,6 +20,9 @@ else
     call vundle#rc('~/.vim/bundle/')
 endif
 
+" man.vim: invoked by :Man {name}
+source $VIMRUNTIME/ftplugin/man.vim
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
