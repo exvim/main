@@ -24,6 +24,7 @@ endif
 source $VIMRUNTIME/ftplugin/man.vim
 
 " let Vundle manage Vundle, required
+" ---------------------------------------------------
 Plugin 'gmarik/vundle'
 
 "}}}
@@ -31,10 +32,13 @@ Plugin 'gmarik/vundle'
 " general plugins {{{
 
 " ex-config:
+" ---------------------------------------------------
 Plugin 'exvim/ex-config'
 
 " ex-utility:
+" ---------------------------------------------------
 Plugin 'exvim/ex-utility'
+
 nnoremap <unique> <silent> <Leader>bd :EXbd<CR>
 nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
@@ -42,29 +46,39 @@ nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 nnoremap <unique> <silent> <Leader><Tab> :EXwp<CR>
 
 " ex-aftercolor
+" ---------------------------------------------------
 Plugin 'exvim/ex-aftercolors'
 
 " ex-vimentry
+" ---------------------------------------------------
 Plugin 'exvim/ex-vimentry'
 
 " ex-project
+" ---------------------------------------------------
 Plugin 'exvim/ex-project'
 
 " ex-gsearch
+" ---------------------------------------------------
 Plugin 'exvim/ex-gsearch'
+
 nnoremap <unique> <leader>gs :EXGSearchToggle<CR>
 nnoremap <unique> <leader>gg :EXGSearchCWord<CR>
 nnoremap <unique> <Leader><S-f> :GS 
 
-" " ex-tagselect
+" ex-tagselect
+" ---------------------------------------------------
 " TODO: Plugin 'exvim/ex-tagselect'
+
 nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
 " ex-symbol
+" ---------------------------------------------------
 Plugin 'exvim/ex-symbol'
+
 nnoremap <unique> <leader>ss :EXSymbolList<CR>
 nnoremap <unique> <leader>sq :EXSymbolOpen<CR>
 nnoremap <unique> <leader>sg :EXSymbolCWord<CR>
+
 if has('gui_running')
     if has ('mac')
         nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
@@ -73,11 +87,102 @@ if has('gui_running')
     endif
 endif
 
+" DISABLE: use tagbar instead
+" " ex-taglist: invoke by <F4>
+" " ---------------------------------------------------
+" Plugin 'exvim/ex-taglist'
+
+" " F4:  Switch on/off TagList
+" nnoremap <unique> <silent> <F3> :TlistToggle<CR>
+
+" "let Tlist_Ctags_Cmd = $VIM.'/vimfiles/ctags.exe' " location of ctags tool 
+" let Tlist_Show_One_File = 1 " Displaying tags for only one file~
+" let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself 
+" let Tlist_Use_Right_Window = 1 " split to the right side of the screen 
+" let Tlist_Sort_Type = "order" " sort by order or name
+" let Tlist_Display_Prototype = 0 " do not show prototypes and not tags in the taglist window.
+" let Tlist_Compart_Format = 1 " Remove extra information and blank lines from the taglist window.
+" let Tlist_GainFocus_On_ToggleOpen = 1 " Jump to taglist window on open.
+" let Tlist_Display_Tag_Scope = 1 " Show tag scope next to the tag name.
+" let Tlist_Close_On_Select = 0 " Close the taglist window when a file or tag is selected.
+" let Tlist_BackToEditBuffer = 0 " If no close on select, let the user choose back to edit buffer or not
+" let Tlist_Enable_Fold_Column = 0 " Don't Show the fold indicator column in the taglist window.
+" let Tlist_WinWidth = 40
+" let Tlist_Compact_Format = 1 " do not show help
+" " let Tlist_Ctags_Cmd = 'ctags --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++'
+" " very slow, so I disable this
+" " let Tlist_Process_File_Always = 1 " To use the :TlistShowTag and the :TlistShowPrototype commands without the taglist window and the taglist menu, you should set this variable to 1.
+" ":TlistShowPrototype [filename] [linenumber]
+
+" " add hlsl shader language
+" let tlist_hlsl_settings = 'c;d:macro;g:enum;s:struct;u:union;t:typedef;v:variable;f:function'
+" " add actionscript language
+" let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
+
+" exvim/ex-tagbar: invoke by <F4>
+" ---------------------------------------------------
+Plugin 'exvim/ex-tagbar'
+
+nnoremap <unique> <silent> <F4> :TagbarToggle<CR>
+
+let g:tagbar_sort = 0
+let g:tagbar_map_preview = '<CR>'
+let g:tagbar_map_close = '<Esc>' 
+let g:tagbar_map_zoomwin = '<Space>' 
+let g:tagbar_zoomwidth = 80
+let g:tagbar_autofocus = 1
+let g:tagbar_iconchars = ['+', '-']
+
+" use command ':TagbarGetTypeConfig lang' change your settings 
+let g:tagbar_type_javascript = {
+    \ 'kinds' : [
+        \ 'v:global variables:0:0',
+        \ 'c:classes',
+        \ 'p:properties:0:0',
+        \ 'm:methods',
+        \ 'f:functions',
+        \ 'r:object',
+    \ ],
+\ }
+let g:tagbar_type_c = {
+    \ 'kinds' : [
+        \ 'd:macros:0:0',
+        \ 'p:prototypes:0:0',
+        \ 'g:enums',
+        \ 'e:enumerators:0:0',
+        \ 't:typedefs:0:0',
+        \ 's:structs',
+        \ 'u:unions',
+        \ 'm:members:0:0',
+        \ 'v:variables:0:0',
+        \ 'f:functions',
+    \ ],
+\ }
+let g:tagbar_type_cpp = {
+    \ 'kinds' : [
+        \ 'd:macros:0:0',
+        \ 'p:prototypes:0:0',
+        \ 'g:enums',
+        \ 'e:enumerators:0:0',
+        \ 't:typedefs:0:0',
+        \ 'n:namespaces',
+        \ 'c:classes',
+        \ 's:structs',
+        \ 'u:unions',
+        \ 'f:functions',
+        \ 'm:members:0:0',
+        \ 'v:variables:0:0',
+    \ ],
+\ }
+
 " ex-autocomplpop: invoke when you input text
+" ---------------------------------------------------
 Plugin 'exvim/ex-autocomplpop'
 
 " ex-showmarks: invoke by m... or <leader>mm, <leader>ma
+" ---------------------------------------------------
 Plugin 'exvim/ex-showmarks'
+
 " TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
 " bugs, consider merge his code and fixes the bugs 
 let g:showmarks_enable = 1
@@ -88,33 +193,43 @@ let g:showmarks_hlline_lower = 1
 let g:showmarks_hlline_upper = 0 
 
 " ex-visincr: invoke when select text and type ':II'
+" ---------------------------------------------------
 Plugin 'exvim/ex-visincr'
 
 " ex-matchit: invoke by %
+" ---------------------------------------------------
 Plugin 'exvim/ex-matchit'
 
 " ex-easyhl:
+" ---------------------------------------------------
 Plugin 'exvim/ex-easyhl'
 
 " searchcompl: invoke by /
+" ---------------------------------------------------
 Plugin 'exvim/ex-searchcompl'
 
 " ex-colorschemes
+" ---------------------------------------------------
 Plugin 'exvim/ex-colorschemes'
 
 " vim-color-solarized
+" ---------------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
+
 if !has('gui_running')
     let g:solarized_termcolors = 256
 endif
 
 " vim-airline
+" ---------------------------------------------------
 Plugin 'bling/vim-airline'
+
 if has('gui_running')
     let g:airline_powerline_fonts = 1
 else
     let g:airline_powerline_fonts = 0
 endif
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -130,22 +245,31 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 nnoremap <unique> <leader>bs :CtrlPBuffer<CR>
 
 " vim-fugitive: invoke most by :Gdiff
+" ---------------------------------------------------
 Plugin 'tpope/vim-fugitive'
 
 " vim-surround: invoke when you select words and press 's'
+" ---------------------------------------------------
 Plugin 'tpope/vim-surround'
+
 xmap s <Plug>VSurround
 
-" Plugin 'tpope/vim-dispatch'
+" DISABLE
+" " Plugin 'tpope/vim-dispatch'
+" " ---------------------------------------------------
 
 " nerdtree: invoke by :NERDTreeToggle
+" ---------------------------------------------------
 Plugin 'scrooloose/nerdtree'
+
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>' 
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
+" ---------------------------------------------------
 Plugin 'scrooloose/nerdcommenter'
+
 let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDCustomDelimiters = {
@@ -155,13 +279,17 @@ map <unique> <F11> <Plug>NERDCommenterAlignBoth
 map <unique> <C-F11> <Plug>NERDCommenterUncomment
 
 " syntastic: invoke when you save file and have syntac-checker
+" ---------------------------------------------------
 Plugin 'scrooloose/syntastic'
+
 " this will make html file by Angular.js ignore errors
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " DISABLE: use ex-autocomplpop instead
 " " neocomplcache: invoke when you insert words
 " Plugin 'Shougo/neocomplcache.vim'
+" " ---------------------------------------------------
+
 " let g:neocomplcache_enable_at_startup = 1
 " let g:neocomplcache_auto_completion_start_length = 2
 " let g:neocomplcache_enable_smart_case = 1
@@ -174,6 +302,8 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 " DISABLE: use ex-autocomplpop instead
 " " neocomplete: invoke when you insert words
 " Plugin 'Shougo/neocomplete.vim'
+" " ---------------------------------------------------
+
 " let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_smart_case = 1
 " let g:neocomplete#enable_auto_select = 1 " let neocomplete's completion behavior like AutoComplPop
@@ -187,14 +317,22 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 " DISABLE: use ex-autocomplpop instead
 " " YouCompleteMe
 " Plugin 'Valloric/YouCompleteMe'
+" " ---------------------------------------------------
 
 " TODO: choose a snippet plugin
 " Plugin 'Shougo/neosnippet.vim'
+" " ---------------------------------------------------
+
 " Plugin 'msanders/snipmate.vim'
+" " ---------------------------------------------------
+
 " Plugin 'spf13/snipmate-snippets'
+" " ---------------------------------------------------
 
 " undotree: invoke by <Leader>u
+" ---------------------------------------------------
 Plugin 'mbbill/undotree'
+
 nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout = 4
@@ -202,11 +340,10 @@ function g:undotree_CustomMap()
     nnoremap <silent> <script> <buffer> <ESC> :call UndotreeHide()<CR>
 endfunction
 
-" tagbar: invoke by :Tagbar
-" Plugin 'majutsushi/tagbar'
-
 " tabular: invoke by <leader>= alignment-character
+" ---------------------------------------------------
 Plugin 'godlygeek/tabular'
+
 nnoremap <silent> <leader>= :call g:tabular(1)<CR>
 xnoremap <silent> <leader>= :call g:tabular(0)<CR>
 function! g:tabular(ignore_range) range
@@ -220,7 +357,9 @@ function! g:tabular(ignore_range) range
 endfunction
 
 " vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/ 
+" ---------------------------------------------------
 Plugin 'Lokaltog/vim-easymotion'
+
 map <leader><leader>/ <Plug>(easymotion-sn)
 omap <leader><leader>/ <Plug>(easymotion-tn)
 map <leader><leader>j <Plug>(easymotion-j)
@@ -232,12 +371,14 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 " DISABLE: I'm using GistBox https://app.gistboxapp.com/ instead
 " " gist-vim: Invoke by :Gist
+" ---------------------------------------------------
 " Plugin 'mattn/webapi-vim'
 " Plugin 'mattn/gist-vim'
 
 " c-lang {{{
 
 " ex-cref: invoke by <leader>cr
+" ---------------------------------------------------
 Plugin 'exvim/ex-cref'
 
 " this is modified for default c syntax highlight settings 
@@ -251,43 +392,52 @@ let c_no_bracket_error = 1
 " web {{{
 
 " ex-typescript
+" ---------------------------------------------------
 Plugin 'exvim/ex-typescript'
 
 " emmet-vim
+" ---------------------------------------------------
 Plugin 'mattn/emmet-vim'
+
 " make sure emmet only enable in html,css files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " vim-indent-guides: invoke by <leader>ig
+" ---------------------------------------------------
 Plugin 'nathanaelkane/vim-indent-guides'
+
 let g:indent_guides_guide_size = 1
 
 " vim-javascript
+" ---------------------------------------------------
 Plugin 'pangloss/vim-javascript'
 
 " vim-coffee-script
+" ---------------------------------------------------
 Plugin 'kchmck/vim-coffee-script'
 
 " DISABLE: Slow to open big css file
 " vim-css-color
+" ---------------------------------------------------
 " Plugin 'skammer/vim-css-color'
 
 " vim-less
+" ---------------------------------------------------
 Plugin 'groenewege/vim-less'
 
 " vim-markdown
+" ---------------------------------------------------
 Plugin 'plasticboy/vim-markdown'
+
 let g:vim_markdown_initial_foldlevel=9999
 
 "}}}
 
 " TEST {{{
-
 " " test-loading
 " echomsg "test-loading: .vimrc"
 " Plugin 'exvim/test-loading'
-
 "}}}
 
 " vim:ts=4:sw=4:sts=4 et fdm=marker:
