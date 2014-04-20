@@ -67,7 +67,7 @@ nnoremap <unique> <Leader><S-f> :GS
 
 " ex-tagselect
 " ---------------------------------------------------
-" TODO: Plugin 'exvim/ex-tagselect'
+Plugin 'exvim/ex-tags'
 
 nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
 
