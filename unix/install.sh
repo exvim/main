@@ -26,20 +26,6 @@ echo "Update vim-plugins."
 cd ${ORIGINAL_PATH}
 vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +PluginClean +PluginUpdate +qall
 
-# install powerline-fonts on MacOSX
-if [ "$(uname)" == "Darwin" ]; then
-    echo "Please install powerline-fonts manually."
-
-# install powerline-fonts on Linux
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    echo "Please install powerline-fonts manually."
-
-# install powerline-fonts on MINGW32
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    echo "Please install powerline-fonts manually."
-
-fi
-
 # go back
 cd ${ORIGINAL_PATH}
 
