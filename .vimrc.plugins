@@ -69,7 +69,9 @@ nnoremap <unique> <Leader><S-f> :GS
 " ---------------------------------------------------
 Plugin 'exvim/ex-tags'
 
-nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
+" DISABLE: nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
+nnoremap <unique> <leader>] :exec 'TS ' . expand('<cword>')<CR>
+nnoremap <unique> <leader>ts :EXTagsToggle<CR>
 
 " ex-symbol
 " ---------------------------------------------------
@@ -86,6 +88,7 @@ if has('gui_running')
         nnoremap <unique> <M-L> :EXSymbolList<CR>:redraw<CR>/
     endif
 endif
+let g:ex_symbol_select_cmd = 'TS'
 
 " DISABLE: use tagbar instead
 " " ex-taglist: invoke by <F4>
