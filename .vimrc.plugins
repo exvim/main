@@ -84,8 +84,10 @@ nnoremap <unique> <leader>sg :EXSymbolCWord<CR>
 if has('gui_running')
     if has ('mac')
         nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
+        " nnoremap <unique> Ò :EXSymbolOpenAndSearch<CR>
     else
         nnoremap <unique> <M-L> :EXSymbolList<CR>:redraw<CR>/
+        " nnoremap <unique> <M-L> :EXSymbolOpenAndSearch<CR>
     endif
 endif
 let g:ex_symbol_select_cmd = 'TS'
