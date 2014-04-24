@@ -10,3 +10,4 @@
 - Fix ex-plugin focus error when editing multiple splitted buffer.
 - Fix after close a splitted window, ex-plugin will always open with a splitted buffer.
 - Fix when there is no edit window, ex-plugin window open will mess up.
+- Fix `<leader>bd` will close unsaved buffer without warning.
