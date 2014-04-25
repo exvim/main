@@ -11,3 +11,4 @@
 - Fix after close a splitted window, ex-plugin will always open with a splitted buffer.
 - Fix when there is no edit window, ex-plugin window open will mess up.
 - Fix `<leader>bd` will close unsaved buffer without warning.
+- Fix ex-project will not keep fold state when close and re-open.
