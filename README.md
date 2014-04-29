@@ -85,7 +85,7 @@ Here is the standards we pick, patches and develop for a vim-plugin:
 Read the [Plugins](http://exvim.github.io/docs/plugins/) to get the details of the plugins
 in exVim.
 
-## About exVim organization and this repostiory
+## About exVim organization and this repository
 
 The exVim is an organization in Github. The repositories under exVim are the plugins used in
 exVim project. They follow the standard vim-plugin structures so that people can install on
