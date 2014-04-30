@@ -90,6 +90,10 @@ if has('gui_running')
 endif
 let g:ex_symbol_select_cmd = 'TS'
 
+" ex-inherit
+" ---------------------------------------------------
+Plugin 'exvim/ex-hierarchy'
+
 " DISABLE: use tagbar instead
 " " ex-taglist: invoke by <F4>
 " " ---------------------------------------------------
