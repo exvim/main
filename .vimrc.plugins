@@ -94,6 +94,8 @@ let g:ex_symbol_select_cmd = 'TS'
 " ---------------------------------------------------
 Plugin 'exvim/ex-hierarchy'
 
+nnoremap <unique> <leader>hv :EXHierarchyCWord<CR>
+
 " DISABLE: use tagbar instead
 " " ex-taglist: invoke by <F4>
 " " ---------------------------------------------------

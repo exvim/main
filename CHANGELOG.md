@@ -4,6 +4,8 @@
 
 ## New Features
 
+ - Integrate ex-hierarchy plugin for generate hierarchy map of classes.
+
 ## Changes
 
 ## Bug Fixes
