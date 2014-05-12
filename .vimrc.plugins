@@ -144,6 +144,7 @@ let g:tagbar_iconchars = ['+', '-']
 
 " use command ':TagbarGetTypeConfig lang' change your settings 
 let g:tagbar_type_javascript = {
+    \ 'ctagsbin': 'ctags',
     \ 'kinds' : [
         \ 'v:global variables:0:0',
         \ 'c:classes',
