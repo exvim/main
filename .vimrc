@@ -16,7 +16,7 @@ endfunction
 
 " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
 " across (heterogeneous) systems easier.
-if !exists('g:exvim_dev')
+if !exists('g:exvim_custom_path')
     if WINDOWS()
         set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
     endif
