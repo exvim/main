@@ -5,6 +5,7 @@
 ## New Features
 
  - Integrate ex-hierarchy plugin for generate hierarchy map of classes.
+ - Add `folder_filter_root_only` filter option in .exvim file. 
 
 ## Changes
 
