@@ -6,6 +6,8 @@
 
  - Integrate ex-hierarchy plugin for generate hierarchy map of classes.
  - Add `folder_filter_root_only` filter option in .exvim file. 
+ - Add `GSW` method in ex-gsearch. This method will allow user global search
+   single word instead of text.
 
 ## Changes
 
