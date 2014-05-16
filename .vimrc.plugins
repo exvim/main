@@ -6,10 +6,9 @@
 
 " set the runtime path to include Vundle and initialize
 if exists('g:exvim_custom_path')
-    let cwd = g:exvim_custom_path
-    let g:ex_tools_path = cwd.'/vimfiles/tools/'
-    exec 'set rtp+=' . fnameescape ( cwd . '/vimfiles/bundle/vundle/' ) 
-    call vundle#rc(cwd.'/vimfiles/bundle/')
+    let g:ex_tools_path = g:exvim_custom_path.'/vimfiles/tools/'
+    exec 'set rtp+=' . fnameescape ( g:exvim_custom_path.'/vimfiles/bundle/vundle/' ) 
+    call vundle#rc(g:exvim_custom_path.'/vimfiles/bundle/')
 else
     let g:ex_tools_path = '~/.vim/tools/'
     set rtp+=~/.vim/bundle/vundle/

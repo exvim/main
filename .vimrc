@@ -473,9 +473,10 @@ nnoremap <unique> <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1
 "/////////////////////////////////////////////////////////////////////////////
 
 let vimrc_local_path = '~/.vimrc.local'
-if exists('g:exvim_dev') && exists('g:exvim_dev_path')
-    let vimrc_local_path = g:exvim_dev_path.'/.vimrc.local'
+if exists('g:exvim_custom_path')
+    let vimrc_local_path = g:exvim_custom_path.'/.vimrc.local'
 endif
+
 if filereadable(expand(vimrc_local_path))
     exec 'source ' . fnameescape(vimrc_local_path)
 endif

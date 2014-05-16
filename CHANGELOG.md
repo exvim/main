@@ -8,4 +8,6 @@
 
 ## Changes
 
+ - Replace `g:exvim_dev` and `g:exvim_dev_path` with g:exvim_custom_path. This allow user specific the exvim directory for install. 
+
 ## Bug Fixes
