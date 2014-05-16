@@ -5,12 +5,8 @@
 " com! -nargs=+ Bundle
 
 " set the runtime path to include Vundle and initialize
-if exists('g:exvim_dev')
-    if exists('g:exvim_dev_path')
-        let cwd = g:exvim_dev_path
-    else
-        let cwd = getcwd()
-    endif
+if exists('g:exvim_custom_path')
+    let cwd = g:exvim_custom_path
     let g:ex_tools_path = cwd.'/vimfiles/tools/'
     exec 'set rtp+=' . fnameescape ( cwd . '/vimfiles/bundle/vundle/' ) 
     call vundle#rc(cwd.'/vimfiles/bundle/')
