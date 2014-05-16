@@ -56,31 +56,31 @@ Plugin 'exvim/ex-project'
 " ---------------------------------------------------
 Plugin 'exvim/ex-gsearch'
 
-nnoremap <unique> <leader>gs :EXGSearchToggle<CR>
-nnoremap <unique> <leader>gg :EXGSearchCWord<CR>
-nnoremap <unique> <Leader><S-f> :GS 
+call exgsearch#register_hotkey( 100, 0, '<leader>gs', ":EXGSearchToggle<CR>", 'Toggle global search window.' )
+call exgsearch#register_hotkey( 101, 0, '<leader>gg', ":EXGSearchCWord<CR>", 'Search current word.' )
+call exgsearch#register_hotkey( 102, 0, '<leader><S-f>', ":GS ", 'Shortcut for :GS' )
 
 " ex-tagselect
 " ---------------------------------------------------
 Plugin 'exvim/ex-tags'
 
+call extags#register_hotkey( 100, 0, '<leader>ts', ":EXTagsToggle<CR>", 'Toggle tag select window.' )
+call extags#register_hotkey( 101, 0, '<leader>]', ":EXTagsCWord<CR>", 'Tag select current word.' )
 " DISABLE: nnoremap <unique> <leader>] :exec 'ts ' . expand('<cword>')<CR>
-nnoremap <unique> <leader>] :exec 'TS ' . expand('<cword>')<CR>
-nnoremap <unique> <leader>ts :EXTagsToggle<CR>
 
 " ex-symbol
 " ---------------------------------------------------
 Plugin 'exvim/ex-symbol'
 
-nnoremap <unique> <leader>ss :EXSymbolList<CR>
-nnoremap <unique> <leader>sq :EXSymbolOpen<CR>
-nnoremap <unique> <leader>sg :EXSymbolCWord<CR>
+call exsymbol#register_hotkey( 100, 0, '<leader>ss', ":EXSymbolList<CR>", 'List all symbols.' )
+call exsymbol#register_hotkey( 101, 0, '<leader>sq', ":EXSymbolOpen<CR>", 'Open symbols window.' )
+call exsymbol#register_hotkey( 102, 0, '<leader>sg', ":EXSymbolCWord<CR>", 'List symbols contains current word.' )
 
 if has('gui_running')
     if has ('mac')
-        nnoremap <unique> Ò :EXSymbolList<CR>:redraw<CR>/
+        call exsymbol#register_hotkey( 102, 0, 'Ò', ":EXSymbolList<CR>:redraw<CR>/", 'List all symbols and stay in search mode.' )
     else
-        nnoremap <unique> <M-L> :EXSymbolList<CR>:redraw<CR>/
+        call exsymbol#register_hotkey( 102, 0, '<M-L>', ":EXSymbolList<CR>:redraw<CR>/", 'List all symbols and stay in search mode.' )
     endif
 endif
 let g:ex_symbol_select_cmd = 'TS'
