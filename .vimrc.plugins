@@ -39,6 +39,7 @@ nnoremap <unique> <silent> <C-l> :EXbn<CR>
 nnoremap <unique> <silent> <C-h> :EXbp<CR>
 nnoremap <unique> <silent> <C-Tab> :EXbalt<CR>
 nnoremap <unique> <silent> <Leader><Tab> :EXwp<CR>
+nmap <unique> <silent> <Leader><Esc> :EXwp<CR><ESC>
 
 " ex-aftercolor
 " ---------------------------------------------------

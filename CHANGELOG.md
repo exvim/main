@@ -8,6 +8,8 @@
  - Add `folder_filter_root_only` filter option in .exvim file. 
  - Add `GSW` method in ex-gsearch. This method will allow user global search
    single word instead of text.
+ - Add `<leader><esc>` which can directly close last opened plugin window no
+   matter where your cursor live.
 
 ## Changes
 
