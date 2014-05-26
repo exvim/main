@@ -432,6 +432,10 @@ Plugin 'kchmck/vim-coffee-script'
 " ---------------------------------------------------
 Plugin 'groenewege/vim-less'
 
+" vim-stylus
+" ---------------------------------------------------
+Plugin 'wavded/vim-stylus'
+
 " vim-markdown
 " ---------------------------------------------------
 Plugin 'plasticboy/vim-markdown'
