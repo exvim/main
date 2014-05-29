@@ -86,7 +86,13 @@ if has('gui_running')
 endif
 let g:ex_symbol_select_cmd = 'TS'
 
-" ex-inherit
+" ex-qfix
+" ---------------------------------------------------
+Plugin 'exvim/ex-qfix'
+
+call exqfix#register_hotkey( 100, 0, '<leader>qf', ":EXQFixToggle<CR>", 'Toggle quickfix window.' )
+
+" ex-hierarchy
 " ---------------------------------------------------
 Plugin 'exvim/ex-hierarchy'
 
