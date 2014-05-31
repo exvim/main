@@ -91,6 +91,7 @@ let g:ex_symbol_select_cmd = 'TS'
 Plugin 'exvim/ex-qfix'
 
 call exqfix#register_hotkey( 100, 0, '<leader>qf', ":EXQFixToggle<CR>", 'Toggle quickfix window.' )
+call exqfix#register_hotkey( 101, 0, '<leader>qq', ":EXQFixPaste<CR>", 'Open quickfix window and paste error list from register *.' )
 
 " ex-hierarchy
 " ---------------------------------------------------
