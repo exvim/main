@@ -229,10 +229,6 @@ Plugin 'exvim/ex-colorschemes'
 " ---------------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
 
-if !has('gui_running')
-    let g:solarized_termcolors = 256
-endif
-
 " vim-airline
 " ---------------------------------------------------
 Plugin 'bling/vim-airline'

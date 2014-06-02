@@ -76,11 +76,6 @@ scriptencoding utf-8
 "/////////////////////////////////////////////////////////////////////////////
 
 filetype off " required
-if has('gui_running')
-    set background=dark
-else
-    set background=light
-endif
 
 " load .vimrc.plugins and .vimrc.plugins.local
 let vimrc_plugins_path = '~/.vimrc.plugins'
@@ -99,6 +94,18 @@ endif
 
 filetype plugin indent on " required
 syntax on " required
+
+"/////////////////////////////////////////////////////////////////////////////
+" Default colorscheme setup
+"/////////////////////////////////////////////////////////////////////////////
+
+if has('gui_running')
+    set background=dark
+else
+    set background=dark
+    set t_Co=256 " make sure our terminal use 256 color
+    let g:solarized_termcolors = 256
+endif
 colorscheme solarized
 " colorscheme exlightgray
 
