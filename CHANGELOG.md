@@ -18,4 +18,5 @@
 ## Bug Fixes
 
  - Fix [Issue #44](https://github.com/exvim/main/issues/44): Error message is thrown when `:Update` and excluded folder is missing
+ - Fix [Issue #48](https://github.com/exvim/main/issues/48): Terminal Vim `<esc>`, `<F4>` key mappings lead to several problem.
  - Fix [Issue #51](https://github.com/exvim/main/issues/51): Ubuntu Terminal solarized not working correctly.

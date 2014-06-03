@@ -139,7 +139,11 @@ nnoremap <unique> <silent> <F4> :TagbarToggle<CR>
 
 let g:tagbar_sort = 0
 let g:tagbar_map_preview = '<CR>'
-let g:tagbar_map_close = '<Esc>' 
+if has('gui_running')
+    let g:tagbar_map_close = '<Esc>' 
+else
+    let g:tagbar_map_close = '<leader><Esc>' 
+endif
 let g:tagbar_map_zoomwin = '<Space>' 
 let g:tagbar_zoomwidth = 80
 let g:tagbar_autofocus = 1
@@ -346,7 +350,11 @@ nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout = 4
 function g:undotree_CustomMap()
-    nnoremap <silent> <script> <buffer> <ESC> :call UndotreeHide()<CR>
+    if has('gui_running')
+        nnoremap <silent> <script> <buffer> <ESC> :call UndotreeHide()<CR>
+    else
+        nnoremap <silent> <script> <buffer> <leader><ESC> :call UndotreeHide()<CR>
+    endif
 endfunction
 
 " tabular: invoke by <leader>= alignment-character
