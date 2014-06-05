@@ -37,8 +37,7 @@ With this, Vim becomes the best IDE in the world!
 
 ## How does it work?
 
-By editing and saving your project settings in a `your_project_name.exvim` file and opening it with Vim, the exVim plugins 
-will be loaded.  exVim will parse the `your_project_name..exvim` file and apply the settings for your project after Vim
+By editing and saving your project settings in a `your_project_name.exvim` file and opening it with Vim, the exVim plugins will be loaded. exVim will parse the `your_project_name.exvim` file and apply the settings for your project after Vim
 has started.
 
 The settings include:
