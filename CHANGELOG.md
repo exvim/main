@@ -5,6 +5,7 @@
 ## New Features
 
  - Integrate ex-hierarchy plugin for generate hierarchy map of classes.
+ - Integrate ex-qfix plugin for easy manipulate quickfix list in plugin window. 
  - Add `folder_filter_root_only` filter option in .exvim file. 
  - Add `GSW` method in ex-gsearch. This method will allow user global search
    single word instead of text.
