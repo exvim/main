@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export version="v0.2.0" 
+export version="v0.3.0" 
 export ORIGINAL_PATH=`pwd`
 
 if [ ! -d "~/exvim/build/" ]; then
