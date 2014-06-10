@@ -3,7 +3,7 @@ echo Creating Symbols...
 
 rem process
 if exist "%DEST%\tags" (
-    echo    ^|- generate %TMP%
+    echo   ^|- generate %TMP%
     gawk -f "%TOOLS%\gawk\no-strip-symbol.awk" "%DEST%\tags">"%TMP%"
 )
 

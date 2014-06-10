@@ -3,7 +3,7 @@ echo Creating Inherits...
 
 rem process
 if exist "%DEST%\tags" (
-    echo    ^|- generate %TMP%
+    echo   ^|- generate %TMP%
     gawk -f "%TOOLS%\gawk\inherits.awk" "%DEST%\tags">"%TMP%"
 )
 
