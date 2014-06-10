@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "exVim"
-#define MyAppVersion "v0.0.3"
+#define MyAppVersion "v0.3.0"
 #define MyAppPublisher "Johnny Wu"
 #define MyAppURL "http://exvim.github.io/"
 #define MyAppExeName "vim74\gvim.exe"
