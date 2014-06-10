@@ -23,6 +23,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputBaseFilename=exvim-{#MyAppVersion}
+OutputDir=C:\dev\exvim\build
 Compression=lzma
 SolidCompression=yes
 
@@ -35,11 +36,12 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Name: "modifypath"; Description: Add Environment Path;
 
 [Files]
+Source: "C:\dev\exvim\build\exvim-v0.3.0\.vimrc*"; DestDir: "{app}"; Flags: ignoreversion 
 Source: "C:\dev\exvim\build\exvim-v0.3.0\vimfiles\*"; DestDir: "{app}\vimfiles"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\dev\exvim\build\graphviz\*"; DestDir: "{app}\graphviz"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\dev\exvim\build\tools\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\dev\exvim\build\vim74\*"; DestDir: "{app}\vim74"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\dev\exvim\build\DejaVuSansMono\*.ttf"; DestDir: "{fonts}"; FontInstall: "DejaVu Sans Mono"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "C:\dev\exvim\build\DejaVuSansMono\DejaVu Sans Mono for Powerline.ttf"; DestDir: "{fonts}"; FontInstall: "DejaVu Sans Mono for Powerline"; Flags: onlyifdoesntexist uninsneveruninstall
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
