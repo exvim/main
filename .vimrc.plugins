@@ -361,9 +361,9 @@ endfunction
 " ---------------------------------------------------
 Plugin 'godlygeek/tabular'
 
-nnoremap <silent> <leader>= :call g:tabular(1)<CR>
-xnoremap <silent> <leader>= :call g:tabular(0)<CR>
-function! g:tabular(ignore_range) range
+nnoremap <silent> <leader>= :call g:Tabular(1)<CR>
+xnoremap <silent> <leader>= :call g:Tabular(0)<CR>
+function! g:Tabular(ignore_range) range
     let c = getchar()
     let c = nr2char(c)
     if a:ignore_range == 0
