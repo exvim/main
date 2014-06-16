@@ -350,7 +350,7 @@ Plugin 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout = 4
-function g:undotree_CustomMap()
+function g:Undotree_CustomMap()
     if has('gui_running')
         nnoremap <silent> <script> <buffer> <ESC> :call UndotreeHide()<CR>
     else

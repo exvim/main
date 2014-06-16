@@ -266,8 +266,8 @@ set	cinoptions=>s,e0,n0,f0,{0,}0,^0,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,0,(0,us,
 " set cinkeys=0{,0},0),:,!^F,o,O,e
 
 " official diff settings
-set diffexpr=g:my_diff()
-function! g:my_diff()
+set diffexpr=g:MyDiff()
+function! g:MyDiff()
     let opt = '-a --binary -w '
     if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
     if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
