@@ -4,6 +4,9 @@
 
 ## New Features
 
+ - Add shader language highlight support
+ - Add c,cpp,csharp,javascript,lua,makefile support exCommentLable highlighting
+
 ## Changes
 
  - Set follow symlinks by default for ctrlp plugin.
