@@ -6,6 +6,7 @@
 
  - Add shader language highlight support
  - Add c,cpp,csharp,javascript,lua,makefile support exCommentLable highlighting
+ - Add support for file_ignore_pattern
 
 ## Changes
 
