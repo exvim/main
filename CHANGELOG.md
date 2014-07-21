@@ -7,6 +7,7 @@
  - Add shader language highlight support
  - Add c,cpp,csharp,javascript,lua,makefile support exCommentLable highlighting
  - Add support for file_ignore_pattern
+ - Newer version .exvim file settings will not reset older version settings during upgrade [Issue #59](https://github.com/exvim/main/issues/59)
 
 ## Changes
 
