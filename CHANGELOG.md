@@ -12,6 +12,7 @@
 ## Changes
 
  - Set follow symlinks by default for ctrlp plugin.
+ - Use id-lang-autogen.map file all the time.  [Issue #60](https://github.com/exvim/main/issues/60)
 
 ## Bug Fixes
 
