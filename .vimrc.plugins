@@ -29,6 +29,7 @@ Plugin 'gmarik/vundle'
 " ex-config:
 " ---------------------------------------------------
 Plugin 'exvim/ex-config'
+nnoremap <unique> <leader>ve :call exconfig#edit_cur_vimentry ()<CR>
 
 " ex-utility:
 " ---------------------------------------------------
