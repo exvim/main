@@ -14,6 +14,7 @@
 
  - Set follow symlinks by default for ctrlp plugin.
  - Use id-lang-autogen.map file all the time. [Issue #60](https://github.com/exvim/main/issues/60)
+ - Disable vim-ariline tabline, I found this will slow down text typing when there have too many buffers opened
 
 ## Bug Fixes
 
