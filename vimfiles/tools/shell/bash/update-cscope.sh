@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # create cscope.out
-echo "Creating cscope.out..."
+echo "Creating Cscope..."
 
 # choose cscope path first
 if [ -f "${DEST}/files" ]; then
@@ -12,7 +12,7 @@ fi
 
 # process tags by langugage
 echo "  |- generate ${TMP}"
-${CSCOPE_CMD}  ${OPTIONS} "${FILES}"
+${CSCOPE_CMD} -f "${TMP}" ${OPTIONS} "${FILES}"
 
 # replace old file
 if [ -f "${TMP}" ]; then
