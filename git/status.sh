@@ -8,10 +8,13 @@ do
     echo ------------------------------------------
     echo ${repo}
     echo ------------------------------------------
+
     cd ${repo}
+
     # git status -s -b
     git status -s
     git cherry -v
+
     cd ${ORIGINAL_PATH}
     echo 
 done
