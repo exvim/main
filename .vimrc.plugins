@@ -208,6 +208,8 @@ let g:miniBufExplBuffersNeeded = 0
 let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer. 
 let g:miniBufExplMaxSize = 1 " <max lines: default 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers. 
 let g:miniBufExplTabWrap = 1
+" let g:miniBufExplDebugMode  = 3
+" let g:miniBufExplDebugLevel = 0
 
 " ex-autocomplpop: invoke when you input text
 " ---------------------------------------------------
