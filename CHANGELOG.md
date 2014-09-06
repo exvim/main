@@ -6,6 +6,8 @@
 
 ## Changes
 
+ - Restore last opened buffers will not open files not exist. 
+
 ## Bug Fixes
 
  - Fix [Issue #69](https://github.com/exvim/main/issues/69): When enable_restore_bufs changes and saves in .exvim file, it will not affect immediately.
