@@ -4,12 +4,15 @@
 
 ## New Features
 
+ - Resolve [Issue #71](https://github.com/exvim/main/issues/71) Support Minibufexpl
+
 ## Changes
 
  - Restore last opened buffers will not open files not exist. 
  - Remove root_only option from .exvim file.
  - Update .exvim file to version 10.
  - Resolve [Issue #74](https://github.com/exvim/main/issues/74): Use `--files0-from=FILE` for idutils.
+ - Resolve [Issue #70](https://github.com/exvim/main/issues/70): We are now allow folder_filter be applied globally.
 
 ## Bug Fixes
 
