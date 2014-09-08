@@ -9,6 +9,7 @@
  - Restore last opened buffers will not open files not exist. 
  - Remove root_only option from .exvim file.
  - Update .exvim file to version 10.
+ - Resolve [Issue #74](https://github.com/exvim/main/issues/74): Use `--files0-from=FILE` for idutils.
 
 ## Bug Fixes
 
