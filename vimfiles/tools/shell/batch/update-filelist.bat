@@ -10,25 +10,21 @@ for /f "delims=" %%a in ('echo %cd%^|sed "s,\\,\\\\,g"') do (
 
 rem process
 echo   ^|- generate %TMP%
-if /I "%USE_FOLDERS%"=="0" (
-    dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" > "%TMP%"
-) else (
-    dir /b %FILE_SUFFIXS%|sed "s,\(.*\),.\\\1,gI" > "%TMP%"
-    for %%G in (%FOLDERS%) do (
-        if exist %%G (
-            cd %%G
-            dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" >> ..\"%TMP%"
-            cd ..
-        )
-    )
-)
+dir /s /b %FILE_SUFFIXS%|sed "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" > "%TMP%"
 
-echo   ^|- filter out invalid files 
+echo   ^|- apply filter
 rem NOTE: dir /s /b *.cpp will list xxx.cpp~, too. So use gawk here to filter out thoes things.
-gawk -v filter_pattern=%FILE_FILTER_PATTERN% -f "%TOOLS%\gawk\file-filter.awk" "%TMP%">"%TMP2%"
+gawk -v filter_pattern=%FILE_FILTER_PATTERN% -v folder_filter=%FOLDER_FILTER_PATTERN% -f "%TOOLS%\gawk\file-filter-%GAWK_SUFFIX%.awk" "%TMP%">"%TMP2%"
 del "%TMP%" > nul
 if exist "%TMP2%" (
     echo   ^|- move %TMP2% to %TARGET%
     move /Y "%TMP2%" "%TARGET%" > nul
 )
+
+rem process id-utils files
+if exist "%TARGET%" (
+    echo   ^|- generate %ID_TARGET%
+    gawk -f "%TOOLS%/gawk/null-terminal-files.awk" "%TARGET%">"%ID_TARGET%"
+)
+
 echo   ^|- done!
