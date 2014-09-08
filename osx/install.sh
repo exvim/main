@@ -17,9 +17,9 @@ fi
 cd ./bundle/
 
 # download or update vundle in ./vimfiles/bundle/
-if [ ! -d "./vundle/" ]; then
+if [ ! -d "./Vundle.vim/" ]; then
     # TODO: please check if the vundle is latest version
-    git clone https://github.com/gmarik/vundle.git vundle
+    git clone https://github.com/gmarik/Vundle.vim Vundle.vim
 fi
 
 # download and install bundles through Vundle in this repository

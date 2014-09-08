@@ -12,7 +12,7 @@ if not exist .\bundle\ (mkdir .\bundle\)
 cd .\bundle\
 
 rem download or update vundle in ./vimfiles/bundle/
-if not exist .\vundle\ (git clone https://github.com/gmarik/vundle.git vundle)
+if not exist .\vundle\ (git clone https://github.com/gmarik/Vundle.vim Vundle.vim)
 
 rem download and install bundles through Vundle in this repository
 echo Update vim-plugins.

@@ -4,23 +4,12 @@
 " execute pathogen#infect()
 " com! -nargs=+ Bundle
 
-" set the runtime path to include Vundle and initialize
-if exists('g:exvim_custom_path')
-    let g:ex_tools_path = g:exvim_custom_path.'/vimfiles/tools/'
-    exec 'set rtp+=' . fnameescape ( g:exvim_custom_path.'/vimfiles/bundle/vundle/' ) 
-    call vundle#rc(g:exvim_custom_path.'/vimfiles/bundle/')
-else
-    let g:ex_tools_path = '~/.vim/tools/'
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc('~/.vim/bundle/')
-endif
-
 " man.vim: invoked by :Man {name}
 source $VIMRUNTIME/ftplugin/man.vim
 
 " let Vundle manage Vundle, required
 " ---------------------------------------------------
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 "}}}
 
