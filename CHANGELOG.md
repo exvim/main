@@ -4,7 +4,7 @@
 
 ## New Features
 
- - 
+ - Add [LargeFile](https://github.com/vim-scripts/LargeFile) plugin for open large file
 
 ## Changes
 

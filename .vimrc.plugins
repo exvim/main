@@ -393,6 +393,12 @@ map <leader><leader>k <Plug>(easymotion-k)
 map <leader><leader>l <Plug>(easymotion-lineforward)
 map <leader><leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" LargeFile
+" ---------------------------------------------------
+Plugin 'vim-scripts/LargeFile'
+let g:LargeFile= 5 " files >= 5MB will use LargeFile rules
+
 "}}}
 
 " DISABLE: I'm using GistBox https://app.gistboxapp.com/ instead
