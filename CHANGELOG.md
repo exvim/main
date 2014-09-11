@@ -8,7 +8,7 @@
 
 ## Changes
 
- - 
+ - Remove `<unique>` from .vimrc mappings. 
 
 ## Bug Fixes
 

@@ -430,34 +430,34 @@ if &clipboard ==# 'unnamed'
 else
     " general copy/paste.
     " NOTE: y,p,P could be mapped by other key-mapping
-    map <unique> <leader>y "*y
-    map <unique> <leader>p "*p
-    map <unique> <leader>P "*P
+    map <leader>y "*y
+    map <leader>p "*p
+    map <leader>P "*P
 endif
 
 " copy folder path to clipboard, foo/bar/foobar.c => foo/bar/
-nnoremap <unique> <silent> <leader>y1 :let @*=fnamemodify(bufname('%'),":p:h")<CR>
+nnoremap <silent> <leader>y1 :let @*=fnamemodify(bufname('%'),":p:h")<CR>
 
 " copy file name to clipboard, foo/bar/foobar.c => foobar.c
-nnoremap <unique> <silent> <leader>y2 :let @*=fnamemodify(bufname('%'),":p:t")<CR>
+nnoremap <silent> <leader>y2 :let @*=fnamemodify(bufname('%'),":p:t")<CR>
 
 " copy full path to clipboard, foo/bar/foobar.c => foo/bar/foobar.c 
-nnoremap <unique> <silent> <leader>y3 :let @*=fnamemodify(bufname('%'),":p")<CR>
+nnoremap <silent> <leader>y3 :let @*=fnamemodify(bufname('%'),":p")<CR>
 
 " F8 or <leader>/:  Set Search pattern highlight on/off
-nnoremap <unique> <F8> :let @/=""<CR>
-nnoremap <unique> <leader>/ :let @/=""<CR>
+nnoremap <F8> :let @/=""<CR>
+nnoremap <leader>/ :let @/=""<CR>
 " DISABLE: though nohlsearch is standard way in Vim, but it will not erase the 
 "          search pattern, which is not so good when use it with exVim's <leader>r 
 "          filter method
-" nnoremap <unique> <F8> :nohlsearch<CR>
-" nnoremap <unique> <leader>/ :nohlsearch<CR>
+" nnoremap <F8> :nohlsearch<CR>
+" nnoremap <leader>/ :nohlsearch<CR>
 
 " map Ctrl-Tab to switch window
-nnoremap <unique> <S-Up> <C-W><Up>
-nnoremap <unique> <S-Down> <C-W><Down>
-nnoremap <unique> <S-Left> <C-W><Left>
-nnoremap <unique> <S-Right> <C-W><Right>
+nnoremap <S-Up> <C-W><Up>
+nnoremap <S-Down> <C-W><Down>
+nnoremap <S-Left> <C-W><Left>
+nnoremap <S-Right> <C-W><Right>
 
 " easy buffer navigation
 " NOTE: if we already map to EXbn,EXbp. skip setting this
@@ -469,16 +469,16 @@ if !hasmapto(':EXbp<CR>') && mapcheck('<C-h>','n') == ''
 endif
 
 " easy diff goto
-noremap <unique> <C-k> [c
-noremap <unique> <C-j> ]c
+noremap <C-k> [c
+noremap <C-j> ]c
 
 " enhance '<' '>' , do not need to reselect the block after shift it.
-vnoremap <unique> < <gv
-vnoremap <unique> > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " map Up & Down to gj & gk, helpful for wrap text edit
-noremap <unique> <Up> gk
-noremap <unique> <Down> gj
+noremap <Up> gk
+noremap <Down> gj
 
 " TODO: I should write a better one, make it as plugin exvim/swapword
 " VimTip 329: A map for swapping words
@@ -486,7 +486,7 @@ noremap <unique> <Down> gj
 " Then when you put the cursor on or in a word, press "\sw", and
 " the word will be swapped with the next word.  The words may
 " even be separated by punctuation (such as "abc = def").
-nnoremap <unique> <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
+nnoremap <silent> <leader>sw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<cr><c-o>
 
 "/////////////////////////////////////////////////////////////////////////////
 " local setup
