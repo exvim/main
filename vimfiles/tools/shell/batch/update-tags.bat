@@ -2,6 +2,10 @@
 rem create tags
 echo Creating Tags...
 
+if exist "%TOOLS%\windows\ctags.exe" (
+    set CTAGS_CMD="%TOOLS%\windows\ctags.exe"
+)
+
 rem choose ctags path first
 if exist "%DEST%\files" (
     set FILES=-L "%DEST%\files"

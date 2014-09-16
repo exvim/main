@@ -2,6 +2,10 @@
 rem create cscope.out
 echo Creating Cscope...
 
+if exist "%TOOLS%\windows\cscope.exe" (
+    set CSCOPE_CMD="%TOOLS%\windows\cscope.exe"
+)
+
 rem choose ctags path first
 if exist "%DEST%\files" (
     set FILES="%DEST%\files"
