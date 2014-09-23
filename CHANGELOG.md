@@ -9,6 +9,9 @@
 ## Changes
 
  - Remove `<unique>` from .vimrc mappings. 
+ - Add coffee plugin back to exVim.
+ - Allow user put external tools into exvim/vimfiles/tools directory, and running it without setting environment path.   
+ - Add support for `__EMPTY__` in update-files.sh in osx and linux.
 
 ## Bug Fixes
 
