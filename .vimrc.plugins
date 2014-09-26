@@ -358,11 +358,18 @@ Plugin 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout = 4
+
+" NOTE: this will prevent undotree closed then jump to minibufexpl
+function! g:CloseUndotree()
+    call UndotreeHide()
+    call ex#window#goto_edit_window()
+endfunction
+
 function g:Undotree_CustomMap()
     if has('gui_running')
-        nnoremap <silent> <script> <buffer> <ESC> :call UndotreeHide()<CR>
+        nnoremap <silent> <script> <buffer> <ESC> :call g:CloseUndotree()<CR>
     else
-        nnoremap <silent> <script> <buffer> <leader><ESC> :call UndotreeHide()<CR>
+        nnoremap <silent> <script> <buffer> <leader><ESC> :call g:CloseUndotree()<CR>
     endif
 endfunction
 
