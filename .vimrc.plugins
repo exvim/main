@@ -466,6 +466,9 @@ Plugin 'exvim/ex-indenthtml.vim'
 " ---------------------------------------------------
 " Plugin 'skammer/vim-css-color'
 
+" vim-css3-syntax
+Plugin 'hail2u/vim-css3-syntax'
+
 " vim-less
 " ---------------------------------------------------
 Plugin 'groenewege/vim-less'
