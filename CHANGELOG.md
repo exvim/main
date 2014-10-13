@@ -8,7 +8,7 @@
 
 ## Changes
 
- - 
+ - Support erlang in id-utils  
 
 ## Bug Fixes
 
