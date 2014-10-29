@@ -1,13 +1,12 @@
 ![exVim Logo](http://exvim.github.io/images/logo.png)
 
-[Intro](#intro) |
 [Documentation](http://exvim.github.io/docs/) |
-[Installation](http://exvim.github.io/docs/install/) |
-[Getting Start](http://exvim.github.io/docs/getting-start/) |
 [Downloads](http://exvim.github.io/downloads/) |
 [Plugins](http://exvim.github.io/docs/plugins/) |
+[Installation](http://exvim.github.io/docs/install/) |
+[Getting Start](http://exvim.github.io/docs/getting-start/) |
 [Known Issues](http://exvim.github.io/docs/known-issues/) |
-[Community](#community) |
+[Community](#community)
 
 # Intro
 
