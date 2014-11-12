@@ -9,6 +9,8 @@
 ## Changes
 
  - Support erlang in id-utils  
+ - Different syntax highlight for gulpfile, bower.json, package.json in ex-project
+ - Use maparg instead of mapcheck
 
 ## Bug Fixes
 
