@@ -257,7 +257,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
 " let g:airline_section_c = '%t'
-" let g:airline_section_warning = airline#section#create(['syntastic'])
+" let g:airline_section_warning = airline#section#create(['whitespace']) " NOTE: airline#section#create has no effect in .vimrc initialize pahse
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#whitespace#check(),0)}'
 
 " ctrlp: invoke by <ctrl-p>
 Plugin 'kien/ctrlp.vim'
