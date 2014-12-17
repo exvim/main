@@ -102,10 +102,10 @@ Plugin 'exvim/ex-taglist'
 " F4:  Switch on/off TagList
 nnoremap <unique> <silent> <F4> :TlistToggle<CR>
 
-"let Tlist_Ctags_Cmd = $VIM.'/vimfiles/ctags.exe' " location of ctags tool 
+"let Tlist_Ctags_Cmd = $VIM.'/vimfiles/ctags.exe' " location of ctags tool
 let Tlist_Show_One_File = 1 " Displaying tags for only one file~
-let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself 
-let Tlist_Use_Right_Window = 1 " split to the right side of the screen 
+let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
+let Tlist_Use_Right_Window = 1 " split to the right side of the screen
 let Tlist_Sort_Type = "order" " sort by order or name
 let Tlist_Display_Prototype = 0 " do not show prototypes and not tags in the taglist window.
 let Tlist_Compart_Format = 1 " Remove extra information and blank lines from the taglist window.
@@ -138,16 +138,16 @@ let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:va
 " let g:tagbar_sort = 0
 " let g:tagbar_map_preview = '<CR>'
 " if has('gui_running')
-"     let g:tagbar_map_close = '<Esc>' 
+"     let g:tagbar_map_close = '<Esc>'
 " else
-"     let g:tagbar_map_close = '<leader><Esc>' 
+"     let g:tagbar_map_close = '<leader><Esc>'
 " endif
-" let g:tagbar_map_zoomwin = '<Space>' 
+" let g:tagbar_map_zoomwin = '<Space>'
 " let g:tagbar_zoomwidth = 80
 " let g:tagbar_autofocus = 1
 " let g:tagbar_iconchars = ['+', '-']
 
-" " use command ':TagbarGetTypeConfig lang' change your settings 
+" " use command ':TagbarGetTypeConfig lang' change your settings
 " let g:tagbar_type_javascript = {
 "     \ 'ctagsbin': 'ctags',
 "     \ 'kinds' : [
@@ -194,8 +194,8 @@ let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:va
 " ---------------------------------------------------
 Plugin 'exvim/ex-minibufexpl'
 let g:miniBufExplBuffersNeeded = 0
-let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer. 
-let g:miniBufExplMaxSize = 1 " <max lines: default 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers. 
+let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
+let g:miniBufExplMaxSize = 1 " <max lines: default 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
 let g:miniBufExplTabWrap = 1
 " let g:miniBufExplDebugMode  = 3
 " let g:miniBufExplDebugLevel = 0
@@ -208,14 +208,14 @@ Plugin 'exvim/ex-autocomplpop'
 " ---------------------------------------------------
 Plugin 'exvim/ex-showmarks'
 
-" TODO: bootleq/ShowMarks on github is well organized in code, but have lots 
-" bugs, consider merge his code and fixes the bugs 
+" TODO: bootleq/ShowMarks on github is well organized in code, but have lots
+" bugs, consider merge his code and fixes the bugs
 let g:showmarks_enable = 1
 let g:showmarks_include = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let g:showmarks_ignore_type = 'hqm' " Ignore help, quickfix, non-modifiable buffers
 " Hilight lower & upper marks
 let g:showmarks_hlline_lower = 1
-let g:showmarks_hlline_upper = 0 
+let g:showmarks_hlline_upper = 0
 
 " ex-visincr: invoke when select text and type ':II'
 " ---------------------------------------------------
@@ -257,7 +257,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
 " let g:airline_section_c = '%t'
-let g:airline_section_warning = airline#section#create(['syntastic'])
+" let g:airline_section_warning = airline#section#create(['syntastic'])
 
 " ctrlp: invoke by <ctrl-p>
 Plugin 'kien/ctrlp.vim'
@@ -286,7 +286,7 @@ Plugin 'scrooloose/nerdtree'
 
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
-let g:NERDTreeMapToggleZoom = '<Space>' 
+let g:NERDTreeMapToggleZoom = '<Space>'
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 " ---------------------------------------------------
@@ -389,7 +389,7 @@ function! g:Tabular(ignore_range) range
     endif
 endfunction
 
-" vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/ 
+" vim-easymotion: invoke by <leader><leader> w,b,e,ge,f,F,h,i,j,k,/
 " ---------------------------------------------------
 Plugin 'Lokaltog/vim-easymotion'
 
@@ -420,7 +420,7 @@ let g:LargeFile= 5 " files >= 5MB will use LargeFile rules
 " ---------------------------------------------------
 Plugin 'exvim/ex-cref'
 
-" this is modified for default c syntax highlight settings 
+" this is modified for default c syntax highlight settings
 " make it don't highlight error pattern
 let c_gnu = 1
 let c_no_curly_error = 1
@@ -429,6 +429,9 @@ let c_no_bracket_error = 1
 "}}}
 
 " web {{{
+
+Plugin 'ntpeters/vim-better-whitespace'
+nnoremap <unique> <leader>w :StripWhitespace<CR>
 
 " ex-typescript
 " ---------------------------------------------------

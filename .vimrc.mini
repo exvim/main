@@ -4,7 +4,7 @@ filetype off " required
 
 let cwd = getcwd()
 let g:ex_tools_path = cwd.'/vimfiles/tools/'
-exec 'set rtp+=' . fnameescape ( cwd . '/vimfiles/bundle/Vundle.vim/' ) 
+exec 'set rtp+=' . fnameescape ( cwd . '/vimfiles/bundle/Vundle.vim/' )
 call vundle#rc(cwd.'/vimfiles/bundle/')
 
 " =======================================================
@@ -43,12 +43,14 @@ Plugin 'godlygeek/tabular'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/LargeFile'
 Plugin 'exvim/ex-cref'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'exvim/ex-typescript'
 Plugin 'mattn/emmet-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'exvim/ex-indenthtml.vim'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
 Plugin 'plasticboy/vim-markdown'

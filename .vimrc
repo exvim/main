@@ -30,19 +30,19 @@ endif
 " NOTE: this must before filetype off, otherwise it won't work
 set langmenu=none
 
-" use English for anaything in vim-editor. 
+" use English for anaything in vim-editor.
 if WINDOWS()
     silent exec 'language english'
 elseif OSX()
-    silent exec 'language en_US' 
+    silent exec 'language en_US'
 else
     let s:uname = system("uname -s")
     if s:uname == "Darwin\n"
         " in mac-terminal
-        silent exec 'language en_US' 
+        silent exec 'language en_US'
     else
         " in linux-terminal
-        silent exec 'language en_US.utf8' 
+        silent exec 'language en_US.utf8'
     endif
 endif
 
@@ -81,7 +81,7 @@ filetype off " required
 " set the runtime path to include Vundle
 if exists('g:exvim_custom_path')
     let g:ex_tools_path = g:exvim_custom_path.'/vimfiles/tools/'
-    exec 'set rtp+=' . fnameescape ( g:exvim_custom_path.'/vimfiles/bundle/Vundle.vim/' ) 
+    exec 'set rtp+=' . fnameescape ( g:exvim_custom_path.'/vimfiles/bundle/Vundle.vim/' )
     call vundle#rc(g:exvim_custom_path.'/vimfiles/bundle/')
 else
     let g:ex_tools_path = '~/.vim/tools/'
@@ -126,13 +126,13 @@ colorscheme solarized
 " General
 "/////////////////////////////////////////////////////////////////////////////
 
-"set path=.,/usr/include/*,, " where gf, ^Wf, :find will search 
-set backup " make backup file and leave it around 
+"set path=.,/usr/include/*,, " where gf, ^Wf, :find will search
+set backup " make backup file and leave it around
 
 " setup back and swap directory
 let data_dir = $HOME.'/.data/'
-let backup_dir = data_dir . 'backup' 
-let swap_dir = data_dir . 'swap' 
+let backup_dir = data_dir . 'backup'
+let swap_dir = data_dir . 'swap'
 if finddir(data_dir) == ''
     silent call mkdir(data_dir)
 endif
@@ -146,8 +146,8 @@ unlet backup_dir
 unlet swap_dir
 unlet data_dir
 
-set backupdir=$HOME/.data/backup " where to put backup file 
-set directory=$HOME/.data/swap " where to put swap file 
+set backupdir=$HOME/.data/backup " where to put backup file
+set directory=$HOME/.data/swap " where to put swap file
 
 " Redefine the shell redirection operator to receive both the stderr messages and stdout messages
 set shellredir=>%s\ 2>&1
@@ -169,13 +169,13 @@ endif
 " Variable settings ( set all )
 "/////////////////////////////////////////////////////////////////////////////
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Visual
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 set matchtime=0 " 0 second to show the matching paren ( much faster )
 set nu " show line number
-set scrolloff=0 " minimal number of screen lines to keep above and below the cursor 
+set scrolloff=0 " minimal number of screen lines to keep above and below the cursor
 set nowrap " do not wrap text
 
 " only supoort in 7.3 or higher
@@ -186,8 +186,8 @@ endif
 " set default guifont
 if has('gui_running')
     augroup ex_gui_font
-        " check and determine the gui font after GUIEnter. 
-        " NOTE: getfontname function only works after GUIEnter.  
+        " check and determine the gui font after GUIEnter.
+        " NOTE: getfontname function only works after GUIEnter.
         au!
         au GUIEnter * call s:set_gui_font()
     augroup END
@@ -225,9 +225,9 @@ if has('gui_running')
     endfunction
 endif
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Vim UI
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 set wildmenu " turn on wild menu, try typing :h and press <Tab>
 set showcmd " display incomplete commands
@@ -265,12 +265,12 @@ set guioptions+=b " present the bottom scrollbar when the longest visible line e
 set guioptions-=m
 set guioptions-=T
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Text edit
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
-set ai " autoindent 
-set si " smartindent 
+set ai " autoindent
+set si " smartindent
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 " indent options
 " see help cinoptions-values for more details
@@ -302,21 +302,21 @@ set ve=block " in visual block mode, cursor can be positioned where there is no 
 " like 007, it would not become 010
 set nf=
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Fold text
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 set foldmethod=marker foldmarker={,} foldlevel=9999
 set diffopt=filler,context:9999
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Search
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
-set showmatch " show matching paren 
+set showmatch " show matching paren
 set incsearch " do incremental searching
 set hlsearch " highlight search terms
-set ignorecase " set search/replace pattern to ignore case 
+set ignorecase " set search/replace pattern to ignore case
 set smartcase " set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
 
 " set this to use id-utils for global search
@@ -327,18 +327,18 @@ set grepformat=%f:%l:%m
 " Auto Command
 "/////////////////////////////////////////////////////////////////////////////
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Only do this part when compiled with support for autocommands.
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 if has('autocmd')
 
     augroup ex
         au!
 
-        " ------------------------------------------------------------------ 
+        " ------------------------------------------------------------------
         " Desc: Buffer
-        " ------------------------------------------------------------------ 
+        " ------------------------------------------------------------------
 
         " when editing a file, always jump to the last known cursor position.
         " don't do it when the position is invalid or when inside an event handler
@@ -348,25 +348,25 @@ if has('autocmd')
                     \   exe "normal g`\"" |
                     \ endif
         au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
-        au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
+        au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full)
         au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
 
-        " DISABLE { 
+        " DISABLE {
         " NOTE: will have problem with exvim, because exvim use exES_CWD as working directory for tag and other thing
         " Change current directory to the file of the buffer ( from Script#65"CD.vim"
-        " au   BufEnter *   execute ":lcd " . expand("%:p:h") 
-        " } DISABLE end 
+        " au   BufEnter *   execute ":lcd " . expand("%:p:h")
+        " } DISABLE end
 
-        " ------------------------------------------------------------------ 
-        " Desc: file types 
-        " ------------------------------------------------------------------ 
+        " ------------------------------------------------------------------
+        " Desc: file types
+        " ------------------------------------------------------------------
 
         au FileType text setlocal textwidth=78 " for all text files set 'textwidth' to 78 characters.
         au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
         " disable auto-comment for c/cpp, lua, javascript, c# and vim-script
-        au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:// 
-        au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f:// 
+        au FileType c,cpp,java,javascript set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f://
+        au FileType cs set comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,f:///,f://
         au FileType vim set comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",f:\"
         au FileType lua set comments=f:--
 
@@ -381,7 +381,7 @@ if has('autocmd')
         "
         if has_noexpandtab && has_expandtab
             let idx = inputlist ( ['ERROR: current file exists both expand and noexpand TAB, python can only use one of these two mode in one file.\nSelect Tab Expand Type:',
-                        \ '1. expand (tab=space, recommended)', 
+                        \ '1. expand (tab=space, recommended)',
                         \ '2. noexpand (tab=\t, currently have risk)',
                         \ '3. do nothing (I will handle it by myself)'])
             let tab_space = printf('%*s',&tabstop,'')
@@ -398,8 +398,8 @@ if has('autocmd')
             endif
         endif
 
-        " 
-        if has_noexpandtab == 1 && has_expandtab == 0  
+        "
+        if has_noexpandtab == 1 && has_expandtab == 0
             echomsg 'substitute space to TAB...'
             set noexpandtab
             echomsg 'done!'
@@ -421,7 +421,7 @@ endif
 " NOTE: F10 looks like have some feature, when map with F10, the map will take no effects
 
 " Don't use Ex mode, use Q for formatting
-map Q gq  
+map Q gq
 
 " define the copy/paste judged by clipboard
 if &clipboard ==# 'unnamed'
@@ -441,14 +441,14 @@ nnoremap <silent> <leader>y1 :let @*=fnamemodify(bufname('%'),":p:h")<CR>
 " copy file name to clipboard, foo/bar/foobar.c => foobar.c
 nnoremap <silent> <leader>y2 :let @*=fnamemodify(bufname('%'),":p:t")<CR>
 
-" copy full path to clipboard, foo/bar/foobar.c => foo/bar/foobar.c 
+" copy full path to clipboard, foo/bar/foobar.c => foo/bar/foobar.c
 nnoremap <silent> <leader>y3 :let @*=fnamemodify(bufname('%'),":p")<CR>
 
 " F8 or <leader>/:  Set Search pattern highlight on/off
 nnoremap <F8> :let @/=""<CR>
 nnoremap <leader>/ :let @/=""<CR>
-" DISABLE: though nohlsearch is standard way in Vim, but it will not erase the 
-"          search pattern, which is not so good when use it with exVim's <leader>r 
+" DISABLE: though nohlsearch is standard way in Vim, but it will not erase the
+"          search pattern, which is not so good when use it with exVim's <leader>r
 "          filter method
 " nnoremap <F8> :nohlsearch<CR>
 " nnoremap <leader>/ :nohlsearch<CR>
