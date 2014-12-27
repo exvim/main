@@ -19,4 +19,5 @@
  - Fix [Issue #84](https://github.com/exvim/main/issues/84) exvim did not open correctly #define for tags
  - Fix [Issue #85](https://github.com/exvim/main/issues/85) when set cursorline is used color of the minibuff explorer get messed up
  - Fix [Issue #83](https://github.com/exvim/main/issues/83) ctrlp must follow the folder include/exclude filter
+ - Fix .exvim set to nerdtree with folder_filter will raise an error.
 
