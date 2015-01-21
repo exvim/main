@@ -11,6 +11,7 @@
  - Support erlang in id-utils
  - Different syntax highlight for gulpfile, bower.json, package.json in ex-project
  - Use maparg instead of mapcheck
+ - Unset cap of 10,000 files limited in ctrlp, so we find everything
 
 ## Bug Fixes
 
