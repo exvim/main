@@ -36,9 +36,9 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Name: "modifypath"; Description: Add Environment Path;
 
 [Files]
-Source: "C:\dev\exvim\main\dist\vimrc_for_win_installer"; DestDir: "{%HOMEPATH}"; DestName: ".vimrc"; Flags: ignoreversion 
-Source: "C:\dev\exvim\main\dist\ctags_lang"; DestDir: "{%HOMEPATH}"; DestName: ".ctags"; Flags: ignoreversion 
-Source: "C:\dev\exvim\build\exvim-v0.4.2\.vimrc*"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "C:\dev\exvim\main\dist\vimrc_for_win_installer"; DestDir: "{%HOMEPATH}"; DestName: ".vimrc"; Flags: ignoreversion
+Source: "C:\dev\exvim\main\dist\ctags_lang"; DestDir: "{%HOMEPATH}"; DestName: ".ctags"; Flags: ignoreversion
+Source: "C:\dev\exvim\build\exvim-v0.4.2\.vimrc*"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\exvim\build\exvim-v0.4.2\vimfiles\*"; DestDir: "{app}\vimfiles"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\dev\exvim\build\graphviz\*"; DestDir: "{app}\graphviz"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\dev\exvim\build\tools\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs

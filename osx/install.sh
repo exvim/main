@@ -30,16 +30,16 @@ vim -u .vimrc.mini --cmd "set rtp=./vimfiles,\$VIMRUNTIME,./vimfiles/after" +Plu
 # TODO
 # install powerline-fonts on MacOSX
 # cd ./ext/powerline-fonts/DejaVuSansMono/
-# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Bold\ Oblique\ for\ Powerline.ttf" ]; then 
+# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Bold\ Oblique\ for\ Powerline.ttf" ]; then
 #     cp ./DejaVu\ Sans\ Mono\ Bold\ Oblique\ for\ Powerline.ttf ~/Library/Fonts/
 # fi
-# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Bold\ for\ Powerline.ttf" ]; then 
+# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Bold\ for\ Powerline.ttf" ]; then
 #     cp ./DejaVu\ Sans\ Mono\ Bold\ for\ Powerline.ttf ~/Library/Fonts/
 # fi
-# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Oblique\ for\ Powerline.ttf" ]; then 
+# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ Oblique\ for\ Powerline.ttf" ]; then
 #     cp ./DejaVu\ Sans\ Mono\ Oblique\ for\ Powerline.ttf ~/Library/Fonts/
 # fi
-# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ for\ Powerline.ttf" ]; then 
+# if [ ! -f "~/Library/Fonts/DejaVu\ Sans\ Mono\ for\ Powerline.ttf" ]; then
 #     cp ./DejaVu\ Sans\ Mono\ for\ Powerline.ttf ~/Library/Fonts/
 # fi
 echo "Please install powerline-fonts manually."

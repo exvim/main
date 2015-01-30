@@ -17,5 +17,5 @@ do
     fi
 
     cd ${ORIGINAL_PATH}
-    echo 
+    echo
 done

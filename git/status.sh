@@ -16,5 +16,5 @@ do
     git cherry -v
 
     cd ${ORIGINAL_PATH}
-    echo 
+    echo
 done

@@ -113,7 +113,7 @@
 *.vim           text
 
 # html
-*.html          text 
+*.html          text
 *.htm           text
 *.shtml         text
 *.stm           text
