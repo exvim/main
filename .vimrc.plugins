@@ -244,25 +244,28 @@ Plugin 'exvim/ex-colorschemes'
 " ---------------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
 
+" DISABLE: vim-airline makes Vim editing slow when there are too many buffers opened
+"          if you don't mind, and love this plugin, uncomment the script below
+"          to enable it
 " vim-airline
 " ---------------------------------------------------
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
 
-if has('gui_running')
-    let g:airline_powerline_fonts = 1
-else
-    let g:airline_powerline_fonts = 0
-endif
+" if has('gui_running')
+"     let g:airline_powerline_fonts = 1
+" else
+"     let g:airline_powerline_fonts = 0
+" endif
 
-let g:airline#extensions#tabline#enabled = 0 " NOTE: When you open lots of buffers and typing text, it is so slow.
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
-" let g:airline_section_c = '%t'
-" let g:airline_section_warning = airline#section#create(['whitespace']) " NOTE: airline#section#create has no effect in .vimrc initialize pahse
-" let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#whitespace#check(),0)}'
-let g:airline_section_warning = ''
+" let g:airline#extensions#tabline#enabled = 0 " NOTE: When you open lots of buffers and typing text, it is so slow.
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" " let g:airline_section_b = "%{fnamemodify(bufname('%'),':p:.:h').'/'}"
+" " let g:airline_section_c = '%t'
+" " let g:airline_section_warning = airline#section#create(['whitespace']) " NOTE: airline#section#create has no effect in .vimrc initialize pahse
+" " let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#whitespace#check(),0)}'
+" let g:airline_section_warning = ''
 
 " ctrlp: invoke by <ctrl-p>
 Plugin 'kien/ctrlp.vim'
