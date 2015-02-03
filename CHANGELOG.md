@@ -14,6 +14,7 @@
  - Unset cap of 10,000 files limited in ctrlp, so we find everything
  - Disable ex-minibufexpl by default for the performance problem
  - Disable vim-airline by default for the performance problem
+ - Add php into default id-lang-autogen.map
 
 ## Bug Fixes
 
