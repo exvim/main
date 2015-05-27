@@ -99,5 +99,4 @@ The repository contains:
 ## Community
 
 - [Chinese] QQ群: 319248144
-- [Chinese] Tower讨论群: 请发我Email KarasAya@gmail.com 申请加入
 - [English] Comming Soon...
