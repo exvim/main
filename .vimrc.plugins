@@ -244,6 +244,12 @@ Plugin 'exvim/ex-colorschemes'
 " ---------------------------------------------------
 Plugin 'altercation/vim-colors-solarized'
 
+" vim-color-gruvbox
+" ---------------------------------------------------
+Plugin 'morhetz/gruvbox'
+
+" let g:gruvbox_contrast_dark = 'soft'
+
 " DISABLE: vim-airline makes Vim editing slow when there are too many buffers opened
 "          if you don't mind, and love this plugin, uncomment the script below
 "          to enable it

@@ -121,6 +121,7 @@ else
 endif
 colorscheme solarized
 " colorscheme exlightgray
+" colorscheme gruvbox
 
 "/////////////////////////////////////////////////////////////////////////////
 " General
