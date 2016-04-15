@@ -3,20 +3,25 @@
 # create tags
 echo "Creating Tags..."
 
-# choose ctags path first
-if [ -f "${DEST}/files" ]; then
-    FILES="-L ${DEST}/files"
+if [ ${CUSTOM} = true ]; then
+    echo "  |- move custom ctags to ${TARGET}"
+    cp "${SOURCE}" "${TARGET}"
 else
-    FILES="-R ."
-fi
+    # choose ctags path first
+    if [ -f "${DEST}/files" ]; then
+        FILES="-L ${DEST}/files"
+    else
+        FILES="-R ."
+    fi
 
-# process tags by langugage
-echo "  |- generate ${TMP}"
-${CTAGS_CMD} -o "${TMP}" ${OPTIONS} "${FILES}"
+    # process tags by langugage
+    echo "  |- generate ${TMP}"
+    ${CTAGS_CMD} -o "${TMP}" ${OPTIONS} "${FILES}"
 
-# replace old file
-if [ -f "${TMP}" ]; then
-    echo "  |- move ${TMP} to ${TARGET}"
-    mv -f "${TMP}" "${TARGET}"
+    # replace old file
+    if [ -f "${TMP}" ]; then
+        echo "  |- move ${TMP} to ${TARGET}"
+        mv -f "${TMP}" "${TARGET}"
+    fi
 fi
 echo "  |- done!"
