@@ -463,9 +463,8 @@ autocmd FileType html,css EmmetInstall
 
 " vim-indent-guides: invoke by <leader>ig
 " ---------------------------------------------------
-Plugin 'nathanaelkane/vim-indent-guides'
-
-let g:indent_guides_guide_size = 1
+Plugin 'Yggdroot/indentLine'
+<leader>ig :IndentLinesToggle
 
 " vim-javascript
 " ---------------------------------------------------
