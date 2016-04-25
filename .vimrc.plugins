@@ -461,11 +461,19 @@ Plugin 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
-" vim-indent-guides: invoke by <leader>ig
-" ---------------------------------------------------
-Plugin 'nathanaelkane/vim-indent-guides'
+" DISABLE:
+" " vim-indent-guides: invoke by <leader>ig
+" " ---------------------------------------------------
+" Plugin 'nathanaelkane/vim-indent-guides'
+" let g:indent_guides_guide_size = 1
 
-let g:indent_guides_guide_size = 1
+" Yggdroot/indentLine: invoke by <leader>ig
+" ---------------------------------------------------
+
+Plugin 'Yggdroot/indentLine'
+nnoremap <unique> <leader>ig :IndentLinesToggle<CR>
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_enabled = 0
 
 " vim-javascript
 " ---------------------------------------------------
