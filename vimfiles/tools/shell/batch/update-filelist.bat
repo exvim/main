@@ -21,6 +21,9 @@ for /f "delims=" %%a in ('echo %cd%^|%SED_CMD% "s,\\,\\\\,g"') do (
 rem process
 echo   ^|- generate %TMP%
 dir /s /b %FILE_SUFFIXS%|%SED_CMD% "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" > "%TMP%"
+dir /s /b |grep -v "\.\w*$" |%SED_CMD% "s,\(%CWD_PATTERN%\)\(.*\),.\2,gI" > "%TMP2%"
+file -f "%TMP2%" |grep "ASCII.*text"|%SED_CMD%  "s/;.*$//g" >> "%TMP%"
+del "%TMP2%" > nul
 
 echo   ^|- apply filter
 rem NOTE: dir /s /b *.cpp will list xxx.cpp~, too. So use gawk here to filter out thoes things.
@@ -35,6 +38,9 @@ rem process id-utils files
 if exist "%TARGET%" (
     echo   ^|- generate %ID_TARGET%
     %GAWK_CMD% -f "%TOOLS%/gawk/null-terminal-files.awk" "%TARGET%">"%ID_TARGET%"
+    rem create filenametags
+    echo   ^|- generate %FTAG_TARGET%
+    %GAWK_CMD% -f "%TOOLS%/gawk/prg_FilenameTagWin.awk" "%TARGET%">"%FTAG_TARGET%"
 )
 
 echo   ^|- done!
