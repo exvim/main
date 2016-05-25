@@ -27,7 +27,7 @@ else
     find ${FORCE_POSIX_REGEX_1} . -type f -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")$" > "${TMP}"
 
     if [[ "${FILE_SUFFIXS}" =~ __EMPTY__ ]]; then
-        find ${FORCE_POSIX_REGEX_1} . -type f -not -path "*/\.*" ${FORCE_POSIX_REGEX_2} -regex ".*\.("${FILE_SUFFIXS}")$" |grep  -v  "\.\w*$" |xargs -i sh -c 'file="{}";type=$(file $file);[[ $type =~ "text" ]] && echo $file' >> "${TMP}"
+        find ${FORCE_POSIX_REGEX_1} . -type f -not -path "*/\.*"  |grep  -v  "\.\w*$" |xargs -i sh -c 'file="{}";type=$(file $file);[[ $type =~ "text" ]] && echo $file' >> "${TMP}"
     fi
 
 fi
