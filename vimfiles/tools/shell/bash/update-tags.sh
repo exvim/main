@@ -3,7 +3,7 @@
 # create tags
 echo "Creating Tags..."
 
-if [ ${CUSTOM} = true ]; then
+if [ "${CUSTOM}" = "true" ]; then
     echo "  |- move custom ctags to ${TARGET}"
     cp "${SOURCE}" "${TARGET}"
 else
